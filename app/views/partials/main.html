@@ -80,7 +80,7 @@
 
                 <ul ng-show="currentRollBreakdown" id="current-roll" class="list-group">
                     <li class="roll list-group-item list-group-item-info">
-                        <span ng-repeat="item in currentRollBreakdown.combo">{{ item.amountOfDice }}d{{ item.dx }} <span ng-show="item.mod > 0"> + </span> {{ item.mod }}<span ng-show="!$last"> + </span></span>
+                        <span ng-repeat="item in currentRollBreakdown.combo">{{ item.amountOfDice }}d{{ item.dx }} <span ng-show="item.mod > 0"> + </span><span ng-show="item.mod != 0">{{ item.mod }}</span><span ng-show="!$last"> + </span></span>
                         <span ng-show="currentRollBreakdown.hidden" class="glyphicon glyphicon-eye-close"></span>
                         <span class="badge">{{ currentRollBreakdown.grandtotal }}</span>
                     </li>
@@ -89,9 +89,9 @@
                 <div ng-show="currentRollBreakdown" class="breakdown clearfix">
                 <h5>Breakdown</h5>
                 <i ng-repeat="item in currentRollBreakdown.combo">
-                    <span ng-repeat="roll in item.rolls" class="d{{item.dx}}-{{roll.score}}"></span>
-                    </i>
-
+                    <span ng-show="item.dx !== 100" ng-repeat="roll in item.rolls" class="d{{item.dx}}-{{roll.score}}"></span>
+                    <span ng-show="item.dx == 100" ng-repeat="roll in item.rolls" class="d10-{{roll.score}}"></span>
+                </i>
                 </div>
 
             </div>
@@ -108,7 +108,7 @@
 
                 <ul id="roll-history" class="list-group" ng-show="historicalRollBreakdown.length" >
                     <li class="roll list-group-item" ng-repeat="item in historicalRollBreakdown | reverse">
-                        <span ng-repeat="roll in item.combo">{{ roll.amountOfDice }}d{{ roll.dx }}<span ng-show="roll.mod > 0"> + </span>{{ roll.mod }}<span ng-show="!$last"> + </span></span>
+                        <span ng-repeat="roll in item.combo">{{ roll.amountOfDice }}d{{ roll.dx }}<span ng-show="roll.mod > 0"> + </span><span ng-show="roll.mod != 0">{{ roll.mod }}</span><span ng-show="!$last"> + </span></span>
                         <span ng-show="item.hidden" class="glyphicon glyphicon-eye-close"></span>
                         <span class="badge">{{ item.grandtotal }}</span>
                     </li>

@@ -6,3 +6,5 @@ app/bower_components
 heroku
 /views
 dist
+/stormcrow.sublime-workspace
+/stormcrow.sublime-project

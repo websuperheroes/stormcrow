@@ -3,17 +3,14 @@
 angular.module('stormCrowApp')
   .controller('MainCtrl', function($scope, $http) {
 
-
+    // set class for defaults: not working
     var DiceOption = function() {
       this.value = 20;
       this.sides = 'd20';
     };
 
-    // dropdown option defaults
-    $scope.diceOption = [{
-
-    }];
-
+    // dropdown option defaults: not working
+    $scope.diceOption = [{}];
     $scope.modifierOption = {};
     $scope.numberOfTypeOfDiceOption = {};
 
@@ -48,7 +45,7 @@ angular.module('stormCrowApp')
       sides: 'd20'
     }, {
       value: 100,
-      sides: '100'
+      sides: 'd100'
     }];
 
     $scope.modifierOptions = [{
@@ -120,11 +117,10 @@ angular.module('stormCrowApp')
 
     $scope.rollTheDice = function() {
 
-      var hidden = $scope.hiddenroll;
-
-      // sets grandtotal to 0
+      // resets grandtotal to 0
       var grandtotal = 0;
 
+      // history to be populated after second roll
       if ($scope.currentRollBreakdown) {
         // puts current roll into history if it exists
         $scope.historicalRollBreakdown.push($scope.currentRollBreakdown);
@@ -132,18 +128,18 @@ angular.module('stormCrowApp')
 
       // resets current roll
       $scope.currentRollBreakdown = {
-        grandtotal: 0,
-        hidden: hidden,
+        grandtotal: grandtotal,
+        hidden: $scope.hiddenroll,
         combo: []
       };
 
       // loops round as many times as number of dice rows
-      for (var c = 0; c <= $scope.numberOfDiceCombos-1; c++) {
+      for (var c = 0; c <= $scope.numberOfDiceCombos - 1; c++) {
 
         // resets total of dice to zero
         var total = 0;
 
-        // Gets number of dice
+        // Gets number of dice for row
         var amountOfDice = $scope.numberOfTypeOfDiceOption[c];
 
         // gets dice type (d6, d8 etc hence dX)
@@ -161,7 +157,6 @@ angular.module('stormCrowApp')
         // add roll to object
         $scope.currentRollBreakdown.combo[c] = currentCombo;
 
-
         // loops round as many times as number of dice
         for (var i = 1; i <= amountOfDice; i++) {
 
@@ -171,52 +166,65 @@ angular.module('stormCrowApp')
           // adds current roll to the total
           total += roll;
 
-          var currentRoll = {
-            score: roll
-          };
-          // add roll to object
-          $scope.currentRollBreakdown.combo[c].rolls.push(currentRoll);
+          // sets current Roll to empty object
+          var currentRoll = {};
 
+          // writes out this dice roll result if not a d100
+          if (dX !== 100) {
 
+            currentRoll = {
+              score: roll
+            };
+            // add roll to currentRoll object
+            $scope.currentRollBreakdown.combo[c].rolls.push(currentRoll);
 
+          } else if (roll !== 100) {
 
-          // // d100 require 2 dice in the breakdown
-          // if (dX != 100) {
-          //   // writes out this dice roll result if not a d100
+            // we need to split into two d10 dice here so adds a zero if result less than 10
+            if (roll < 10) {
+              roll = '0' + roll;
+            }
+            // splits roll into its tens and units
+            var tensAndUnits = roll.toString().split('');
 
-          // } else if (roll != 100) {
+            // loops through tens and units and draws relevant 10 sided dice
+            for (var d = 0; d < tensAndUnits.length; d++) {
 
-          //   // we need to split into 2 dice here so adds a zero if result less than 10
-          //   if (roll < 10) {
-          //     roll = '0' + roll;
-          //   }
+              currentRoll = {
+                score: tensAndUnits[d]
+              };
+              // add roll to object
+              $scope.currentRollBreakdown.combo[c].rolls.push(currentRoll);
+            }
+            // end of loop for d100
 
-          //   // splits roll into its tens and units
-          //   var tensAndUnits = roll.toString().split('');
+          } else {
+            // if the roll result is a natural 100 break out into 2 dice with 10 and 0 value dice (overriding default split into 3)
+            // add the 10 dice
+            currentRoll = {
+              score: 10
+            };
+            // add roll to object
+            $scope.currentRollBreakdown.combo[c].rolls.push(currentRoll);
 
-          //   // loops through tens and units and draws relevant 10 sided dice
-          //   for (var d = 0; d < tensAndUnits.length; d++) {
-          //     $('#current-roll-breakdown').append('<span class="d' + 10 + '-' + tensAndUnits[d] + '"></span>');
-          //   }
-          //   // end of loop for d100
-
-          // }
-          // // if the roll is 100 break out into 2 dice with 10 and 0 value dice (overriding split)
-          // else if (roll == 100) {
-          //   $('#current-roll-breakdown').append('<span class="d10-10"></span><span class="d10-0"></span>');
-          // }
-          // // end of if / else for writing out breakdown dice
-
+            // add the zero dice
+            currentRoll = {
+              score: 0
+            };
+            // add roll to object
+            $scope.currentRollBreakdown.combo[c].rolls.push(currentRoll);
+          }
+          // end of if / else for writing out breakdown dice
 
         }
         // end of for loop 'amount of dice'
 
         // sums the roll and modifier
         total += mod;
-        console.log( 'total = ' + total);
+
         //  for multiple dice: adds all rolls and modifiers
         grandtotal += total;
-        console.log( 'grandtotal = ' + grandtotal);
+
       }
       // end of 'for loop' (numberOfDiceCombos)
 
@@ -224,6 +232,7 @@ angular.module('stormCrowApp')
       $scope.currentRollBreakdown.grandtotal = grandtotal;
 
     };
+
 
     /**
      * Clear roll history function
@@ -236,18 +245,25 @@ angular.module('stormCrowApp')
 
 
     /**
-     * Add more dice function
+     * Get Numer function
      * @No parameters
      */
 
-    // creates an array from any number entered into it
+   // creates an array from any number entered into it (used for calculating number of dice rows)
     $scope.getNumber = function(num) {
       return new Array(num);
     };
 
+
+    /**
+     * Add more dice function
+     * @No parameters
+     */
+
     $scope.addMoreDice = function() {
       // increases dice combos by 1
       $scope.numberOfDiceCombos = $scope.numberOfDiceCombos + 1;
+      // sets defaults for selects: doesn't work
       $scope.diceOption.push(new DiceOption());
     };
 
