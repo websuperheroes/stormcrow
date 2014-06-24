@@ -48,7 +48,7 @@ angular.module('stormCrowApp')
       sides: 'd20'
     }, {
       value: 100,
-      sides: '100'
+      sides: 'd100'
     }];
 
     $scope.modifierOptions = [{
