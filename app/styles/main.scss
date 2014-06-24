@@ -1,0 +1,303 @@
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+    border-bottom: 1px solid #e5e5e5;
+
+    /* Make the masthead heading the same height as the navigation */
+    h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+        line-height: 40px;
+        padding-bottom: 19px;
+    }
+}
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+    .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+    }
+}
+
+/* Supporting marketing content */
+.marketing {
+    margin: 40px 0;
+    p + h4 {
+        margin-top: 28px;
+    }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
+.hidden-roll {
+    color: #CCC;
+}
+.panel-heading a {
+    float: right;
+    text-decoration: none;
+}
+
+.checkbox {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 7px;
+}
+.panel-footer {
+    padding-bottom: 0;
+}
+.panel p {
+    margin: 15px;
+}
+
+.breakdown span {
+    height: 53px;
+    width: 53px;
+    float: left;
+    display: block;
+    margin-right: 8px;
+    background-position: center top;
+    margin-bottom: 10px;
+}
+.breakdown {
+    margin-left: 15px;
+}
+.breakdown p {
+    margin-left: 0;
+}
+.d4-1 {
+background: url(../images/d4-1.png) no-repeat;
+}
+.d4-2 {
+background: url(../images/d4-2.png) no-repeat;
+}
+.d4-3 {
+background: url(../images/d4-3.png) no-repeat;
+}
+.d4-4 {
+background: url(../images/d4-4.png) no-repeat;
+}
+.d6-1 {
+background: url(../images/d6-1.png) no-repeat;
+}
+.d6-2 {
+background: url(../images/d6-2.png) no-repeat;
+}
+.d6-3 {
+background: url(../images/d6-3.png) no-repeat;
+}
+.d6-4 {
+background: url(../images/d6-4.png) no-repeat;
+}
+.d6-5 {
+background: url(../images/d6-5.png) no-repeat;
+}
+.d6-6 {
+background: url(../images/d6-6.png) no-repeat;
+}
+.d8-1 {
+background: url(../images/d8-1.png) no-repeat;
+}
+.d8-2 {
+background: url(../images/d8-2.png) no-repeat;
+}
+.d8-3 {
+background: url(../images/d8-3.png) no-repeat;
+}
+.d8-4 {
+background: url(../images/d8-4.png) no-repeat;
+}
+.d8-5 {
+background: url(../images/d8-5.png) no-repeat;
+}
+.d8-6 {
+background: url(../images/d8-6.png) no-repeat;
+}
+.d8-7 {
+background: url(../images/d8-7.png) no-repeat;
+}
+.d8-8 {
+background: url(../images/d8-8.png) no-repeat;
+}
+.d10-0 {
+background: url(../images/d10-0.png) no-repeat;
+}
+.d10-1 {
+background: url(../images/d10-1.png) no-repeat;
+}
+.d10-2 {
+background: url(../images/d10-2.png) no-repeat;
+}
+.d10-3 {
+background: url(../images/d10-3.png) no-repeat;
+}
+.d10-4 {
+background: url(../images/d10-4.png) no-repeat;
+}
+.d10-5 {
+background: url(../images/d10-5.png) no-repeat;
+}
+.d10-6 {
+background: url(../images/d10-6.png) no-repeat;
+}
+.d10-7 {
+background: url(../images/d10-7.png) no-repeat;
+}
+.d10-8 {
+background: url(../images/d10-8.png) no-repeat;
+}
+.d10-9 {
+background: url(../images/d10-9.png) no-repeat;
+}
+.d10-10 {
+background: url(../images/d10-10.png) no-repeat;
+}
+.d12-1 {
+background: url(../images/d12-1.png) no-repeat;
+}
+.d12-2 {
+background: url(../images/d12-2.png) no-repeat;
+}
+.d12-3 {
+background: url(../images/d12-3.png) no-repeat;
+}
+.d12-4 {
+background: url(../images/d12-4.png) no-repeat;
+}
+.d12-5 {
+background: url(../images/d12-5.png) no-repeat;
+}
+.d12-6 {
+background: url(../images/d12-6.png) no-repeat;
+}
+.d12-7 {
+background: url(../images/d12-7.png) no-repeat;
+}
+.d12-8 {
+background: url(../images/d12-8.png) no-repeat;
+}
+.d12-9 {
+background: url(../images/d12-9.png) no-repeat;
+}
+.d12-10 {
+background: url(../images/d12-10.png) no-repeat;
+}
+.d12-11 {
+background: url(../images/d12-11.png) no-repeat;
+}
+.d12-12 {
+background: url(../images/d12-12.png) no-repeat;
+}
+.d20-1 {
+background: url(../images/d20-1.png) no-repeat;
+}
+.d20-2 {
+background: url(../images/d20-2.png) no-repeat;
+}
+.d20-3 {
+background: url(../images/d20-3.png) no-repeat;
+}
+.d20-4 {
+background: url(../images/d20-4.png) no-repeat;
+}
+.d20-5 {
+background: url(../images/d20-5.png) no-repeat;
+}
+.d20-6 {
+background: url(../images/d20-6.png) no-repeat;
+}
+.d20-7 {
+background: url(../images/d20-7.png) no-repeat;
+}
+.d20-8 {
+background: url(../images/d20-8.png) no-repeat;
+}
+.d20-9 {
+background: url(../images/d20-9.png) no-repeat;
+}
+.d20-10 {
+background: url(../images/d20-10.png) no-repeat;
+}
+.d20-11 {
+background: url(../images/d20-11.png) no-repeat;
+}
+.d20-12 {
+background: url(../images/d20-12.png) no-repeat;
+}
+.d20-13 {
+background: url(../images/d20-13.png) no-repeat;
+}
+.d20-14 {
+background: url(../images/d20-14.png) no-repeat;
+}
+.d20-15 {
+background: url(../images/d20-15.png) no-repeat;
+}
+.d20-16 {
+background: url(../images/d20-16.png) no-repeat;
+}
+.d20-17 {
+background: url(../images/d20-17.png) no-repeat;
+}
+.d20-18 {
+background: url(../images/d20-18.png) no-repeat;
+}
+.d20-19 {
+background: url(../images/d20-19.png) no-repeat;
+}
+.d20-20 {
+background: url(../images/d20-20.png) no-repeat;
+}
