@@ -138,7 +138,7 @@ angular.module('stormCrowApp')
       };
 
       // loops round as many times as number of dice rows
-      for (var c = 0; c <= $scope.numberOfDiceCombos-1; c++) {
+      for (var c = 0; c <= $scope.numberOfDiceCombos - 1; c++) {
 
         // resets total of dice to zero
         var total = 0;
@@ -171,52 +171,64 @@ angular.module('stormCrowApp')
           // adds current roll to the total
           total += roll;
 
-          var currentRoll = {
-            score: roll
-          };
-          // add roll to object
-          $scope.currentRollBreakdown.combo[c].rolls.push(currentRoll);
+          var currentRoll = {};
+          //d100 require 2 dice in the breakdown
+          if (dX !== 100) {
+            // writes out this dice roll result if not a d100
 
+            currentRoll = {
+              score: roll
+            };
+            // add roll to object
+            $scope.currentRollBreakdown.combo[c].rolls.push(currentRoll);
 
+          } else if (roll !== 100) {
 
+            // we need to split into 2 dice here so adds a zero if result less than 10
+            if (roll < 10) {
+              roll = '0' + roll;
+            }
 
-          // // d100 require 2 dice in the breakdown
-          // if (dX != 100) {
-          //   // writes out this dice roll result if not a d100
+            // splits roll into its tens and units
+            var tensAndUnits = roll.toString().split('');
 
-          // } else if (roll != 100) {
+            // loops through tens and units and draws relevant 10 sided dice
+            for (var d = 0; d < tensAndUnits.length; d++) {
 
-          //   // we need to split into 2 dice here so adds a zero if result less than 10
-          //   if (roll < 10) {
-          //     roll = '0' + roll;
-          //   }
+              currentRoll = {
+                score: tensAndUnits[d]
+              };
+              // add roll to object
+              $scope.currentRollBreakdown.combo[c].rolls.push(currentRoll);
+            }
+            // end of loop for d100
 
-          //   // splits roll into its tens and units
-          //   var tensAndUnits = roll.toString().split('');
+          } else {
+            // if the roll is 100 break out into 2 dice with 10 and 0 value dice (overriding split)
 
-          //   // loops through tens and units and draws relevant 10 sided dice
-          //   for (var d = 0; d < tensAndUnits.length; d++) {
-          //     $('#current-roll-breakdown').append('<span class="d' + 10 + '-' + tensAndUnits[d] + '"></span>');
-          //   }
-          //   // end of loop for d100
+            currentRoll = {
+              score: 10
+            };
+            // add roll to object
+            $scope.currentRollBreakdown.combo[c].rolls.push(currentRoll);
 
-          // }
-          // // if the roll is 100 break out into 2 dice with 10 and 0 value dice (overriding split)
-          // else if (roll == 100) {
-          //   $('#current-roll-breakdown').append('<span class="d10-10"></span><span class="d10-0"></span>');
-          // }
-          // // end of if / else for writing out breakdown dice
-
+            currentRoll = {
+              score: 0
+            };
+            // add roll to object
+            $scope.currentRollBreakdown.combo[c].rolls.push(currentRoll);
+          }
+          // end of if / else for writing out breakdown dice
 
         }
         // end of for loop 'amount of dice'
 
         // sums the roll and modifier
         total += mod;
-        console.log( 'total = ' + total);
+
         //  for multiple dice: adds all rolls and modifiers
         grandtotal += total;
-        console.log( 'grandtotal = ' + grandtotal);
+
       }
       // end of 'for loop' (numberOfDiceCombos)
 

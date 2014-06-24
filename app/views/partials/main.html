@@ -89,9 +89,9 @@
                 <div ng-show="currentRollBreakdown" class="breakdown clearfix">
                 <h5>Breakdown</h5>
                 <i ng-repeat="item in currentRollBreakdown.combo">
-                    <span ng-repeat="roll in item.rolls" class="d{{item.dx}}-{{roll.score}}"></span>
-                    </i>
-
+                    <span ng-show="item.dx !== 100" ng-repeat="roll in item.rolls" class="d{{item.dx}}-{{roll.score}}"></span>
+                    <span ng-show="item.dx == 100" ng-repeat="roll in item.rolls" class="d10-{{roll.score}}"></span>
+                </i>
                 </div>
 
             </div>
