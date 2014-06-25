@@ -2,8 +2,11 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <base href="/">
@@ -19,8 +22,9 @@
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-  </head>
-  <body ng-app="stormCrowApp" ng-controller="AppCtrl">
+</head>
+
+<body ng-app="stormCrowApp" ng-controller="AppCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -37,40 +41,114 @@
     </span>
 
     <div class="header">
-                <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="#">Dice</a>
-                    </li>
-                    <li><a href="#">Character Gen</a>
-                    </li>
-                    <li><a href="#">Dungeon Gen</a>
-                    </li>
-                </ul>
-                <h3 class="text-muted">Stormcrow</h3>
-            </div>
-<aside>
-    <ul>
-    <li><a href="" class="icon-pointer"><span>Pointer</span></a></li>
-    <li><a href="" class="icon-layers"><span>Layers</span></a></li>
-    <li><a href="" class="icon-brush"><span>Draw</span></a></li>
-    <li><a href="" class="icon-search"><span>Zoom</span></a></li>
-    <li><a href="" class="icon-measure"><span>Ruler</span></a></li>
-    <li><a href="" class="icon-clock"><span>Turn Order</span></a></li>
-    <li ng-click="toggleDiceRoller()"><a href="" class="icon-dice"><span>Dice Roller</span></a></li>
-    <li><a href="" class="icon-question"><span>Help</span></a></li>
-</ul>
-</aside>
+        <h3 class="text-muted">Stormcrow</h3>
+    </div>
+    <aside>
+        <ul>
+            <li>
+                <a href="" class="icon-pointer">
+                    <span>Pointer</span>
+                </a>
+            </li>
+            <li>
+                <a href="" class="icon-layers">
+                    <span>Layers</span>
+                </a>
+            </li>
+            <li>
+                <a href="" class="icon-brush">
+                    <span>Draw</span>
+                </a>
+            </li>
+            <li>
+                <a href="" class="icon-search">
+                    <span>Zoom</span>
+                </a>
+            </li>
+            <li>
+                <a href="" class="icon-measure">
+                    <span>Ruler</span>
+                </a>
+            </li>
+            <li>
+                <a href="" class="icon-clock">
+                    <span>Turn Order</span>
+                </a>
+            </li>
+            <li ng-click="toggleDiceRoller()">
+                <a href="" class="icon-dice">
+                    <span>Dice Roller</span>
+                </a>
+                <div class="dice-roller-panel">
+                    <diceroller ng-show="diceRollShow"></diceroller>
+                </div>
+            </li>
+            <li>
+                <a href="" class="icon-question">
+                    <span>Help</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
 
     <div class="container" ng-view=""></div>
 
 
+    <div id="roll-breakdown" class="breakdown clearfix">
 
-
-    <div class="footer">
-        <p>♥ from the Web Superheroes team</p>
+        <!-- loading indicator -->
+        <div class="widget-loader" ng-show="widgetLoading['roll-breakdown']">
+            <div class="spinner"></div>
+        </div>
+        <div ng-repeat="dr in diceRoll">
+            <span class="badge">{{ roll.grandtotal }}</span>
+            <i ng-repeat="item in dr.combo">
+                    <span ng-show="item.dx !== 100" ng-repeat="roll in item.rolls" class="d{{item.dx}}-{{roll.score}}"></span>
+                    <span ng-show="item.dx == 100" ng-repeat="roll in item.rolls" class="d10-{{roll.score}}"></span>
+                </i>
+        </div>
     </div>
+    <!-- breakdown -->
+
+
+
+    <div class="panel panel-default panel-event-log">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+            <strong>Event Log</strong>
+        </div>
+
+        <div ng-show="!eventFeed.length">
+            <p>Nothing has happened yet!</p>
+        </div>
+
+        <ul id="roll-history" class="list-group" ng-show="eventFeed.length">
+            <li class="roll list-group-item" ng-repeat="item in eventFeed | reverse">
+                <span ng-repeat="roll in item.combo">{{ roll.amountOfDice }}d{{ roll.dx }}
+                    <span ng-show="roll.mod > 0">+</span>
+                    <span ng-show="roll.mod != 0">{{ roll.mod }}</span>
+                    <span ng-show="!$last">+</span>
+                </span>
+                <span ng-show="item.hidden" class="glyphicon glyphicon-eye-close"></span>
+                <span class="badge">{{ item.grandtotal }}</span>
+                <span>{{ item.user }}</span>
+                <span>{{ item.text }}</span>
+                <span class="chat-message-time" am-time-ago="item.time"></span>
+
+            </li>
+        </ul>
+
+        <div class="chat-box">
+            <form ng-submit="sendMessage()">
+                <input type="text" ng-model="messageText" placeholder="Type your message here" />
+                <input class="btn btn-primary" type="submit" value="Send" />
+            </form>
+        </div>
+    </div>
+    <!-- .panel-event-log -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
+<!--      <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -78,7 +156,7 @@
 
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
-    </script>
+    </script> -->
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -95,14 +173,15 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/app-controller.js"></script>
-        <script src="scripts/app-filters.js"></script>
-        <script src="scripts/app-services.js"></script>
-        <script src="scripts/app-directives.js"></script>
-        <script src="scripts/modules/dice-roller/dice-roller-controller.js"></script>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/app-controller.js"></script>
+    <script src="scripts/app-filters.js"></script>
+    <script src="scripts/app-services.js"></script>
+    <script src="scripts/app-directives.js"></script>
+    <script src="scripts/modules/dice-roller/dice-roller-controller.js"></script>
 
-        <!-- endbuild -->
+    <!-- endbuild -->
 </body>
+
 </html>
