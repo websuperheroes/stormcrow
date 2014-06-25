@@ -2,7 +2,8 @@
 
 angular.module('stormCrowApp', [
   'ngResource',
-  'ngRoute'
+  'ngRoute',
+  'angularMoment'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
