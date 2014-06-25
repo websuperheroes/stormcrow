@@ -86,5 +86,20 @@ angular.module('stormCrowApp')
       $rootScope.diceRoll.splice(index, 1);
     };
 
+    $scope.messageText = '';
+
+    $scope.sendMessage = function() {
+
+      var text = $scope.messageText;
+      var user = "Dave";
+
+      var message = {
+        user: user + ': ',
+        text:  text ,
+        time: new Date()
+      };
+      $rootScope.addToEventFeed(message);
+
+    };
 
   });
