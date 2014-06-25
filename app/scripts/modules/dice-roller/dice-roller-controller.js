@@ -197,9 +197,10 @@ angular.module('stormCrowApp')
       // increases dice combos by 1
       $scope.numberOfDiceCombos = $scope.numberOfDiceCombos + 1;
 
-      // $scope.diceOption[$scope.numberOfDiceCombos + 1] = [20];
-      // $scope.modifierOption = [0];
-      // $scope.numberOfTypeOfDiceOption = [1];
+      // reset select dropdowns
+      $scope.diceOption[$scope.numberOfDiceCombos - 1] = 20;
+      $scope.modifierOption[$scope.numberOfDiceCombos - 1] = 0;
+      $scope.numberOfTypeOfDiceOption[$scope.numberOfDiceCombos - 1] = 1;
 
     };
 
