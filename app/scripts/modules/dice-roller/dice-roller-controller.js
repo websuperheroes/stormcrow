@@ -1,18 +1,11 @@
 'use strict';
 
 angular.module('stormCrowApp')
-  .controller('MainCtrl', function($scope, $http) {
+  .controller('DiceRollerCtrl', function($scope, $http, $q, DiceRoller) {
 
-    // set class for defaults: not working
-    var DiceOption = function() {
-      this.value = 20;
-      this.sides = 'd20';
-    };
-
-    // dropdown option defaults: not working
-    $scope.diceOption = [{}];
-    $scope.modifierOption = {};
-    $scope.numberOfTypeOfDiceOption = {};
+    $scope.diceOption = [20];
+    $scope.modifierOption = [0];
+    $scope.numberOfTypeOfDiceOption = [1];
 
     // sets checkbox to false
     $scope.hiddenroll = false;
@@ -24,96 +17,36 @@ angular.module('stormCrowApp')
     $scope.historicalRollBreakdown = [];
 
 
-    // dropdown options
-    $scope.diceOptions = [{
-      value: 4,
-      sides: 'd4'
-    }, {
-      value: 6,
-      sides: 'd6'
-    }, {
-      value: 8,
-      sides: 'd8'
-    }, {
-      value: 10,
-      sides: 'd10'
-    }, {
-      value: 12,
-      sides: 'd12'
-    }, {
-      value: 20,
-      sides: 'd20'
-    }, {
-      value: 100,
-      sides: 'd100'
-    }];
+    $scope.getDiceDropDowns = function() {
+      // show loading indicators
+      //  $rootScope.showLoading("user-view-panel");
 
-    $scope.modifierOptions = [{
-      value: 10
-    }, {
-      value: 9
-    }, {
-      value: 8
-    }, {
-      value: 7
-    }, {
-      value: 6
-    }, {
-      value: 5
-    }, {
-      value: 4
-    }, {
-      value: 3
-    }, {
-      value: 2
-    }, {
-      value: 1
-    }, {
-      value: 0
-    }, {
-      value: -1
-    }, {
-      value: -2
-    }, {
-      value: -3
-    }, {
-      value: -4
-    }, {
-      value: -5
-    }, {
-      value: -6
-    }, {
-      value: -7
-    }, {
-      value: -8
-    }, {
-      value: -9
-    }, {
-      value: -10
-    }];
+      var getSidesPromise = DiceRoller.getDiceSides(),
+            getModifiersPromise = DiceRoller.getDiceModifiers(),
+            getNumberOfDiceTypePromise = DiceRoller.getNoOfDice();
 
+      $q.all([
+        getSidesPromise.$promise,
+        getModifiersPromise.$promise,
+        getNumberOfDiceTypePromise.$promise
+      ]).then(function() {
+          // on success
 
-    $scope.numberOfTypeOfDiceOptions = [{
-      value: 1
-    }, {
-      value: 2
-    }, {
-      value: 3
-    }, {
-      value: 4
-    }, {
-      value: 5
-    }, {
-      value: 6
-    }, {
-      value: 7
-    }, {
-      value: 8
-    }, {
-      value: 9
-    }, {
-      value: 10
-    }];
+          $scope.diceOptions = getSidesPromise.data; // sets dice sides
+          $scope.modifierOptions = getModifiersPromise.data;
+          $scope.numberOfTypeOfDiceOptions = getNumberOfDiceTypePromise.data;
+          //  $rootScope.hideLoading("user-view-panel");
+
+        },
+        // on error
+        function(error) {
+          //    $rootScope.addAlertMessage('error', 'There was a problem loading in the dice drop downs.');
+          // hide the loading indicators
+          //     $rootScope.hideLoading("user-view-panel");
+        }
+      );
+    };
+
 
     $scope.rollTheDice = function() {
 
@@ -249,7 +182,7 @@ angular.module('stormCrowApp')
      * @No parameters
      */
 
-   // creates an array from any number entered into it (used for calculating number of dice rows)
+    // creates an array from any number entered into it (used for calculating number of dice rows)
     $scope.getNumber = function(num) {
       return new Array(num);
     };
@@ -263,8 +196,12 @@ angular.module('stormCrowApp')
     $scope.addMoreDice = function() {
       // increases dice combos by 1
       $scope.numberOfDiceCombos = $scope.numberOfDiceCombos + 1;
-      // sets defaults for selects: doesn't work
-      $scope.diceOption.push(new DiceOption());
+
+      // reset select dropdowns
+      $scope.diceOption[$scope.numberOfDiceCombos - 1] = 20;
+      $scope.modifierOption[$scope.numberOfDiceCombos - 1] = 0;
+      $scope.numberOfTypeOfDiceOption[$scope.numberOfDiceCombos - 1] = 1;
+
     };
 
 
@@ -276,5 +213,9 @@ angular.module('stormCrowApp')
     $scope.removeDice = function() {
       $scope.numberOfDiceCombos--;
     };
+
+    // Launch page
+  $scope.getDiceDropDowns();
+
 
   });
