@@ -47,9 +47,23 @@
                 </ul>
                 <h3 class="text-muted">Stormcrow</h3>
             </div>
-
+<aside>
+    <ul>
+    <li><a href="" class="icon-pointer"><span>Pointer</span></a></li>
+    <li><a href="" class="icon-layers"><span>Layers</span></a></li>
+    <li><a href="" class="icon-brush"><span>Draw</span></a></li>
+    <li><a href="" class="icon-search"><span>Zoom</span></a></li>
+    <li><a href="" class="icon-measure"><span>Ruler</span></a></li>
+    <li><a href="" class="icon-clock"><span>Turn Order</span></a></li>
+    <li ng-click="toggleDiceRoller()"><a href="" class="icon-dice"><span>Dice Roller</span></a></li>
+    <li><a href="" class="icon-question"><span>Help</span></a></li>
+</ul>
+</aside>
 
     <div class="container" ng-view=""></div>
+
+
+
 
     <div class="footer">
         <p>♥ from the Web Superheroes team</p>
@@ -76,6 +90,8 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -86,6 +102,7 @@
         <script src="scripts/app-services.js"></script>
         <script src="scripts/app-directives.js"></script>
         <script src="scripts/modules/dice-roller/dice-roller-controller.js"></script>
+
         <!-- endbuild -->
 </body>
 </html>

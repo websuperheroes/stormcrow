@@ -1,10 +1,5 @@
 <div ng-controller="DiceRollerCtrl">
 
-            <div class="jumbotron">
-
-                <h1>Stormcrow Dice</h1>
-                <p class="lead">Welcome to the ultimate dice roller</p>
-            </div>
         <div class="row marketing">
             <div class="col-md-4">
 
@@ -92,19 +87,22 @@
         </div>
         <div class="col-md-4">
 
-            <div class="panel panel-default">
+            <div class="panel panel-default panel-roll-history">
                 <!-- Default panel contents -->
                 <div class="panel-heading">
-                    <strong>Roll History</strong> <a style="cursor: pointer;" ng-click="clearRollHistory()">Clear</a></div>
+                    <strong>Roll History</strong> <a style="cursor: pointer;" ng-click="clearRollHistory()">Clear</a>
+                </div>
+
                 <div ng-show="!historicalRollBreakdown.length">
                     <p >No rolls in history yet!</p>
                 </div>
 
                 <ul id="roll-history" class="list-group" ng-show="historicalRollBreakdown.length" >
                     <li class="roll list-group-item" ng-repeat="item in historicalRollBreakdown | reverse">
-                        <span ng-repeat="roll in item.combo">{{ roll.amountOfDice }}d{{ roll.dx }}<span ng-show="roll.mod > 0"> + </span><span ng-show="roll.mod != 0">{{ roll.mod }}</span><span ng-show="!$last"> + </span></span>
+                        <span ng-repeat="roll in item.combo"> {{ roll.amountOfDice }}d{{ roll.dx }}<span ng-show="roll.mod > 0"> + </span><span ng-show="roll.mod != 0">{{ roll.mod }}</span><span ng-show="!$last"> + </span></span>
                         <span ng-show="item.hidden" class="glyphicon glyphicon-eye-close"></span>
                         <span class="badge">{{ item.grandtotal }}</span>
+                        <span class="chat-message-time" am-time-ago="item.time"></span>
                     </li>
                 </ul>
 
