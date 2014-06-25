@@ -75,7 +75,12 @@
                     </li>
 
                 </ul>
-                <div ng-show="currentRollBreakdown" class="breakdown clearfix">
+                <div id="roll-breakdown" ng-show="currentRollBreakdown" class="breakdown clearfix">
+
+            <!-- loading indicator -->
+            <div class="widget-loader" ng-show="widgetLoading['roll-breakdown']">
+                <div class="spinner"></div>
+            </div>
                 <h5>Breakdown</h5>
                 <i ng-repeat="item in currentRollBreakdown.combo">
                     <span ng-show="item.dx !== 100" ng-repeat="roll in item.rolls" class="d{{item.dx}}-{{roll.score}}"></span>
@@ -109,6 +114,4 @@
         <!-- .col-md-4 -->
     </div>
     <!-- .marketing -->
-
 </div>
-<!-- end of dice-roller-control -->

@@ -7,7 +7,7 @@ angular.module('stormCrowApp', [
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'modules/dice-roller/dice-roller'
+        templateUrl: 'pages/home'
       })
       .otherwise({
         redirectTo: '/'

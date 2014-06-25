@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('stormCrowApp')
-  .controller('DiceRollerCtrl', function($scope, $http, $q, DiceRoller) {
+  .controller('DiceRollerCtrl', function($rootScope, $scope, $http, $q, DiceRoller) {
 
     $scope.diceOption = [20];
     $scope.modifierOption = [0];
@@ -50,6 +50,8 @@ angular.module('stormCrowApp')
 
     $scope.rollTheDice = function() {
 
+$rootScope.addAlertMessage('', 'Dice rolled mother fucker!');
+$rootScope.showLoading("roll-breakdown");
       // resets grandtotal to 0
       var grandtotal = 0;
 
@@ -163,7 +165,7 @@ angular.module('stormCrowApp')
 
       // appends grandtotal to current roll item
       $scope.currentRollBreakdown.grandtotal = grandtotal;
-
+      $rootScope.hideLoading("roll-breakdown");
     };
 
 
