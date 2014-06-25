@@ -47,13 +47,56 @@
     <li><a href="" class="icon-search"><span>Zoom</span></a></li>
     <li><a href="" class="icon-measure"><span>Ruler</span></a></li>
     <li><a href="" class="icon-clock"><span>Turn Order</span></a></li>
-    <li ng-click="toggleDiceRoller()"><a href="" class="icon-dice"><span>Dice Roller</span></a></li>
+    <li ng-click="toggleDiceRoller()"><a href="" class="icon-dice"><span>Dice Roller</span></a>
+    <div  class="dice-roller-panel">
+        <diceroller ng-show="diceRollShow"></diceroller>
+    </div>
+    </li>
     <li><a href="" class="icon-question"><span>Help</span></a></li>
 </ul>
 </aside>
 
     <div class="container" ng-view=""></div>
 
+
+                <div id="roll-breakdown" class="breakdown clearfix">
+
+            <!-- loading indicator -->
+            <div class="widget-loader" ng-show="widgetLoading['roll-breakdown']">
+                <div class="spinner"></div>
+            </div>
+<div ng-repeat="dr in diceRoll">
+                <span class="badge">{{ roll.grandtotal }}</span>
+                <i ng-repeat="item in dr.combo">
+                    <span ng-show="item.dx !== 100" ng-repeat="roll in item.rolls" class="d{{item.dx}}-{{roll.score}}"></span>
+                    <span ng-show="item.dx == 100" ng-repeat="roll in item.rolls" class="d10-{{roll.score}}"></span>
+                </i>
+                </div>
+                </div>
+                <!-- breakdown -->
+
+
+
+<div class="panel panel-default panel-event-log">
+                <!-- Default panel contents -->
+                <div class="panel-heading">
+                    <strong>Event Log</strong>
+                </div>
+
+                <div ng-show="!eventFeed.length">
+                    <p >Nothing has happened yet!</p>
+                </div>
+
+                <ul id="roll-history" class="list-group" ng-show="eventFeed.length" >
+                    <li class="roll list-group-item" ng-repeat="item in eventFeed | reverse">
+                        <span ng-repeat="roll in item.combo"> {{ roll.amountOfDice }}d{{ roll.dx }}<span ng-show="roll.mod > 0"> + </span><span ng-show="roll.mod != 0">{{ roll.mod }}</span><span ng-show="!$last"> + </span></span>
+                        <span ng-show="item.hidden" class="glyphicon glyphicon-eye-close"></span>
+                        <span class="badge">{{ item.grandtotal }}</span>
+                        <span class="chat-message-time" am-time-ago="item.time"></span>
+                    </li>
+                </ul>
+            </div>
+            <!-- .panel-event-log -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
