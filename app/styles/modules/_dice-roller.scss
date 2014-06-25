@@ -212,3 +212,17 @@ background: url(../images/d20-19.png) no-repeat;
 .d20-20 {
 background: url(../images/d20-20.png) no-repeat;
 }
+.panel-roll-history {
+   position: fixed;
+   bottom: 0;
+   right: 0;
+   width: 300px;
+   margin-bottom: 0;
+   height: 400px;
+}
+.chat-message-time {
+   font-size: 10px;
+   color: #999;
+   display: block;
+}
+

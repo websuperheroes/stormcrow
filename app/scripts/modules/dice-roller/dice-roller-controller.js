@@ -50,19 +50,14 @@ angular.module('stormCrowApp')
 
     $scope.rollTheDice = function() {
 
-$rootScope.addAlertMessage('', 'Dice rolled mother fucker!');
+$rootScope.addAlertMessage('', 'Dice rolled pop pop!');
 $rootScope.showLoading("roll-breakdown");
       // resets grandtotal to 0
       var grandtotal = 0;
 
-      // history to be populated after second roll
-      if ($scope.currentRollBreakdown) {
-        // puts current roll into history if it exists
-        $scope.historicalRollBreakdown.push($scope.currentRollBreakdown);
-      }
-
       // resets current roll
       $scope.currentRollBreakdown = {
+        time: new Date(),
         grandtotal: grandtotal,
         hidden: $scope.hiddenroll,
         combo: []
@@ -165,6 +160,9 @@ $rootScope.showLoading("roll-breakdown");
 
       // appends grandtotal to current roll item
       $scope.currentRollBreakdown.grandtotal = grandtotal;
+
+      $scope.historicalRollBreakdown.push($scope.currentRollBreakdown);
+
       $rootScope.hideLoading("roll-breakdown");
     };
 
