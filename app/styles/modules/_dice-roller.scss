@@ -24,7 +24,9 @@
     margin-bottom: 10px;
 }
 .breakdown {
-    margin-left: 15px;
+    position: absolute;
+    left: 40%;
+    top: 30%;
 }
 .breakdown p {
     margin-left: 0;
@@ -212,7 +214,7 @@ background: url(../images/d20-19.png) no-repeat;
 .d20-20 {
 background: url(../images/d20-20.png) no-repeat;
 }
-.panel-roll-history {
+.panel-event-log {
    position: fixed;
    bottom: 0;
    right: 0;
@@ -224,5 +226,15 @@ background: url(../images/d20-20.png) no-repeat;
    font-size: 10px;
    color: #999;
    display: block;
+}
+.dice-roller-panel {
+  position: absolute;
+  top: 0;
+  left: 40px;
+  width: 300px;
+}
+.chat-box {
+  position: fixed;
+  bottom: 0;
 }
 

@@ -1,7 +1,4 @@
-<div ng-controller="DiceRollerCtrl">
-
-        <div class="row marketing">
-            <div class="col-md-4">
+<div ng-controller="DiceRollerCtrl" stop-event='click'>
 
                 <div class="panel panel-default">
                     <!-- Default panel contents -->
@@ -50,66 +47,7 @@
                 <!-- .panel-footer-->
             </div>
 <!-- .panel-->
-        </div>
-        <!-- .col-md-4-->
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <!-- Default panel contents -->
-                <div class="panel-heading">
-                    <strong>Current Roll</strong>
-                </div>
-                <div ng-show="!currentRollBreakdown">
-                    <p>Make a roll!</p>
-                </div>
-
-                <ul ng-show="currentRollBreakdown" id="current-roll" class="list-group">
-                    <li class="roll list-group-item list-group-item-info">
-                        <span ng-repeat="item in currentRollBreakdown.combo">{{ item.amountOfDice }}d{{ item.dx }} <span ng-show="item.mod > 0"> + </span><span ng-show="item.mod != 0">{{ item.mod }}</span><span ng-show="!$last"> + </span></span>
-                        <span ng-show="currentRollBreakdown.hidden" class="glyphicon glyphicon-eye-close"></span>
-                        <span class="badge">{{ currentRollBreakdown.grandtotal }}</span>
-                    </li>
-
-                </ul>
-                <div id="roll-breakdown" ng-show="currentRollBreakdown" class="breakdown clearfix">
-
-            <!-- loading indicator -->
-            <div class="widget-loader" ng-show="widgetLoading['roll-breakdown']">
-                <div class="spinner"></div>
-            </div>
-                <h5>Breakdown</h5>
-                <i ng-repeat="item in currentRollBreakdown.combo">
-                    <span ng-show="item.dx !== 100" ng-repeat="roll in item.rolls" class="d{{item.dx}}-{{roll.score}}"></span>
-                    <span ng-show="item.dx == 100" ng-repeat="roll in item.rolls" class="d10-{{roll.score}}"></span>
-                </i>
-                </div>
-
-            </div>
-        </div>
-        <div class="col-md-4">
-
-            <div class="panel panel-default panel-roll-history">
-                <!-- Default panel contents -->
-                <div class="panel-heading">
-                    <strong>Roll History</strong> <a style="cursor: pointer;" ng-click="clearRollHistory()">Clear</a>
-                </div>
-
-                <div ng-show="!historicalRollBreakdown.length">
-                    <p >No rolls in history yet!</p>
-                </div>
-
-                <ul id="roll-history" class="list-group" ng-show="historicalRollBreakdown.length" >
-                    <li class="roll list-group-item" ng-repeat="item in historicalRollBreakdown | reverse">
-                        <span ng-repeat="roll in item.combo"> {{ roll.amountOfDice }}d{{ roll.dx }}<span ng-show="roll.mod > 0"> + </span><span ng-show="roll.mod != 0">{{ roll.mod }}</span><span ng-show="!$last"> + </span></span>
-                        <span ng-show="item.hidden" class="glyphicon glyphicon-eye-close"></span>
-                        <span class="badge">{{ item.grandtotal }}</span>
-                        <span class="chat-message-time" am-time-ago="item.time"></span>
-                    </li>
-                </ul>
 
 
-            </div>
-        </div>
-        <!-- .col-md-4 -->
-    </div>
-    <!-- .marketing -->
+
 </div>

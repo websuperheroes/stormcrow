@@ -13,8 +13,7 @@ angular.module('stormCrowApp')
     // so that first dice row appears
     $scope.numberOfDiceCombos = 1;
 
-    // makes sure history is clear on load
-    $scope.historicalRollBreakdown = [];
+
 
 
     $scope.getDiceDropDowns = function() {
@@ -161,19 +160,12 @@ $rootScope.showLoading("roll-breakdown");
       // appends grandtotal to current roll item
       $scope.currentRollBreakdown.grandtotal = grandtotal;
 
-      $scope.historicalRollBreakdown.push($scope.currentRollBreakdown);
+    //  $rootScope.eventFeed.push();
+
+      $rootScope.showDiceRoll($scope.currentRollBreakdown);
+      $rootScope.addToEventFeed($scope.currentRollBreakdown);
 
       $rootScope.hideLoading("roll-breakdown");
-    };
-
-
-    /**
-     * Clear roll history function
-     * @No parameters
-     */
-
-    $scope.clearRollHistory = function() {
-      $scope.historicalRollBreakdown = [];
     };
 
 
