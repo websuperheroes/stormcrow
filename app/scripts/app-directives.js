@@ -7,6 +7,12 @@ angular.module('stormCrowApp')
          templateUrl: '/views/modules/dice-roller/dice-roller.html'
       };
    })
+   .directive('eventlog', function() {
+      return {
+         restrict: 'E',
+         templateUrl: '/views/modules/event-log/event-log.html'
+      };
+   })
    .directive('stopEvent', function() {
       return {
          restrict: 'A',

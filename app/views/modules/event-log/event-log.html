@@ -1,0 +1,40 @@
+<div ng-controller="EventLogCtrl" stop-event='click'>
+
+                <div class="panel panel-default panel-event-log">
+        <!-- Default panel contents -->
+        <div class="panel-heading">
+            <strong>Event Log</strong>
+        </div>
+
+        <div ng-show="!eventFeed.length">
+            <p>Nothing has happened yet!</p>
+        </div>
+
+        <ul class="list-group" ng-show="eventFeed.length">
+            <li class="roll list-group-item" ng-repeat="item in eventFeed | reverse" ng-switch on="item.type">
+                <div class="dice-roll-event" ng-switch-when="diceroll">
+                    <span class="user-name">{{ item.user }}: </span><span class="action-text">Makes a roll</span> <span class="badge"> {{ item.grandtotal }}</span>
+                    <div>
+                    <span class="small-text" ng-repeat="roll in item.combo">({{ roll.amountOfDice }}d{{ roll.dx }}<span ng-show="roll.mod > 0"> + </span><span ng-show="roll.mod != 0">{{ roll.mod }}</span>)<span ng-show="!$last"> + </span></span>
+                    </div>
+                </span>
+                <span ng-show="item.hidden" class="glyphicon glyphicon-eye-close"></span>
+
+                </div>
+                <div class="chat-message-event" ng-switch-when="message">
+                <span class="user-name">{{ item.user }}: </span>
+                <span class="speech-text">{{ item.text }}</span>
+                </div>
+                <span class="chat-message-time" am-time-ago="item.time"></span>
+
+            </li>
+        </ul>
+        <div class="chat-box">
+            <form ng-submit="sendMessage()">
+                <input type="text" ng-model="messageText" placeholder="Type your message here" />
+                <input class="btn btn-primary" type="submit" value="Send" />
+            </form>
+        </div>
+    </div>
+    <!-- .panel-event-log -->
+</div>

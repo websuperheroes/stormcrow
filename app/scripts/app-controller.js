@@ -3,7 +3,12 @@
 angular.module('stormCrowApp')
   .controller('AppCtrl', function($rootScope, $scope, $timeout) {
 
-    // Show hide dice roller
+
+    /**
+     * Toggle Dice Roll Widget function
+     * @No Parameters
+     */
+
     $scope.diceRollShow = false;
 
     $scope.toggleDiceRoller = function() {
@@ -11,18 +16,29 @@ angular.module('stormCrowApp')
     };
 
 
+    $scope.showGridLines= false;
 
-    // Alert Messages
+    $scope.toggleGridLines= function() {
+      $scope.showGridLines = $scope.showGridLines === false ? true : false;
+    };
+
+     /**
+     * Alert Messages function
+     * @Parameters type and text
+     */
 
     $rootScope.alertMessages = [];
 
     // function to add a new alert message
     $rootScope.addAlertMessage = function(type, text) {
       // if alert text is not defined
-      if (typeof(text) == "undefined") {
-        if (typeof(text) != "undefined") text = type;
-        else text = "No alert message specified.";
-        type = "alert";
+      if (typeof(text) === 'undefined') {
+        if (typeof(text) !== 'undefined') {
+          text = type;
+        } else {
+          text = 'No alert message specified.';
+          type = 'alert';
+        }
       }
       $rootScope.alertMessages.push({
         type: type,
@@ -40,7 +56,11 @@ angular.module('stormCrowApp')
       $rootScope.alertMessages.splice(index, 1);
     };
 
-    // Loading Widgets
+
+    /**
+     * Loading Widgets function
+     * @No parameters
+     */
 
     $rootScope.widgetLoading = {};
     // function to show and hide widget loaders
@@ -48,7 +68,7 @@ angular.module('stormCrowApp')
       $rootScope.widgetLoading[elementId] = true;
     };
     $rootScope.hideLoading = function(elementId) {
-      if (elementId == "" || typeof elementId == "undefined") {
+      if (elementId === '' || typeof elementId === 'undefined') {
         $rootScope.widgetLoading = {};
       } else {
         delete($rootScope.widgetLoading[elementId]);
@@ -56,7 +76,10 @@ angular.module('stormCrowApp')
     };
 
 
-    // Event Log
+    /**
+     * Add Event function
+     * @Event parameter
+     */
 
     // makes sure event log is clear on load
     $rootScope.eventFeed = [];
@@ -65,11 +88,16 @@ angular.module('stormCrowApp')
       $rootScope.eventFeed.push(event);
     };
 
-    // Show physical dice after roll
 
-    // makes sure event log is clear on load
+    /**
+     * Dice Roll function
+     * @No parameters
+     */
+
+    // makes sure dice roll is clear on load
     $rootScope.diceRoll = [];
-    // function to add a new alert message
+
+    // function to add a new dice roll to table top
     $rootScope.showDiceRoll = function(roll) {
       // clears last dice roll
       $rootScope.diceRoll = [];
@@ -78,28 +106,12 @@ angular.module('stormCrowApp')
         $rootScope.removeDiceRoll(-1);
       }, 6000);
     };
-    // function remove an exisiting alert message
+    // function remove an exisiting dice roll when new set of dice are rolled
     $rootScope.removeDiceRoll = function(index) {
       if (index < 0 || index >= $rootScope.diceRoll.length) {
         index = 0;
       }
       $rootScope.diceRoll.splice(index, 1);
-    };
-
-    $scope.messageText = '';
-
-    $scope.sendMessage = function() {
-
-      var text = $scope.messageText;
-      var user = "Dave";
-
-      var message = {
-        user: user + ': ',
-        text:  text ,
-        time: new Date()
-      };
-      $rootScope.addToEventFeed(message);
-
     };
 
   });

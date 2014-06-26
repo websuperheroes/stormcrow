@@ -3,6 +3,7 @@
 angular.module('stormCrowApp')
   .controller('DiceRollerCtrl', function($rootScope, $scope, $http, $q, DiceRoller) {
 
+    // Defaults for dice dropdowns
     $scope.diceOption = [20];
     $scope.modifierOption = [0];
     $scope.numberOfTypeOfDiceOption = [1];
@@ -14,11 +15,12 @@ angular.module('stormCrowApp')
     $scope.numberOfDiceCombos = 1;
 
 
-
+    /**
+     * Get Dice Dropdown function
+     * @No parameters
+     */
 
     $scope.getDiceDropDowns = function() {
-      // show loading indicators
-      //  $rootScope.showLoading("user-view-panel");
 
       var getSidesPromise = DiceRoller.getDiceSides(),
             getModifiersPromise = DiceRoller.getDiceModifiers(),
@@ -30,32 +32,29 @@ angular.module('stormCrowApp')
         getNumberOfDiceTypePromise.$promise
       ]).then(function() {
           // on success
-
           $scope.diceOptions = getSidesPromise.data; // sets dice sides
           $scope.modifierOptions = getModifiersPromise.data;
           $scope.numberOfTypeOfDiceOptions = getNumberOfDiceTypePromise.data;
-          //  $rootScope.hideLoading("user-view-panel");
-
         },
         // on error
         function(error) {
-          //    $rootScope.addAlertMessage('error', 'There was a problem loading in the dice drop downs.');
-          // hide the loading indicators
-          //     $rootScope.hideLoading("user-view-panel");
-        }
+            $rootScope.addAlertMessage('error', 'There was a problem loading in the dice drop downs.');
+          }
       );
     };
 
 
     $scope.rollTheDice = function() {
 
-$rootScope.addAlertMessage('', 'Dice rolled pop pop!');
-$rootScope.showLoading("roll-breakdown");
+      $rootScope.addAlertMessage('', 'Dice rolled - pop pop!');
+      $rootScope.showLoading('roll-breakdown');
       // resets grandtotal to 0
       var grandtotal = 0;
-
+      var user = 'Dave';
       // resets current roll
       $scope.currentRollBreakdown = {
+        user: user,
+        type: 'diceroll',
         time: new Date(),
         grandtotal: grandtotal,
         hidden: $scope.hiddenroll,
@@ -165,14 +164,14 @@ $rootScope.showLoading("roll-breakdown");
       $rootScope.showDiceRoll($scope.currentRollBreakdown);
       $rootScope.addToEventFeed($scope.currentRollBreakdown);
 
-      $rootScope.hideLoading("roll-breakdown");
+      $rootScope.hideLoading('roll-breakdown');
     };
 
 
-    /**
-     * Get Numer function
-     * @No parameters
-     */
+  /**
+   * Get Number function
+   * @No parameters
+   */
 
     // creates an array from any number entered into it (used for calculating number of dice rows)
     $scope.getNumber = function(num) {
@@ -207,7 +206,6 @@ $rootScope.showLoading("roll-breakdown");
     };
 
     // Launch page
-  $scope.getDiceDropDowns();
-
+    $scope.getDiceDropDowns();
 
   });
