@@ -30,7 +30,8 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-
+<div ng-show="showGridLines" class="grid-lines">
+</div>
     <span class="alert-wrapper">
         <div id="alert-messages" class="alert-messages" ng-cloak>
             <div ng-repeat="message in alertMessages" class="{{message.type}}">
@@ -39,10 +40,6 @@
             </div>
         </div>
     </span>
-
-    <div class="header">
-        <h3 class="text-muted">Stormcrow</h3>
-    </div>
     <aside>
         <ul>
             <li>
@@ -65,8 +62,8 @@
                     <span>Zoom</span>
                 </a>
             </li>
-            <li>
-                <a href="" class="icon-measure">
+            <li ng-click="toggleGridLines()">
+                <a title="Toggle Grid Lines" href="" class="icon-measure">
                     <span>Ruler</span>
                 </a>
             </li>
@@ -76,7 +73,7 @@
                 </a>
             </li>
             <li ng-click="toggleDiceRoller()">
-                <a href="" class="icon-dice">
+                <a href="" class="icon-dice" title="Roll the dice!">
                     <span>Dice Roller</span>
                 </a>
                 <div class="dice-roller-panel">
@@ -95,7 +92,6 @@
 
 
     <div id="roll-breakdown" class="breakdown clearfix">
-
         <!-- loading indicator -->
         <div class="widget-loader" ng-show="widgetLoading['roll-breakdown']">
             <div class="spinner"></div>
@@ -110,45 +106,10 @@
     </div>
     <!-- breakdown -->
 
-
-
-    <div class="panel panel-default panel-event-log">
-        <!-- Default panel contents -->
-        <div class="panel-heading">
-            <strong>Event Log</strong>
-        </div>
-
-        <div ng-show="!eventFeed.length">
-            <p>Nothing has happened yet!</p>
-        </div>
-
-        <ul id="roll-history" class="list-group" ng-show="eventFeed.length">
-            <li class="roll list-group-item" ng-repeat="item in eventFeed | reverse">
-                <span ng-repeat="roll in item.combo">{{ roll.amountOfDice }}d{{ roll.dx }}
-                    <span ng-show="roll.mod > 0">+</span>
-                    <span ng-show="roll.mod != 0">{{ roll.mod }}</span>
-                    <span ng-show="!$last">+</span>
-                </span>
-                <span ng-show="item.hidden" class="glyphicon glyphicon-eye-close"></span>
-                <span class="badge">{{ item.grandtotal }}</span>
-                <span>{{ item.user }}</span>
-                <span>{{ item.text }}</span>
-                <span class="chat-message-time" am-time-ago="item.time"></span>
-
-            </li>
-        </ul>
-
-        <div class="chat-box">
-            <form ng-submit="sendMessage()">
-                <input type="text" ng-model="messageText" placeholder="Type your message here" />
-                <input class="btn btn-primary" type="submit" value="Send" />
-            </form>
-        </div>
-    </div>
-    <!-- .panel-event-log -->
+<eventlog></eventlog>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-<!--      <script>
+     <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -156,7 +117,7 @@
 
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
-    </script> -->
+    </script>
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -180,6 +141,7 @@
     <script src="scripts/app-services.js"></script>
     <script src="scripts/app-directives.js"></script>
     <script src="scripts/modules/dice-roller/dice-roller-controller.js"></script>
+    <script src="scripts/modules/event-log/event-log-controller.js"></script>
 
     <!-- endbuild -->
 </body>
