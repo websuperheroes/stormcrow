@@ -37,21 +37,22 @@ angular.module('stormCrowApp')
      * @No parameters
      */
 
-    $scope.getUsersCharacter = function() {
+    $scope.getCharacters = function() {
 
       var getUserCharacterPromise = UserCharacter.getUserCharacter();
+      var getAllCharactersPromise = UserCharacter.getAllCharacters();
 
       $q.all([
-        getUserCharacterPromise.$promise
+        getUserCharacterPromise.$promise,
+        getAllCharactersPromise.$promise
       ]).then(function() {
           // on success
-          console.log('got char', getUserCharacterPromise);
-          $scope.userCharacter = getUserCharacterPromise.data;
-
+          $rootScope.userCharacter = getUserCharacterPromise.data;
+          $rootScope.allCharacters = getAllCharactersPromise.data;
         },
         // on error
         function(error) {
-          $rootScope.addAlertMessage('error', 'There was a problem loading your character.');
+          $rootScope.addAlertMessage('error', 'There was a problem loading characters - try refreshing the page');
         }
       );
     };
@@ -168,6 +169,6 @@ angular.module('stormCrowApp')
       $rootScope.diceRoll.splice(index, 1);
     };
 
-    $scope.getUsersCharacter();
+    $scope.getCharacters();
 
   });
