@@ -12,6 +12,57 @@ angular.module('stormCrowApp')
     };
 
     /**
+     * Event Logger "Send As" function
+     * @Parameters type and text
+     */
+
+    // defaults to sending as character
+
+
+    $rootScope.eventLoggerSendAs = function() {
+
+      // // resets to character
+      // $scope.sendMessageAs = {
+      //   type: 'character',
+      //   name: $rootScope.userCharacter.characterName
+      // };
+// resets to character
+
+      // if the user isn't the GM they can send as player or character
+      if (!$scope.userIsGM) {
+
+        $scope.sendAsOptions = [{
+          type: 'character',
+          name: $rootScope.userCharacter.characterName,
+        }, {
+          type: 'player',
+          name: $rootScope.userCharacter.playerName,
+        }];
+      } // GM can send as GM or any character
+      else {
+        // adds GM option
+        $scope.sendAsOptions = [{
+          type: 'character',
+          name: 'GM'
+        }];
+        // loops through characters and adds names to GM send as options
+        for (var i = 0; i < $rootScope.allCharacters.length; i++) {
+
+          var character = {
+            type: 'playercharacter',
+            name: $rootScope.allCharacters[i].characterName
+          };
+          $scope.sendAsOptions.push(character);
+        }
+        // end of for loop
+      }
+      // end of if else
+      $scope.sendMessageAs = $scope.sendAsOptions[0];
+    };
+    // end of eventLoggerSendAs
+
+
+    /**
      * Send message function
      * @No parameters
      */
@@ -22,8 +73,10 @@ angular.module('stormCrowApp')
 
       var whisper = false;
       var text = $scope.messageText;
-      var user = 'Dave';
+      var character = $scope.sendMessageAs.name;
+      var user = $rootScope.userCharacter.playerName;
       var message = '';
+      var sentAs = $scope.sendMessageAs.type;
 
       // roll initiative with /i
       if ($scope.messageText.substring(0, 2) === '/i') {
@@ -39,7 +92,7 @@ angular.module('stormCrowApp')
         var lcString = whisper.toLowerCase();
         var lcString1 = $rootScope.userCharacter.characterName.split(' ')[0].toLowerCase();
 
-        if (lcString ==  lcString1){
+        if (lcString == lcString1) {
 
           $rootScope.addAlertMessage('error', 'Duh, why you talking to yourself?!.');
           return;
@@ -48,7 +101,7 @@ angular.module('stormCrowApp')
         // loop through all characters
         for (var i = 0; i < $rootScope.allCharacters.length; i++) {
 
-        var lcString2 = $rootScope.allCharacters[i].characterName.split(' ')[0].toLowerCase();
+          var lcString2 = $rootScope.allCharacters[i].characterName.split(' ')[0].toLowerCase();
 
           // if first name matches the whispereee then send the message
           if (lcString == lcString2) {
@@ -61,7 +114,9 @@ angular.module('stormCrowApp')
               user: user,
               text: text,
               time: new Date(),
-              whisper: whisper
+              whisper: whisper,
+              sentAs: sentAs,
+              character: character
             };
 
             $rootScope.addToEventFeed(message);
@@ -82,7 +137,9 @@ angular.module('stormCrowApp')
         user: user,
         text: text,
         time: new Date(),
-        whisper: whisper.charAt(0).toUpperCase()
+        whisper: whisper,
+        sentAs: sentAs,
+        character: character
       };
 
       $rootScope.addToEventFeed(message);

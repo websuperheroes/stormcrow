@@ -1,5 +1,4 @@
 <div ng-controller="EventLogCtrl" stop-event='click'>
-
                 <div class="panel panel-default panel-event-log">
         <!-- Default panel contents -->
         <div class="panel-heading">
@@ -22,7 +21,9 @@
 
                 </div>
                 <div class="chat-message-event" ng-switch-when="message">
-                <span class="user-name">{{ item.user }}: </span>
+                <span class="user-name" ng-show="item.sentAs == 'player'">{{ item.user }}: </span>
+                <span class="user-name" ng-show="item.sentAs == 'character'">{{ item.character }}: </span>
+                <span class="user-name" ng-show="item.sentAs == 'playercharacter'">{{ item.character }}: </span>
                 <span class="speech-text" ng-class="{'whisper-text': item.whisper}">{{ item.text }}</span>
                 </div>
                 <span class="chat-message-time" am-time-ago="item.time"></span>
@@ -30,9 +31,19 @@
             </li>
         </ul>
         <div class="chat-box">
-            <form ng-submit="sendMessage()">
+
+            <form ng-submit="sendMessage()" class="form-inline">
+            <div class="form-group">
+                                    <label for="sendAs">Send As</label>
+                                    <select name="sendAs" class="form-control" ng-model="sendMessageAs" ng-options="p as p.name for p in sendAsOptions">
+                                    </select>
+                                </div>
+                                <div class="form-group">
                 <input type="text" ng-model="messageText" placeholder="Type your message here" ng-change="macroChecker()">
-                <input class="btn btn-primary" type="submit" value="Send" />
+                </div>
+                <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="Send">
+                </div>
             </form>
         </div>
     </div>

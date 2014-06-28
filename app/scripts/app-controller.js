@@ -3,19 +3,52 @@
 angular.module('stormCrowApp')
   .controller('AppCtrl', function($rootScope, $scope, $timeout, $q, UserCharacter) {
 
-    // sets the user to not being GM / DM
+    /**
+     * Toggle GM / DM function
+     * @No Parameters
+     */
     $scope.userIsGM = false;
 
     $scope.toggleUserIsGM = function() {
+
       $scope.userIsGM = $scope.userIsGM === false ? true : false;
+
+      $rootScope.eventLoggerSendAs();
     };
 
-// Toggle turn order
+      /**
+     * Toggle Turn Order function
+     * @No Parameters
+     */
+
     $scope.turnOrderShow = true;
 
     $scope.toggleTurnOrder = function() {
       $scope.turnOrderShow= $scope.turnOrderShow === false ? true : false;
     };
+
+    /**
+     * Toggle Dice Roll Widget function
+     * @No Parameters
+     */
+
+    $scope.diceRollShow = false;
+
+    $scope.toggleDiceRoller = function() {
+      $scope.diceRollShow = $scope.diceRollShow === false ? true : false;
+    };
+
+  /**
+     * Toggle Grid Lines function
+     * @No Parameters
+     */
+
+    $scope.showGridLines = false;
+
+    $scope.toggleGridLines = function() {
+      $scope.showGridLines = $scope.showGridLines === false ? true : false;
+    };
+
 
   // Empty slots for user toolbar
     $scope.toolBar = [{
@@ -49,31 +82,16 @@ angular.module('stormCrowApp')
           // on success
           $rootScope.userCharacter = getUserCharacterPromise.data;
           $rootScope.allCharacters = getAllCharactersPromise.data;
+
+
+          $rootScope.eventLoggerSendAs();
+
         },
         // on error
         function(error) {
           $rootScope.addAlertMessage('error', 'There was a problem loading characters - try refreshing the page');
         }
       );
-    };
-
-
-    /**
-     * Toggle Dice Roll Widget function
-     * @No Parameters
-     */
-
-    $scope.diceRollShow = false;
-
-    $scope.toggleDiceRoller = function() {
-      $scope.diceRollShow = $scope.diceRollShow === false ? true : false;
-    };
-
-
-    $scope.showGridLines = false;
-
-    $scope.toggleGridLines = function() {
-      $scope.showGridLines = $scope.showGridLines === false ? true : false;
     };
 
 

@@ -8,6 +8,8 @@ angular.module('stormCrowApp')
     $scope.modifierOption = [0];
     $scope.numberOfTypeOfDiceOption = [1];
 
+     $scope.sendMessageAs = ['character'];
+
     // sets checkbox to false
     $scope.hiddenroll = false;
 
