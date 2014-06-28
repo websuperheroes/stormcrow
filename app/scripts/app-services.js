@@ -10,7 +10,8 @@ angular.module('stormCrowApp')
     })
       .factory('UserCharacter', function($resource) {
         return $resource('/api/user-character-api/:dest', {}, {
-            getUserCharacter: {method: 'GET', params: {dest: 'userCharacter'}, isArray: false}
+            getUserCharacter: {method: 'GET', params: {dest: 'userCharacter'}, isArray: false},
+            getAllCharacters: {method: 'GET', params: {dest: 'allCharacters'}, isArray: false}
           });
       });
 

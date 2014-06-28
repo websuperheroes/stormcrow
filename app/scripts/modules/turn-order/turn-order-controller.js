@@ -11,7 +11,7 @@ angular.module('stormCrowApp')
      * @No parameters
      */
 
-    $scope.addToOrder = function() {
+    $scope.addToOrder = function(mod) {
 
       // writes out this dice roll result if not a d100
 
@@ -21,7 +21,7 @@ angular.module('stormCrowApp')
       turnOrderItem = {
         characterName: 'Troglor',
         avatarSmall: 'troglor.png',
-        initiativeRoll: Math.floor(Math.random() * 20 + 1)
+        initiativeRoll: Math.floor(Math.random() * 20 + 1) + mod
       };
       // add roll to currentRoll object
       $scope.turnOrder.push(turnOrderItem);

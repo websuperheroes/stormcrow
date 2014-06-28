@@ -40,7 +40,6 @@
             </div>
         </div>
     </span>
-
     <div class="character-profile">
         <div class="character-profile-content">
             <div class="character-avatar">
@@ -48,7 +47,7 @@
             </div>
             <div class="character-information">
                 <div class="character-name">
-                    <h2>{{ userCharacter.name }}</h2>
+                    <h2>{{ userCharacter.characterName }}</h2>
                 </div>
                 <ul class="character-attributes">
                     <li class="character-attributes-bar" title="{{ userCharacter.attributeOne }}/{{ userCharacter.attributeOneMax }}">
@@ -79,7 +78,7 @@
         </div>
         <div ng-repeat="dr in diceRoll">
             <span class="badge">{{ roll.grandtotal }}</span>
-            <i ng-repeat="item in dr.combo">
+             <i ng-repeat="item in dr.combo">
                     <span ng-show="item.dx !== 100" ng-repeat="roll in item.rolls" class="d{{item.dx}}-{{roll.score}}"></span>
                     <span ng-show="item.dx == 100" ng-repeat="roll in item.rolls" class="d10-{{roll.score}}"></span>
                 </i>
