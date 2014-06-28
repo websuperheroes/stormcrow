@@ -38,7 +38,15 @@
 // -------------------------------------
 //   Icons
 // -------------------------------------
-
+.icon-smiley:before {
+    content: "\e60b";
+}
+.icon-evil:before {
+    content: "\e609";
+}
+.icon-evil2:before {
+    content: "\e60a";
+}
 .icon-pencil:before {
     content: "\f040";
 }

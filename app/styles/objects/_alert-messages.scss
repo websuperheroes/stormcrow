@@ -18,6 +18,7 @@ $alert-message-width: 320px;
 
 .alert-wrapper {
     float: right;
+    margin-right: 10px;
     display: block;
     width: $alert-message-width;
 }

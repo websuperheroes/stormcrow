@@ -3,14 +3,31 @@
 angular.module('stormCrowApp')
   .controller('AppCtrl', function($rootScope, $scope, $timeout, $q, UserCharacter) {
 
-// sets the user to not being GM / DM
-  $scope.userIsGM = false;
+    // sets the user to not being GM / DM
+    $scope.userIsGM = false;
 
-  /**
+    $scope.toggleUserIsGM = function() {
+      $scope.userIsGM = $scope.userIsGM === false ? true : false;
+    };
+
+    $scope.toolBar = [{
+      icon: '',
+      name: ''
+    },{
+      icon: '',
+      name: ''
+    },{
+      icon: '',
+      name: ''
+    },{
+      icon: '',
+      name: ''
+    }];
+
+    /**
      * Get users character function
      * @No parameters
      */
-
 
     $scope.getUsersCharacter = function() {
 
@@ -26,8 +43,8 @@ angular.module('stormCrowApp')
         },
         // on error
         function(error) {
-            $rootScope.addAlertMessage('error', 'There was a problem loading your character.');
-          }
+          $rootScope.addAlertMessage('error', 'There was a problem loading your character.');
+        }
       );
     };
 
@@ -44,13 +61,14 @@ angular.module('stormCrowApp')
     };
 
 
-    $scope.showGridLines= false;
+    $scope.showGridLines = false;
 
-    $scope.toggleGridLines= function() {
+    $scope.toggleGridLines = function() {
       $scope.showGridLines = $scope.showGridLines === false ? true : false;
     };
 
-     /**
+
+    /**
      * Alert Messages function
      * @Parameters type and text
      */
@@ -144,4 +162,4 @@ angular.module('stormCrowApp')
 
     $scope.getUsersCharacter();
 
-});
+  });
