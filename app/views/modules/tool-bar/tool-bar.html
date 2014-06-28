@@ -1,0 +1,47 @@
+<div class="tool-bar">
+    <ul>
+        <li>
+            <a href="" class="icon-pointer">
+                <span>Pointer</span>
+            </a>
+        </li>
+        <li>
+            <a href="" class="icon-layers">
+                <span>Layers</span>
+            </a>
+        </li>
+        <li>
+            <a href="" class="icon-brush">
+                <span>Draw</span>
+            </a>
+        </li>
+        <li>
+            <a href="" class="icon-search">
+                <span>Zoom</span>
+            </a>
+        </li>
+        <li ng-click="toggleGridLines()">
+            <a title="Toggle Grid Lines" href="" class="icon-measure">
+                <span>Ruler</span>
+            </a>
+        </li>
+        <li>
+            <a href="" class="icon-clock">
+                <span>Turn Order</span>
+            </a>
+        </li>
+        <li ng-click="toggleDiceRoller()">
+            <a href="" class="icon-dice" title="Roll the dice!">
+                <span>Dice Roller</span>
+            </a>
+            <div class="dice-roller-panel">
+                <diceroller ng-show="diceRollShow"></diceroller>
+            </div>
+        </li>
+        <li>
+            <a href="" class="icon-question">
+                <span>Help</span>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -1,8 +1,16 @@
 //----------------------------------*\
+// SKIN
+//----------------------------------*/
+
+
+ // @import 'skins/scifi/controller';
+ @import 'skins/fantasy/controller';
+ // @import 'skins/default/controller';
+
+//----------------------------------*\
 // CONFIG MODULES
 //----------------------------------*/
 
-@import 'defaults/_vars';
 @import 'defaults/_base';
 
 
@@ -17,7 +25,8 @@
 // OBJECTS
 //----------------------------------*/
 
-@import 'objects/_side-bar';
+@import 'objects/_user-profile';
+@import 'objects/_tool-bar';
 @import 'objects/_event-log';
 @import 'objects/_alert-messages';
 @import 'objects/_loading-spinner';

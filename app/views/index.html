@@ -30,8 +30,8 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-<div ng-show="showGridLines" class="grid-lines">
-</div>
+    <div ng-show="showGridLines" class="grid-lines">
+    </div>
     <span class="alert-wrapper">
         <div id="alert-messages" class="alert-messages" ng-cloak>
             <div ng-repeat="message in alertMessages" class="{{message.type}}">
@@ -40,56 +40,37 @@
             </div>
         </div>
     </span>
-    <aside>
-        <ul>
-            <li>
-                <a href="" class="icon-pointer">
-                    <span>Pointer</span>
-                </a>
-            </li>
-            <li>
-                <a href="" class="icon-layers">
-                    <span>Layers</span>
-                </a>
-            </li>
-            <li>
-                <a href="" class="icon-brush">
-                    <span>Draw</span>
-                </a>
-            </li>
-            <li>
-                <a href="" class="icon-search">
-                    <span>Zoom</span>
-                </a>
-            </li>
-            <li ng-click="toggleGridLines()">
-                <a title="Toggle Grid Lines" href="" class="icon-measure">
-                    <span>Ruler</span>
-                </a>
-            </li>
-            <li>
-                <a href="" class="icon-clock">
-                    <span>Turn Order</span>
-                </a>
-            </li>
-            <li ng-click="toggleDiceRoller()">
-                <a href="" class="icon-dice" title="Roll the dice!">
-                    <span>Dice Roller</span>
-                </a>
-                <div class="dice-roller-panel">
-                    <diceroller ng-show="diceRollShow"></diceroller>
+
+    <div class="character-profile">
+        <div class="character-profile-content">
+            <div class="character-avatar">
+                <img src="/images/users/avatars/{{userCharacter.avatar }}">
+            </div>
+            <div class="character-information">
+                <div class="character-name">
+                    <h2>{{ userCharacter.name }}</h2>
                 </div>
-            </li>
-            <li>
-                <a href="" class="icon-question">
-                    <span>Help</span>
-                </a>
-            </li>
-        </ul>
-    </aside>
+                <ul class="character-attributes">
+                    <li class="character-attributes-bar" title="{{ userCharacter.attributeOne }}/{{ userCharacter.attributeOneMax }}">
+                       <span style="width: {{ (userCharacter.attributeOne / userCharacter.attributeOneMax) * 100 }}%"></span>
+                    </li>
+                    <li class="character-attributes-bar" title="{{ userCharacter.attributeTwo }}/{{ userCharacter.attributeTwoMax }}">
+                        <span style="width: {{ (userCharacter.attributeTwo / userCharacter.attributeTwoMax) * 100 }}%"></span>
+                    </li>
+                    <li class="character-attributes-standalone">
+                        {{ userCharacter.attributeThree }}
+                    </li>
+                </ul>
+            </div>
+            <!-- .character-information -->
+        </div>
+        <!-- .character-profile-content -->
+    </div>
+    <!-- .character-profile -->
 
     <div class="container" ng-view=""></div>
 
+    <toolbar></toolbar>
 
     <div id="roll-breakdown" class="breakdown clearfix">
         <!-- loading indicator -->
@@ -106,17 +87,24 @@
     </div>
     <!-- breakdown -->
 
-<eventlog></eventlog>
+    <eventlog></eventlog>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
     </script>
 
     <!--[if lt IE 9]>

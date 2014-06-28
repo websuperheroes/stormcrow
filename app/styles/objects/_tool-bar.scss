@@ -9,40 +9,42 @@
 //   Variables
 // -------------------------------------
 
+$tool-bar-background: $tool-bar-skin;
 
 
 // -------------------------------------
 //   Base
 // -------------------------------------
 
-aside {
+.tool-bar {
     position: fixed;
-    top: 100px;
+    bottom: 0;
+    left: 30%;
 }
-
-aside ul {
-    background: #333;
+.tool-bar > ul {
+    background: $tool-bar-background;
     padding: 0;
     margin: 0;
 }
-aside ul li {
+.tool-bar > ul > li {
     list-style-type: none;
-   padding: 0;
+    padding: 0;
     margin: 0;
     position: relative;
+    display: inline-block;
 }
-aside li a {
-      display: block;
+.tool-bar > ul > li > a {
+    display: block;
     text-align: center;
     font-size: 16px;
     font-size: 1.6rem;
     line-height: 40px !important;
     width: 40px;
-   height: 40px;
+    height: 40px;
 }
-aside li a:hover {
+.tool-bar li a:hover {
    text-decoration: none;
 }
-aside li a span {
+.tool-bar li a span {
    display: none;
 }

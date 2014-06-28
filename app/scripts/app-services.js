@@ -7,5 +7,10 @@ angular.module('stormCrowApp')
           getDiceModifiers: {method: 'GET', params: {dest: 'diceModifiers'}, isArray: false},
           getNoOfDice: {method: 'GET', params: {dest: 'noOfDice'}, isArray: false}
         });
-    });
+    })
+      .factory('UserCharacter', function($resource) {
+        return $resource('/api/user-character-api/:dest', {}, {
+            getUserCharacter: {method: 'GET', params: {dest: 'userCharacter'}, isArray: false}
+          });
+      });
 

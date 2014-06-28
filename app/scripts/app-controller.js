@@ -1,7 +1,35 @@
 'use strict';
 
 angular.module('stormCrowApp')
-  .controller('AppCtrl', function($rootScope, $scope, $timeout) {
+  .controller('AppCtrl', function($rootScope, $scope, $timeout, $q, UserCharacter) {
+
+// sets the user to not being GM / DM
+  $scope.userIsGM = false;
+
+  /**
+     * Get users character function
+     * @No parameters
+     */
+
+
+    $scope.getUsersCharacter = function() {
+
+      var getUserCharacterPromise = UserCharacter.getUserCharacter();
+
+      $q.all([
+        getUserCharacterPromise.$promise
+      ]).then(function() {
+          // on success
+          console.log('got char', getUserCharacterPromise);
+          $scope.userCharacter = getUserCharacterPromise.data;
+
+        },
+        // on error
+        function(error) {
+            $rootScope.addAlertMessage('error', 'There was a problem loading your character.');
+          }
+      );
+    };
 
 
     /**
@@ -114,4 +142,6 @@ angular.module('stormCrowApp')
       $rootScope.diceRoll.splice(index, 1);
     };
 
-  });
+    $scope.getUsersCharacter();
+
+});
