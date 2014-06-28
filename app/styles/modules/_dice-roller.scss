@@ -15,9 +15,13 @@
 // -------------------------------------
 .dice-roller-panel {
   position: absolute;
-  top: 0;
-  left: 40px;
+  bottom: 100%;
+  left: -150px;
   width: 300px;
+}
+.dice-roller-panel .panel {
+  margin-bottom: 0;
+  position: relative;
 }
 .breakdown span {
     height: 53px;
