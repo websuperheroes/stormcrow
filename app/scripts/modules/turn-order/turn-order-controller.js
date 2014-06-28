@@ -15,6 +15,7 @@ angular.module('stormCrowApp')
 
       // writes out this dice roll result if not a d100
 
+
       var turnOrderItem = '';
 
       turnOrderItem = {
