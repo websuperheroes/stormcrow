@@ -21,7 +21,7 @@ angular.module('stormCrowApp')
           $scope.orderOfPlay.push(character);
         }
         // end of for loop
-
+        
         $scope.charToAdd = $scope.orderOfPlay[0];
 
       };
@@ -43,7 +43,8 @@ angular.module('stormCrowApp')
             return;
           }
           // end of for loop
-        };
+        }
+    };
 
         /**
          * Remove from order function
@@ -51,7 +52,6 @@ angular.module('stormCrowApp')
          */
         $scope.removeFromOrder = function(characterToRemoveId) {
 
-          console.log('iam the hawk');
 
           var charToRemoveId = characterToRemoveId;
           var numberInOrder = $scope.orderOfPlay.length;

@@ -18,7 +18,7 @@
 
                 <span class="character-name">{{ item.characterName }}</span>
 
-                <span class="initiative-roll"><input type="text" value="{{item.initiativeRoll}}" ng-model="item.initiativeRoll"><button type="button" class="close" title="Remove from order" ng-click="removeFromOrder()" aria-hidden="true">&times;</button></span>
+                <span class="initiative-roll"><input type="text" value="{{item.initiativeRoll}}" ng-model="item.initiativeRoll"><button type="button" class="close" title="Remove from order" ng-click="removeFromOrder( item.id )" aria-hidden="true">&times;</button></span>
 
             </li>
             <!-- .list-group -->

@@ -21,7 +21,7 @@ angular.module('stormCrowApp')
      * @No Parameters
      */
 
-    $scope.turnOrderShow = true;
+    $scope.turnOrderShow = false;
 
     $scope.toggleTurnOrder = function() {
       $scope.turnOrderShow= $scope.turnOrderShow === false ? true : false;
