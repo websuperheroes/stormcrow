@@ -83,8 +83,10 @@ angular.module('stormCrowApp')
           $rootScope.userCharacter = getUserCharacterPromise.data;
           $rootScope.allCharacters = getAllCharactersPromise.data;
 
-
           $rootScope.eventLoggerSendAs();
+
+
+
 
         },
         // on error

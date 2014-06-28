@@ -21,13 +21,6 @@ angular.module('stormCrowApp')
 
     $rootScope.eventLoggerSendAs = function() {
 
-      // // resets to character
-      // $scope.sendMessageAs = {
-      //   type: 'character',
-      //   name: $rootScope.userCharacter.characterName
-      // };
-// resets to character
-
       // if the user isn't the GM they can send as player or character
       if (!$scope.userIsGM) {
 
