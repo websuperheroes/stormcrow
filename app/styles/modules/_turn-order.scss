@@ -1,0 +1,31 @@
+// *************************************
+//
+//   Turn Order
+//
+// *************************************
+
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+.turn-order-panel  {
+  position: absolute;
+  bottom: 100%;
+  left: -150px;
+  width: 300px;
+}
+.turn-order-panel .panel {
+  margin-bottom: 0;
+  position: relative;
+}
+
+.turn-order-avatar img {
+   height: 50px;
+   width: 50px;
+   border-radius: 50%;
+}

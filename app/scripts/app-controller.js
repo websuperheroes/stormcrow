@@ -10,6 +10,14 @@ angular.module('stormCrowApp')
       $scope.userIsGM = $scope.userIsGM === false ? true : false;
     };
 
+// Toggle turn order
+    $scope.turnOrderShow = true;
+
+    $scope.toggleTurnOrder = function() {
+      $scope.turnOrderShow= $scope.turnOrderShow === false ? true : false;
+    };
+
+  // Empty slots for user toolbar
     $scope.toolBar = [{
       icon: '',
       name: ''

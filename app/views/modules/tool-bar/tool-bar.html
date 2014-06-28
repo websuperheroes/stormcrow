@@ -25,10 +25,14 @@
                 <span>Ruler</span>
             </a>
         </li>
-        <li ng-show="userIsGM">
-            <a href="" class="icon-clock">
+        <li ng-click="toggleTurnOrder()" ng-show="!userIsGM">
+            <a href="" class="icon-clock" title="Turn order">
                 <span>Turn Order</span>
-            </a>
+            </a> <div class="turn-order-panel" ng-show="turnOrderShow">
+
+  <turnorder ng-show="turnOrderShow"></turnorder>
+
+            </div>
         </li>
         <li ng-click="toggleDiceRoller()">
             <a href="" class="icon-dice" title="Roll the dice!">

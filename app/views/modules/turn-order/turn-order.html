@@ -1,0 +1,26 @@
+<div ng-controller="TurnOrderCtrl" stop-event='click'>
+
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading">
+                        <strong>Turn Order</strong>
+                        <span class="glyphicon glyphicon-plus pull-right" style="cursor: pointer;" ng-click="addToOrder()"></span>
+                    </div>
+                    <!-- .panel-heading -->
+                    <div ng-show="!turnOrder.length">
+            <p>Add some characters</p>
+        </div>
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="item in turnOrder">
+                        <span class="turn-order-avatar"><img src="/images/users/avatars/{{ item.avatarSmall }}"></span>
+                        <span class="character-name">{{ item.characterName }}</span>
+                        <span class="initiative-roll">{{ item.initiativeRoll }}</span>
+                        </li>
+                        <!-- .list-group -->
+                    </ul>
+            </div>
+<!-- .panel-->
+
+
+
+</div>
