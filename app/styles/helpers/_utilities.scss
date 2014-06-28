@@ -1,0 +1,67 @@
+
+// *************************************
+//
+//   General helper mixins
+//   -> Font and breakpoint mixins in separate files
+//
+// *************************************
+
+
+// -------------------------------------
+//   HSL Lightness variations for hover/active states
+// -------------------------------------
+
+
+@mixin darken($color) {
+    color: darken( $color, 10% );
+}
+
+@mixin lighten($color) {
+    color: lighten( $color, 10% );
+}
+
+@mixin darken-bg($color) {
+    background-color: darken( $color, 10% );
+}
+
+@mixin lighten-bg($color) {
+    background-color: lighten( $color, 10% );
+}
+
+
+// ----- Transparent version ----- //
+
+
+@mixin darken-alpha($color) {
+    color: rgba( $color, .4);
+}
+
+@mixin lighten-alpha($color) {
+    color: rgba( $color, .4);
+}
+
+@mixin darken-bg-alpha($color) {
+    background-color: rgba( $color, .4);
+}
+
+@mixin lighten-bg-alpha($color) {
+    background-color: rgba( $color, .4);
+}
+
+
+// -------------------------------------
+//   Cross-browser fixes
+// -------------------------------------
+
+
+@mixin cross-browser-inline-block {
+  display: inline-block; /* For normal, healthy browsers */
+ 
+  * html & { /* for IE6 */
+    display: inline;
+  }
+ 
+  *+html & { /* for IE7 */
+    display: inline;
+  }
+}

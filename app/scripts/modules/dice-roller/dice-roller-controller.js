@@ -46,7 +46,7 @@ angular.module('stormCrowApp')
 
     $scope.rollTheDice = function() {
 
-      $rootScope.addAlertMessage('', 'Dice rolled - pop pop!');
+      $rootScope.addAlertMessage('notification', 'Dice rolled - pop pop!');
       $rootScope.showLoading('roll-breakdown');
       // resets grandtotal to 0
       var grandtotal = 0;
