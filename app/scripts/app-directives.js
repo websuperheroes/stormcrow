@@ -13,6 +13,12 @@ angular.module('stormCrowApp')
          templateUrl: '/views/modules/tool-bar/tool-bar.html'
       };
    })
+    .directive('turnorder', function() {
+      return {
+         restrict: 'E',
+         templateUrl: '/views/modules/turn-order/turn-order.html'
+      };
+   })
    .directive('eventlog', function() {
       return {
          restrict: 'E',

@@ -5,7 +5,7 @@
                 <span>Pointer</span>
             </a>
         </li>
-        <li>
+        <li ng-show="userIsGM">
             <a href="" class="icon-layers">
                 <span>Layers</span>
             </a>
@@ -15,9 +15,9 @@
                 <span>Draw</span>
             </a>
         </li>
-        <li>
-            <a href="" class="icon-search">
-                <span>Zoom</span>
+        <li ng-repeat="item in toolBar" ng-show="!userIsGM">
+            <a href="" class="icon-{{ item.icon }}">
+                <span>{{ item.name }}</span>
             </a>
         </li>
         <li ng-click="toggleGridLines()">
@@ -25,10 +25,14 @@
                 <span>Ruler</span>
             </a>
         </li>
-        <li>
-            <a href="" class="icon-clock">
+        <li ng-click="toggleTurnOrder()" ng-show="!userIsGM">
+            <a href="" class="icon-clock" title="Turn order">
                 <span>Turn Order</span>
-            </a>
+            </a> <div class="turn-order-panel" ng-show="turnOrderShow">
+
+  <turnorder ng-show="turnOrderShow"></turnorder>
+
+            </div>
         </li>
         <li ng-click="toggleDiceRoller()">
             <a href="" class="icon-dice" title="Roll the dice!">
@@ -38,9 +42,9 @@
                 <diceroller ng-show="diceRollShow"></diceroller>
             </div>
         </li>
-        <li>
-            <a href="" class="icon-question">
-                <span>Help</span>
+        <li ng-click="toggleUserIsGM()">
+            <a href="" ng-class="{'icon-smiley': userIsGM, 'icon-evil': !userIsGM}" title="Toggle DM!">
+                <span>Games Master</span>
             </a>
         </li>
     </ul>

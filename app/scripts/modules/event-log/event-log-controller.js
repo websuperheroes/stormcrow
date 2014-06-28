@@ -24,6 +24,7 @@ angular.module('stormCrowApp')
       };
 
       $rootScope.addToEventFeed(message);
+      $scope.messageText = '';
     };
 
   });

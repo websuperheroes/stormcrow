@@ -32,6 +32,11 @@ $tool-bar-background: $tool-bar-skin;
     margin: 0;
     position: relative;
     display: inline-block;
+    border-left: 1px solid darken($tool-bar-background, 3%);
+    vertical-align: top;
+}
+.tool-bar > ul > li:first-child {
+    border-left: none;
 }
 .tool-bar > ul > li > a {
     display: block;

@@ -23,7 +23,10 @@
    margin-bottom: 0;
    height: 400px;
 }
-
+.panel-event-log ul {
+  overflow: auto;
+  height: 320px;
+}
 .panel-event-log .badge {
   float: right;
 }
