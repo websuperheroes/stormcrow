@@ -139,10 +139,10 @@ angular.module('stormCrowApp')
           // sets character name to lower case for case insensitive matching - grabs first name only
           var lcString2 = $rootScope.allCharacters[i].characterName.split(' ')[0].toLowerCase();
 
-          // if first name matches the whispereee then send the message
+          // if first name matches the whisperee then send the message
           if (lcString == lcString2) {
 
-            user = user + ' whispers to ' + $rootScope.allCharacters[i].characterName.split(' ')[0];
+            character = character + ' whispers to ' + $rootScope.allCharacters[i].characterName.split(' ')[0];
             text = $scope.messageText.split(' ').slice(1).join(' ');
 
             // sets up message to be sent
