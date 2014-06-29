@@ -1,12 +1,12 @@
-// *************************************
-//
-//   Icons
-//
-// *************************************
 
+// *************************************
+//
+//   Typography and icons
+//
+// *************************************
 
 // -------------------------------------
-//   Base
+//   Base icon-font family
 // -------------------------------------
 
 @font-face {
@@ -38,42 +38,17 @@
 // -------------------------------------
 //   Icons
 // -------------------------------------
-.icon-smiley:before {
-    content: "\e60b";
-}
-.icon-evil:before {
-    content: "\e609";
-}
-.icon-evil2:before {
-    content: "\e60a";
-}
-.icon-pencil:before {
-    content: "\f040";
-}
-.icon-layers:before {
-    content: "\e600";
-}
-.icon-clock:before {
-    content: "\e601";
-}
-.icon-search:before {
-    content: "\e602";
-}
-.icon-pointer:before {
-    content: "\e603";
-}
-.icon-dice:before {
-    content: "\e604";
-}
-.icon-busy:before {
-    content: "\e605";
-}
-.icon-brush:before {
-    content: "\e606";
-}
-.icon-question:before {
-    content: "\e607";
-}
-.icon-measure:before {
-    content: "\e608";
-}
+
+.icon-smiley:before { content: "\e60b"; }
+.icon-evil:before { content: "\e609"; }
+.icon-evil2:before { content: "\e60a"; }
+.icon-pencil:before { content: "\f040"; }
+.icon-layers:before { content: "\e600"; }
+.icon-clock:before { content: "\e601"; }
+.icon-search:before { content: "\e602"; }
+.icon-pointer:before { content: "\e603"; }
+.icon-dice:before { content: "\e604"; }
+.icon-busy:before { content: "\e605"; }
+.icon-brush:before { content: "\e606"; }
+.icon-question:before { content: "\e607"; }
+.icon-measure:before { content: "\e608"; }

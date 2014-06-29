@@ -1,33 +1,56 @@
+
+// *************************************
+//
+//   Stormcrow stylesheet
+//   -> Keep it modular & commented
+//   -> use Inbox for quick fixes
+//
+// *************************************
+
 //----------------------------------*\
-// SKIN
+// MIXINS & HELPERS
 //----------------------------------*/
 
-
- // @import 'skins/scifi/controller';
- @import 'skins/fantasy/controller';
- // @import 'skins/default/controller';
+@import 'helpers/_breakpoints';
+@import 'helpers/_fonts';
+@import 'helpers/_utilities';
 
 //----------------------------------*\
-// CONFIG MODULES
+// SETUP & CORE MODULES
 //----------------------------------*/
 
-@import 'defaults/_base';
+// ----- Themes ----- //
+@import 'themes/fantasy/main';
+
+@import 'core/_normalise';
+@import 'core/_settings';
+@import 'core/_base';
+@import 'core/_layout';
+@import 'core/_grid';
+@import 'core/_typography';
 
 
 //----------------------------------*\
-// MODULES
+// OBJECTS & MODULES
 //----------------------------------*/
 
 @import 'modules/_dice-roller';
+@import 'modules/_profile';
+@import 'modules/_notifications';
+@import 'modules/_event-log';
+@import 'modules/_tool-bar';
+@import 'modules/_loading-spinner';
 @import 'modules/_turn-order';
 
 //----------------------------------*\
-// OBJECTS
+// VENDOR AND ACCESSIBILITY
 //----------------------------------*/
 
-@import 'objects/_user-profile';
-@import 'objects/_tool-bar';
-@import 'objects/_event-log';
-@import 'objects/_alert-messages';
-@import 'objects/_loading-spinner';
-@import 'objects/_icons';
+@import 'generic/_external';
+@import 'generic/_print';
+
+// -------------------------------------
+//   INBOX
+// -------------------------------------
+
+@import '_inbox';
