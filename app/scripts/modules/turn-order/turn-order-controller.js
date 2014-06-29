@@ -4,14 +4,18 @@ angular.module('stormCrowApp')
   .controller('TurnOrderCtrl', function($rootScope, $scope) {
 
     // sets turn order and dropdown as empty arrays
-
     $scope.characterOrderDropdown = [];
     $scope.orderOfPlay = [];
 
+    // sorting orders
     $scope.orderOfDropdown = 'characterName';
+    $scope.orderOfPlayOrder = '-initiativeRoll';
 
-     $scope.orderOfPlayOrder = '-initiativeRoll';
 
+    /**
+     * Turn order drop down population function
+     * @No parameters
+     */
     $scope.turnOrderLauncher = function() {
 
       $scope.orderOfPlay = [];
@@ -26,8 +30,8 @@ angular.module('stormCrowApp')
         $scope.characterOrderDropdown.push(character);
       }
       // end of for loop
-
     };
+
 
     /**
      * Add to Turn Order function
@@ -38,30 +42,32 @@ angular.module('stormCrowApp')
         return;
       }
 
-      // add character to order panel      
+      // add character to order panel
       $scope.orderOfPlay.push(characterToAdd);
 
       // remove character from dropdown
-      var index = $scope.characterOrderDropdown.indexOf(characterToAdd)
+      var index = $scope.characterOrderDropdown.indexOf(characterToAdd);
       $scope.characterOrderDropdown.splice(index, 1);
 
     };
+
 
     /**
      * Remove from order function
      * @No parameters
      */
+
     $scope.removeFromOrder = function(characterToRemove) {
 
       // remove character from panel
       var index = $scope.orderOfPlay.indexOf(characterToRemove)
       $scope.orderOfPlay.splice(index, 1);
 
-      // add character to dropdown   
+      // add character to dropdown
       $scope.characterOrderDropdown.push(characterToRemove);
 
     };
-
+    // triggers dropdown population on page load
     $scope.turnOrderLauncher();
 
   });
