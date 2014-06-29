@@ -40,14 +40,14 @@
             </div>
         </div>
     </span>
-    <div class="l-fixed l-vspace">
+    <div class="l-fixed l-vspace" ng-show="!userIsGM">
         <div class="profile">
             <div class="profile__avatar">
                 <img src="/images/users/avatars/{{userCharacter.avatar }}">
             </div>
             <div class="profile__information">
                 <div class="character__name">
-                    <h2>{{ userCharacter.name }}</h2>
+                    <h2>{{ userCharacter.characterName }}</h2>
                 </div>
                 <ul class="profile__attributes">
                     <li class="attributes__bar" title="{{ userCharacter.attributeOne }}/{{ userCharacter.attributeOneMax }}">
