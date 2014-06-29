@@ -3,80 +3,65 @@
 angular.module('stormCrowApp')
   .controller('TurnOrderCtrl', function($rootScope, $scope) {
 
-      // sets turn order as empty array
+    // sets turn order and dropdown as empty arrays
+
+    $scope.characterOrderDropdown = [];
+    $scope.orderOfPlay = [];
+
+    $scope.orderOfDropdown = 'characterName';
+
+     $scope.orderOfPlayOrder = '-initiativeRoll';
+
+    $scope.turnOrderLauncher = function() {
 
       $scope.orderOfPlay = [];
 
-      $scope.turnOrderLauncher = function() {
+      for (var i = 0; i < $rootScope.allCharacters.length; i++) {
 
-        for (var i = 0; i < $rootScope.allCharacters.length; i++) {
+        var character = {
+          id: $rootScope.allCharacters[i].id,
+          characterName: $rootScope.allCharacters[i].characterName,
+          avatarSmall: $rootScope.allCharacters[i].avatarSmall
+        };
+        $scope.characterOrderDropdown.push(character);
+      }
+      // end of for loop
 
-          var character = {
-            id: $rootScope.allCharacters[i].id,
-            characterName: $rootScope.allCharacters[i].characterName,
-            avatarSmall: $rootScope.allCharacters[i].avatarSmall,
-            order: false,
-            initiativeRoll: ''
-          };
-          $scope.orderOfPlay.push(character);
-        }
-        // end of for loop
-        
-        $scope.charToAdd = $scope.orderOfPlay[0];
-
-      };
-
-      /**
-       * Add to Turn Order function
-       * @No parameters
-       */
-      $scope.addToOrder = function(characterToAdd, roll, mod) {
-
-        $scope.charactersShown = true;
-
-        var charToAdd = characterToAdd;
-        for (var i = 0; i < $scope.orderOfPlay.length; i++) {
-          if ($scope.orderOfPlay[i].id == charToAdd.id) {
-            $scope.orderOfPlay[i].order = 1;
-            $scope.orderOfPlay[i].initiativeRoll = roll + mod;
-            $scope.charToAdd = $scope.orderOfPlay[1];
-            return;
-          }
-          // end of for loop
-        }
     };
 
-        /**
-         * Remove from order function
-         * @No parameters
-         */
-        $scope.removeFromOrder = function(characterToRemoveId) {
+    /**
+     * Add to Turn Order function
+     * @No parameters
+     */
+    $rootScope.addToOrder = function(characterToAdd) {
+      if(!characterToAdd) {
+        return;
+      }
 
+      // add character to order panel      
+      $scope.orderOfPlay.push(characterToAdd);
 
-          var charToRemoveId = characterToRemoveId;
-          var numberInOrder = $scope.orderOfPlay.length;
+      // remove character from dropdown
+      var index = $scope.characterOrderDropdown.indexOf(characterToAdd)
+      $scope.characterOrderDropdown.splice(index, 1);
 
-          for (var i = 0; i < $scope.orderOfPlay.length; i++) {
+    };
 
-            if (!$scope.orderOfPlay[i].order) {
-              numberInOrder--;
-            }
+    /**
+     * Remove from order function
+     * @No parameters
+     */
+    $scope.removeFromOrder = function(characterToRemove) {
 
-            if ($scope.orderOfPlay[i].id == charToRemoveId) {
-              $scope.orderOfPlay[i].order = false;
-              $scope.orderOfPlay[i].initiativeRoll = '';
-            }
+      // remove character from panel
+      var index = $scope.orderOfPlay.indexOf(characterToRemove)
+      $scope.orderOfPlay.splice(index, 1);
 
-          }
-          // end of for loop
+      // add character to dropdown   
+      $scope.characterOrderDropdown.push(characterToRemove);
 
+    };
 
-          if (numberInOrder) {
-            $scope.charactersShown = false;
-          }
+    $scope.turnOrderLauncher();
 
-        };
-
-        $scope.turnOrderLauncher();
-
-      });
+  });

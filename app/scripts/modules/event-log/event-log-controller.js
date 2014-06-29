@@ -5,10 +5,7 @@ angular.module('stormCrowApp')
 
 
     $scope.macroChecker = function() {
-
-      if ($scope.messageText == '/i') {
-        console.log('fury');
-      }
+      // code for anything that happens on change in text box
     };
 
     /**
@@ -75,6 +72,37 @@ angular.module('stormCrowApp')
       if ($scope.messageText.substring(0, 2) === '/i') {
 
         var mod = $scope.messageText.split(' ')[1];
+
+        if (mod) {
+          mod = parseInt(mod);
+        } else {
+          mod = 0;
+        }
+        var roll = Math.floor(Math.random() * 20 + 1) + mod;
+
+        var characterToAdd = {
+          id: $rootScope.userCharacter.id,
+          characterName: $rootScope.userCharacter.characterName,
+          avatarSmall: $rootScope.userCharacter.avatar,
+          initiativeRoll: roll
+        };
+
+        $rootScope.addToOrder(characterToAdd);
+
+        message = {
+          type: 'action',
+          user: character,
+          text: 'rolls for initiative',
+          dx: 20,
+          mod: mod,
+          roll: roll,
+          amountOfDice: 1,
+          time: new Date(),
+        };
+
+        $rootScope.addToEventFeed(message);
+        $scope.messageText = '';
+        return;
 
       } // whisper with /w
       else if ($scope.messageText.substring(0, 1) == '@') {

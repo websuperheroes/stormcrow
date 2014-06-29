@@ -26,10 +26,10 @@
    border-radius: 50%;
 }
 .initiative-roll {
-float: right;
-width: 40px;
-display: inline-block;
+  float: right;
+  width: 40px;
+  display: inline-block;
 }
-.initiative-roll input[type=text] {
+.initiative-roll input[type=number] {
    width: 40px;
 }
