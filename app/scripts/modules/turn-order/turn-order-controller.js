@@ -6,6 +6,29 @@ angular.module('stormCrowApp')
     // sets turn order and dropdown as empty arrays
     $scope.characterOrderDropdown = [];
     $scope.orderOfPlay = [];
+    $scope.roundNumber = 1;
+    $scope.turnNumber = 1;
+
+
+
+    $scope.moveTurnOn = function() {
+
+      var idx = $scope.turnNumber;
+
+      if ($scope.turnNumber < $scope.orderOfPlay.length) {
+        $scope.turnNumber++;
+
+        $scope.orderOfPlay[ idx -1].current = false;
+        $scope.orderOfPlay[ idx ].current = true;
+      } else {
+        $scope.roundNumber++;
+        $scope.turnNumber = 1;
+
+        $scope.orderOfPlay[ idx -1].current = false;
+
+        $scope.orderOfPlay[0].current = true;
+      }
+    };
 
     // sorting orders
     $scope.orderOfDropdown = 'characterName';
@@ -25,11 +48,13 @@ angular.module('stormCrowApp')
         var character = {
           id: $rootScope.allCharacters[i].id,
           characterName: $rootScope.allCharacters[i].characterName,
-          avatarSmall: $rootScope.allCharacters[i].avatarSmall
+          avatarSmall: $rootScope.allCharacters[i].avatarSmall,
+          current: false
         };
         $scope.characterOrderDropdown.push(character);
       }
       // end of for loop
+
     };
 
 
@@ -38,7 +63,11 @@ angular.module('stormCrowApp')
      * @No parameters
      */
     $rootScope.addToOrder = function(characterToAdd) {
-      if(!characterToAdd) {
+
+
+
+
+      if (!characterToAdd) {
         return;
       }
 
@@ -49,6 +78,9 @@ angular.module('stormCrowApp')
       var index = $scope.characterOrderDropdown.indexOf(characterToAdd);
       $scope.characterOrderDropdown.splice(index, 1);
 
+if($scope.orderOfPlay.length < 2) {
+$scope.orderOfPlay[ 0 ].current = true;
+}
     };
 
 
@@ -60,13 +92,26 @@ angular.module('stormCrowApp')
     $scope.removeFromOrder = function(characterToRemove) {
 
       // remove character from panel
-      var index = $scope.orderOfPlay.indexOf(characterToRemove)
+      var index = $scope.orderOfPlay.indexOf(characterToRemove);
       $scope.orderOfPlay.splice(index, 1);
 
       // add character to dropdown
       $scope.characterOrderDropdown.push(characterToRemove);
 
     };
+
+
+    /**
+     * Remove from order function
+     * @No parameters
+     */
+
+    $scope.clearOrder = function() {
+      $scope.roundNumber = 1;
+      $scope.turnNumber = 1;
+      $scope.turnOrderLauncher();
+    };
+
     // triggers dropdown population on page load
     $scope.turnOrderLauncher();
 

@@ -19,7 +19,9 @@
   margin-bottom: 0;
   position: relative;
 }
-
+.turn-order-panel  .list-group-item {
+  padding-right: 5px;
+}
 .turn-order-avatar img {
    height: 50px;
    width: 50px;
@@ -27,9 +29,15 @@
 }
 .initiative-roll {
   float: right;
-  width: 40px;
+  width: 70px;
   display: inline-block;
+  margin-top: 12px;
 }
 .initiative-roll input[type=number] {
    width: 40px;
+   margin-right:10px;
+}
+.current-turn {
+  background: lighten($primary-highlight-color, 10%);
+  color: #FFF;
 }
