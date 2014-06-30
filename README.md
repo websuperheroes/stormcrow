@@ -55,6 +55,10 @@ End game being an app for playing D&D and other rpgs online
 * Jon Russell
 * Gary 'Frog' Wood
 
+### Troubleshooting ###
+
+* If you encounter build errors related to SASS compilation (triggered by compass), try updating your sass to 3.3+ and compass versions to the latest releases. 
+
 
 ### Useful Info / Links ###
 
