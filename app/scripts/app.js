@@ -8,7 +8,13 @@ angular.module('stormCrowApp', [
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
+        templateUrl: 'pages/login'
+      })
+      .when('/home', {
         templateUrl: 'pages/home'
+      })
+      .when('/game', {
+        templateUrl: 'pages/game'
       })
       .otherwise({
         redirectTo: '/'
