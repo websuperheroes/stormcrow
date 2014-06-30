@@ -6,7 +6,7 @@ var express = require('express');
  * Main application file
  */
 
-// Set default node environment to development
+// Set default node environment to production
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var config = require('./lib/config/config');
