@@ -52,10 +52,15 @@ angular.module('stormCrowApp')
       $rootScope.showLoading('roll-breakdown');
       // resets grandtotal to 0
       var grandtotal = 0;
+
+
       var rolledby = $rootScope.userCharacter.characterName;
+
+
       // resets current roll
       $scope.currentRollBreakdown = {
-        user: rolledby,
+        character: rolledby,
+        text: 'makes a roll',
         type: 'diceroll',
         time: new Date(),
         grandtotal: grandtotal,
