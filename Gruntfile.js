@@ -1,4 +1,4 @@
-// Generated on 2014-06-23 using generator-angular-fullstack 1.4.3
+// Generated on 2014-07-06 using generator-angular-fullstack 1.4.3
 'use strict';
 
 // # Globbing
@@ -236,6 +236,7 @@ module.exports = function (grunt) {
           src: [
             '<%= yeoman.dist %>/public/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/public/styles/{,*/}*.css',
+            '<%= yeoman.dist %>/public/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
             '<%= yeoman.dist %>/public/styles/fonts/*'
           ]
         }
@@ -300,12 +301,7 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           cwd: '<%= yeoman.app %>/views',
-          src: ['modules/**/*.html', '*.html', 'pages/**/*.html'],
-          dest: '<%= yeoman.dist %>/public/views'
-        },{
-          expand: true,
-          cwd: '<%= yeoman.app %>/views',
-          src: ['*.html'],
+          src: ['*.html', 'partials/**/*.html'],
           dest: '<%= yeoman.dist %>/views'
         }]
       }
@@ -343,9 +339,8 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             'bower_components/**/*',
-            'images/**/*',
-            'fonts/**/*',
-            'icons/**/*'
+            'images/{,*/}*.{webp}',
+            'fonts/**/*'
           ]
         }, {
           expand: true,
