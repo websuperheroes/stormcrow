@@ -4,7 +4,6 @@ angular.module('stormCrowApp')
   .controller('EventLogCtrl', function($rootScope, $scope) {
 
 
-
     /**
      * On change in chat function
      * @No parameters
@@ -41,7 +40,7 @@ angular.module('stormCrowApp')
           name: $rootScope.userCharacter.characterName,
         }, {
           type: 'player',
-          name: $rootScope.userCharacter.playerName,
+          name: $rootScope.currentUser.name,
         }];
       } // GM can send as GM or any character
       else {
@@ -81,7 +80,7 @@ angular.module('stormCrowApp')
       var whisper = false;
       var text = $scope.messageText;
       var character = $scope.sendMessageAs.name;
-      var user = $rootScope.userCharacter.playerName;
+      var user = $rootScope.currentUser.name;
       var message = '';
       var sentAs = $scope.sendMessageAs.type;
 

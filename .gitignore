@@ -8,3 +8,6 @@ heroku
 dist
 /stormcrowapp.sublime-workspace
 /stormcrowapp.sublime-project
+
+/stormcrow.sublime-workspace
+/stormcrow.sublime-project
