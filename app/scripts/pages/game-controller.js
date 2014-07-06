@@ -7,7 +7,7 @@ angular.module('stormCrowApp')
      * Toggle GM / DM function
      * @No Parameters
      */
-    $scope.userIsGM = false;
+    $scope.userIsGM = $rootScope.userCharacter.gm;
 
     $scope.toggleUserIsGM = function() {
 
@@ -72,15 +72,15 @@ angular.module('stormCrowApp')
 
     $scope.getCharacters = function() {
 
-      var getUserCharacterPromise = UserCharacter.getUserCharacter();
+  //    var getUserCharacterPromise = UserCharacter.getUserCharacter();
       var getAllCharactersPromise = UserCharacter.getAllCharacters();
 
       $q.all([
-        getUserCharacterPromise.$promise,
+  //      getUserCharacterPromise.$promise,
         getAllCharactersPromise.$promise
       ]).then(function() {
           // on success
-          $rootScope.userCharacter = getUserCharacterPromise.data;
+   //       $rootScope.userCharacter = getUserCharacterPromise.data;
           $rootScope.allCharacters = getAllCharactersPromise.data;
 
           // triggers send as function for event log

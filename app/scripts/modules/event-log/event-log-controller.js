@@ -3,15 +3,27 @@
 angular.module('stormCrowApp')
   .controller('EventLogCtrl', function($rootScope, $scope) {
 
+
     /**
-     * Event log text field state change function
+     * On change in chat function
      * @No parameters
      */
 
     $scope.macroChecker = function() {
-      // code for anything that happens on change in text box
-    };
+      if (($scope.messageText.substring(0, 1) == '@') && ($scope.messageText.length < 4)) {
+        console.log('triggered');
+        for (var i = 0; i < $rootScope.allCharacters.length; i++) {
 
+          if ($rootScope.allCharacters[i].characterName.substring(0, 2) == $scope.messageText.substring(1, 3)) {
+            $scope.messageText = '@' + $rootScope.allCharacters[i].characterName;
+            return;
+          }
+          //end of if statement
+
+        }
+        // end of for loop
+      }
+    };
 
     /**
      * Event Logger "Send As" function
@@ -28,7 +40,7 @@ angular.module('stormCrowApp')
           name: $rootScope.userCharacter.characterName,
         }, {
           type: 'player',
-          name: $rootScope.userCharacter.playerName,
+          name: $rootScope.currentUser.name,
         }];
       } // GM can send as GM or any character
       else {
@@ -48,7 +60,7 @@ angular.module('stormCrowApp')
         }
         // end of for loop
       }
-      // end of if else
+      // end of if/else
       $scope.sendMessageAs = $scope.sendAsOptions[0];
     };
     // end of eventLoggerSendAs
@@ -68,7 +80,7 @@ angular.module('stormCrowApp')
       var whisper = false;
       var text = $scope.messageText;
       var character = $scope.sendMessageAs.name;
-      var user = $rootScope.userCharacter.playerName;
+      var user = $rootScope.currentUser.name;
       var message = '';
       var sentAs = $scope.sendMessageAs.type;
 
@@ -81,20 +93,19 @@ angular.module('stormCrowApp')
         if (mod) {
           // converts mod to a number
           mod = parseInt(mod);
-        }
-        else {
+        } else {
           mod = 0;
         }
 
         // makes initiative roll
-        var roll = Math.floor(Math.random() * 20 + 1) + mod;
+        var grandtotal = Math.floor(Math.random() * 20 + 1) + mod;
 
-      // sets up model for character
+        // sets up model for character
         var characterToAdd = {
           id: $rootScope.userCharacter.id,
           characterName: $rootScope.userCharacter.characterName,
           avatarSmall: $rootScope.userCharacter.avatar,
-          initiativeRoll: roll
+          initiativeRoll: grandtotal
         };
 
         // adds character to order list
@@ -103,11 +114,12 @@ angular.module('stormCrowApp')
         // sets up model for message in event box
         message = {
           type: 'action',
-          user: character,
+          user: user,
+          character: character,
           text: 'rolls for initiative',
           dx: 20,
           mod: mod,
-          roll: roll,
+          grandtotal: grandtotal,
           amountOfDice: 1,
           time: new Date(),
         };

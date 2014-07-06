@@ -1,9 +1,7 @@
-<h1>Welcome to Storm Crow</h1>
+<h1>{{ currentUser.name }}, welcome to Storm Crow</h1>
 
 <h4>Choose a game to join</h4>
-
 <ul>
-<li><a href="/game">Troglor goes home</a></li>
-<li>Ultimate game</li>
-<li>Neverwinter Nights</li>
+<li ng-repeat="game in currentUser.games">
+Game: <a href="/game" title="{{ game.gameName }}" ng-click="setGame( game )">{{ game.gameName }} </a> | Character: {{ game.characterName }}</li>
 </ul>
