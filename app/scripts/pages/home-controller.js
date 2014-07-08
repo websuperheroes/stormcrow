@@ -3,21 +3,21 @@
 angular.module('stormCrowApp')
   .controller('HomeCtrl', function($rootScope, $scope, Auth, $location, $q, Games) {
 
-    $scope.getCharacterGames = function() {
+    $scope.getUserGames = function() {
 
       var userid = ({
         uid: $rootScope.currentUser.id
       });
 
-      var getAllCharacterGames = Games.getCharacterGames(userid);
+      var getAllUserGames = Games.getUserGames(userid);
 
       $q.all([
 
-        getAllCharacterGames.$promise
+        getAllUserGames.$promise
       ]).then(function() {
           // on success
 
-          $scope.games = getAllCharacterGames.data;
+          $scope.userGames = getAllUserGames.data;
 
         },
         // on error
@@ -28,5 +28,5 @@ angular.module('stormCrowApp')
     };
 
 
-    $scope.getCharacterGames();
+    $scope.getUserGames();
   });

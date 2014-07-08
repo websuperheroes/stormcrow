@@ -9,14 +9,8 @@ angular.module('stormCrowApp')
         });
     })
     .factory('Games', function($resource) {
-      return $resource('/api/:dest', {}, {
-          getCharacterGames: {method: 'GET', params: {dest: 'games'}, isArray: false},
-          getGmGames: {method: 'GET', params: {dest: 'gmGames'}, isArray: false}
+      return $resource('/api/games-api/:dest', {}, {
+          getUserGames: {method: 'GET', params: {dest: 'userGames'}, isArray: false}
         });
-    })
-      .factory('UserCharacter', function($resource) {
-        return $resource('/api/user-character-api/:dest', {}, {
-            getAllCharacters: {method: 'GET', params: {dest: 'allCharacters'}, isArray: false}
-          });
-      });
+    });
 

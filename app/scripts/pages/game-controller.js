@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('stormCrowApp')
-  .controller('GameCtrl', function($rootScope, $scope, $timeout, $q, UserCharacter) {
+  .controller('GameCtrl', function($rootScope, $scope, $timeout) {
 
     /**
      * Toggle GM / DM function
@@ -16,7 +16,7 @@ angular.module('stormCrowApp')
       $rootScope.eventLoggerSendAs();
     };
 
-      /**
+    /**
      * Toggle Turn Order function
      * @No Parameters
      */
@@ -24,7 +24,7 @@ angular.module('stormCrowApp')
     $scope.turnOrderShow = false;
 
     $scope.toggleTurnOrder = function() {
-      $scope.turnOrderShow= $scope.turnOrderShow === false ? true : false;
+      $scope.turnOrderShow = $scope.turnOrderShow === false ? true : false;
     };
 
     /**
@@ -38,7 +38,7 @@ angular.module('stormCrowApp')
       $scope.diceRollShow = $scope.diceRollShow === false ? true : false;
     };
 
-  /**
+    /**
      * Toggle Grid Lines function
      * @No Parameters
      */
@@ -50,17 +50,17 @@ angular.module('stormCrowApp')
     };
 
 
-  // Empty slots for user toolbar
+    // Empty slots for user toolbar
     $scope.toolBar = [{
       icon: '',
       name: ''
-    },{
+    }, {
       icon: '',
       name: ''
-    },{
+    }, {
       icon: '',
       name: ''
-    },{
+    }, {
       icon: '',
       name: ''
     }];
@@ -72,26 +72,12 @@ angular.module('stormCrowApp')
 
     $scope.getCharacters = function() {
 
-  //    var getUserCharacterPromise = UserCharacter.getUserCharacter();
-      var getAllCharactersPromise = UserCharacter.getAllCharacters();
+      $rootScope.allCharacters = $rootScope.currentGame.characters;
 
-      $q.all([
-  //      getUserCharacterPromise.$promise,
-        getAllCharactersPromise.$promise
-      ]).then(function() {
-          // on success
-   //       $rootScope.userCharacter = getUserCharacterPromise.data;
-          $rootScope.allCharacters = getAllCharactersPromise.data;
+      // triggers send as function for event log
+      $rootScope.eventLoggerSendAs();
 
-          // triggers send as function for event log
-          $rootScope.eventLoggerSendAs();
 
-        },
-        // on error
-        function(error) {
-          $rootScope.addAlertMessage('error', 'There was a problem loading characters - try refreshing the page');
-        }
-      );
     };
 
 
