@@ -10,15 +10,16 @@ angular.module('stormCrowApp')
       });
 
       var getAllUserGames = Games.getUserGames(userid);
+      var getAllOpenGames = Games.getOpenGames(userid);
 
       $q.all([
-
+        getAllOpenGames.$promise,
         getAllUserGames.$promise
       ]).then(function() {
           // on success
 
           $scope.userGames = getAllUserGames.data;
-
+          $scope.openGames = getAllOpenGames.data;
         },
         // on error
         function(error) {
