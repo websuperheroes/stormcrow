@@ -25,13 +25,6 @@ angular.module('stormCrowApp')
       }
     };
 
-    /**
-     * Event Logger "Send As" function
-     * @Parameters type and text
-     */
-
-
-
 
     /**
      * Send message function

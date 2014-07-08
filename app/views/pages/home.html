@@ -1,4 +1,10 @@
 <main ng-controller="HomeCtrl">
+
+<ul>
+ <li ng-hide="currentUser" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
+ <li ng-hide="currentUser" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
+<li ng-show="currentUser" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></li>
+ </ul>
 <h1>{{ currentUser.name }}, welcome to Storm Crow</h1>
 
 <h4>Choose a game to join</h4>

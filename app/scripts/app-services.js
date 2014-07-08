@@ -8,6 +8,13 @@ angular.module('stormCrowApp')
           getNoOfDice: {method: 'GET', params: {dest: 'noOfDice'}, isArray: false}
         });
     })
+    .factory('User', function($resource) {
+    return $resource('/api/users/:id', { id: '@id' }, {
+        update: { method: 'PUT', params: {} },
+        get: { method: 'GET', params: { id:'me' }
+      }
+      });
+  })
     .factory('Games', function($resource) {
       return $resource('/api/games-api/:dest', {}, {
           getUserGames: {method: 'GET', params: {dest: 'userGames'}, isArray: false}

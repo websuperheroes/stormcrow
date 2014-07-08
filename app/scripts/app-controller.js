@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('stormCrowApp')
-  .controller('AppCtrl', function($rootScope, $scope) {
+  .controller('AppCtrl', function($rootScope, $scope, $location, Auth) {
 
     $scope.logout = function() {
       Auth.logout()
@@ -48,6 +48,12 @@ angular.module('stormCrowApp')
 
     };
     // end set game
+
+
+    /**
+     * Event Logger "Send As" function
+     * @Parameters type and text
+     */
 
     $rootScope.eventLoggerSendAs = function() {
 
