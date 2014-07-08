@@ -7,7 +7,7 @@ angular.module('stormCrowApp')
      * Toggle GM / DM function
      * @No Parameters
      */
-    $scope.userIsGM = $rootScope.userCharacter.gm;
+
 
     $scope.toggleUserIsGM = function() {
 

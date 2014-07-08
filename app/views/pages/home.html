@@ -1,7 +1,11 @@
+<main ng-controller="HomeCtrl">
 <h1>{{ currentUser.name }}, welcome to Storm Crow</h1>
 
 <h4>Choose a game to join</h4>
+
 <ul>
-<li ng-repeat="game in currentUser.games">
-Game: <a href="/game" title="{{ game.gameName }}" ng-click="setGame( game )">{{ game.gameName }} </a> | Character: {{ game.characterName }}</li>
+<li ng-repeat="g in games">
+Game: <a href="/game" title="{{ g.name }}" ng-click="setGame( g )">{{ g.name }} </a> | Character: <span ng-repeat="char in g.characters"><span ng-show="char._userid == currentUser.id">{{ char.characterName }}</span></span><span ng-show="g.gm == currentUser.id">GM</span></li>
 </ul>
+
+</main>
