@@ -19,7 +19,7 @@ angular.module('stormCrowApp')
       return $resource('/api/games-api/:dest', {}, {
           getUserGames: {method: 'GET', params: {dest: 'userGames'}, isArray: false},
           getOpenGames: {method: 'GET', params: {dest: 'openGames'}, isArray: false},
-          createGame: {method: 'POST', params: {dest: 'createGame'}, isArray: false},
+          createGame: {method: 'POST', params: {dest: 'createGame'}, isArray: false}
 
         });
     });
