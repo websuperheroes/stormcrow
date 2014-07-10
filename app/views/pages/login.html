@@ -1,32 +1,16 @@
-<main ng-controller="LoginCtrl">
+<div ng-controller="LoginCtrl">
+<header>
+  <h1>Stormcrow</h1>
+      <form class="navbar-form navbar-right pull-right" name="form" ng-submit="login(form)" novalidate>
 
-
-
-<div class="row">
-  <div class="col-sm-12">
-    <h1>Login</h1>
-    <p>Accounts are reset on server restart from <code>dummydata.js</code>.</p>
-
-    <p>Test accounts are:</p>
-    <ul>
-    <li><code>davidajberner@gmail.com</code> / <code>test</code></li>
-    <li><code>bnhovde@gmail.com</code> / <code>test</code></li>
-    <li><code>gwood_2k1@gmail.com</code> / <code>test</code></li>
-    </ul>
-  </div>
-  <div class="col-sm-12">
-    <form class="form" name="form" ng-submit="login(form)" novalidate>
-
-      <div class="form-group">
-        <label>Email</label>
-
-        <input type="text" name="email" class="form-control" ng-model="user.email" required>
+      <div class="input-group input-group-sm">
+<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+        <input type="text" name="email" class="form-control" ng-model="user.email" placeholder="Email" required>
       </div>
 
-      <div class="form-group">
-        <label>Password</label>
-
-        <input type="password" name="password" class="form-control" ng-model="user.password" required>
+      <div class="input-group input-group-sm">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+        <input type="password" name="password" class="form-control" ng-model="user.password"  placeholder="Password" required>
       </div>
 
       <div class="form-group has-error">
@@ -36,15 +20,79 @@
         <p class="help-block">{{ errors.other }}</p>
       </div>
 
-      <button type="submit" class="btn btn-lg btn-primary"> Sign in </button>
+      <button type="submit" class="btn btn-sm btn-primary"> Sign in </button>
     </form>
-  </div>
-</div>
+</header>
 
-<div class="row">
-  <div class="col-sm-12">
-    <hr>
-    Not registered? <a href="/signup" class="text-center new-account">Create an account.</a>
-  </div>
+
+<div id="headerwrap" class="header-wrap">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-8 col-lg-offset-2">
+        <h1>No matter your game system</h1>
+        <h2>We've got you covered!</h2>
+        <a href="/signup" class="text-center new-account btn btn-lg btn-primary">Sign Up Free!</a>
+        </div>
+      </div><!-- row -->
+    </div><!-- container -->
+  </div><!-- headerwrap -->
+
+
+  <div id="lg">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-2 col-lg-offset-1">
+          <img src="images/assets/dnd-logo.png" alt="">
+        </div>
+        <div class="col-lg-2">
+          <img src="images/assets/gurps-logo.png" alt="">
+        </div>
+        <div class="col-lg-2">
+          <img src="images/assets/starwars-logo.png" alt="">
+        </div>
+        <div class="col-lg-2">
+          <img src="images/assets/pathfinder-logo.png" alt="">
+        </div>
+        <div class="col-lg-2">
+          <img src="images/assets/vampire-logo.png" alt="">
+        </div>
+      </div><!-- row -->
+    </div><!-- container -->
+  </div><!-- dg -->
+<div class="container w">
+    <div class="row centered">
+      <br><br>
+      <div class="col-lg-4">
+        <i class="fa fa-heart"></i>
+        <h4>From D&amp;D to Pathfinder</h4>
+        <p>Our tools are interchangeable with any game system.  In some form, by injected humour, or randomised words which don't look even believable.  There are many variations of passages of Lorem Ipsum available</p>
+      </div><!-- col-lg-4 -->
+
+      <div class="col-lg-4">
+        <i class="fa fa-laptop"></i>
+        <h4>Play in your browser</h4>
+        <p>Nothing to install or download, literally just login and start playing with your buddies online.  In some form, by injected humour, or randomised words which don't look even believable.</p>
+      </div><!-- col-lg-4 -->
+
+      <div class="col-lg-4">
+        <i class="fa fa-trophy"></i>
+        <h4>As close to P&amp;P as possible</h4>
+        <p>Whilst we can't put you in around a table with your mates to play, this is the next best thing.  A virtual tabletop where you can see and speak to each other whilst adventuring.  In some form, by injected humour.</p>
+      </div><!-- col-lg-4 -->
+    </div><!-- row -->
+    <br>
+    <br>
+  </div><!-- container -->
+
+
+    <p>Accounts are reset on server restart from <code>dummydata.js</code>.</p>
+
+    <p>Test accounts are:</p>
+    <ul>
+    <li><code>davidajberner@gmail.com</code> / <code>test</code></li>
+    <li><code>bnhovde@gmail.com</code> / <code>test</code></li>
+    <li><code>gwood_2k1@gmail.com</code> / <code>test</code></li>
+    </ul>
+
 </div>
-</main>
+<!-- LoginCtrl -->
