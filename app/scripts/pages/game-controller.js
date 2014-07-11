@@ -1,13 +1,12 @@
 'use strict';
 
 angular.module('stormCrowApp')
-  .controller('GameCtrl', function($rootScope, $scope, $timeout) {
+  .controller('GameCtrl', function($rootScope, $scope, $timeout, Games, $q) {
 
     /**
      * Toggle GM / DM function
      * @No Parameters
      */
-
 
     $scope.toggleUserIsGM = function() {
 
@@ -15,6 +14,7 @@ angular.module('stormCrowApp')
 
       $rootScope.eventLoggerSendAs();
     };
+
 
     /**
      * Toggle Turn Order function
@@ -27,6 +27,7 @@ angular.module('stormCrowApp')
       $scope.turnOrderShow = $scope.turnOrderShow === false ? true : false;
     };
 
+
     /**
      * Toggle Dice Roll Widget function
      * @No Parameters
@@ -37,6 +38,7 @@ angular.module('stormCrowApp')
     $scope.toggleDiceRoller = function() {
       $scope.diceRollShow = $scope.diceRollShow === false ? true : false;
     };
+
 
     /**
      * Toggle Grid Lines function
@@ -65,6 +67,7 @@ angular.module('stormCrowApp')
       name: ''
     }];
 
+
     /**
      * Get users character function
      * @No parameters
@@ -72,7 +75,6 @@ angular.module('stormCrowApp')
 
     $scope.getCharacters = function() {
 
-      console.log('im the current game!', $rootScope.currentGame);
 
       if ($rootScope.currentGame.characters) {
 
@@ -177,6 +179,64 @@ angular.module('stormCrowApp')
       $rootScope.diceRoll.splice(index, 1);
     };
 
+
+
+    /**
+     * Trigger for create char modal
+     * @No parameters
+     */
+    $scope.createCharacter = function() {
+      $scope.characterCreationActive = true;
+    };
+
+
+    /**
+     * Save char function inside 'modal'
+     * @No parameters
+     */
+    $scope.saveCharacter = function(form) {
+
+      $scope.submitted = true;
+
+      // sets up info from form about char
+      var charInfo = ([{
+        gameID: $rootScope.currentGame._id
+      }, {
+        _userid: $rootScope.currentUser.id,
+        characterName: $scope.character.characterName,
+        avatar: 'troglor.png',
+        attributeOne: $scope.character.attributeOne,
+        attributeOneMax: $scope.character.attributeOneMax,
+        attributeTwo: $scope.character.attributeTwo,
+        attributeTwoMax: $scope.character.attributeTwoMax,
+        attributeThree: $scope.character.attributeThree
+      }]);
+
+// sends data to endpoint
+      var createCharPromise = Games.createChar(charInfo);
+
+      $q.all([
+        createCharPromise.$promise
+      ])
+        .then(function(response) {
+          // when successful, launches alert box, closes modal
+          $rootScope.addAlertMessage('success', 'Welcome to the game, ' + $scope.character.characterName);
+          $scope.characterCreationActive = false;
+          // sets current char to newly created
+          $rootScope.userCharacter = charInfo[1];
+        })
+        .catch(function(err) {
+          err = err.data;
+          $scope.errors.other = err.message;
+        });
+    };
+
+    // cancels character creation
+    $scope.cancelCreation = function() {
+      $scope.characterCreationActive = false;
+    };
+
+    // launches get characters function
     $scope.getCharacters();
 
   });

@@ -3,6 +3,11 @@
 angular.module('stormCrowApp')
   .controller('AppCtrl', function($rootScope, $scope, $location, Auth) {
 
+      /**
+     * Logout function
+     * @Parameters none
+     */
+
     $scope.logout = function() {
       Auth.logout()
         .then(function() {
@@ -10,49 +15,58 @@ angular.module('stormCrowApp')
         });
     };
 
+
+      /**
+     * Active nav link function
+     * @Parameters none
+     */
     $scope.isActive = function(route) {
       return route === $location.path();
     };
 
-
+      /**
+     * set Game board function
+     * @Parameters game
+     */
     $rootScope.setGame = function(game) {
 
+      // passes in game from home page
       $rootScope.currentGame = game;
 
       // checks if the user is set to gm
       if ($rootScope.currentGame.gm == $rootScope.currentUser.id) {
+
+        // sets user as GM
         $scope.userIsGM = true;
         $rootScope.userCharacter = '';
       } else {
-        $scope.userIsGM = false;
-        // if not loops through characters and finds match
 
+        // makes player not GM
+        $scope.userIsGM = false;
+
+        // checks if any characters exist in game
         if ($rootScope.currentGame.characters.length) {
-          console.log('game has chars');
+        // if they do loops through characters and finds match
           for (var i = 0; i < $rootScope.currentGame.characters.length; i++) {
             if ($rootScope.currentGame.characters[i]._userid == $rootScope.currentUser.id) {
               // sets match to be users character
               $rootScope.userCharacter = $rootScope.currentGame.characters[i];
               return;
             } else {
-              // sets character blank and errors if no match found
+              // sets character blank if they don't exist
               $rootScope.userCharacter = '';
-              console.log('error, user is not a character or the GM?!?');
               return;
             }
             // end if /else statement
           }
           //end for loop
-
         } else {
-
+          // if no chars exist sets user char to blank
           $rootScope.userCharacter = '';
-          console.log('i am the game: ', $rootScope.currentGame);
         }
         //end of game chars if  / else statement
       }
       // end of gm if / else statement
-
     };
     // end set game
 
