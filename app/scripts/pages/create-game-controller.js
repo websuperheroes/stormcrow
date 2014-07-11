@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('stormCrowApp')
-  .controller('CreateGameCtrl', function($scope, Games, $location, $q) {
+  .controller('CreateGameCtrl', function($scope, Games, $location, $q, $rootScope) {
     $scope.game = {};
     $scope.errors = {};
 
@@ -10,7 +10,8 @@ angular.module('stormCrowApp')
 
       var gameInfo = ({
         name: $scope.game.name,
-        lookingForPlayers: $scope.game.lookingForPlayers
+        gm: $rootScope.currentUser.id,
+        lookingForPlayers: $scope.game.lookingForPlayers,
       });
 
       var createGamePromise = Games.createGame(gameInfo);
