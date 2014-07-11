@@ -20,7 +20,7 @@ Game: <a href="/game" title="{{ g.name }}" ng-click="setGame( g )">{{ g.name }} 
 <h4>Looking for players</h4>
 <ul>
 <li ng-repeat="og in openGames">
-Game: <a href="/game" title="{{ g.name }}" ng-click="setGame( g )">{{ og.name }} </a> | Players Needed: {{ og.lookingForPlayers }}</li>
+Game: <a href="/game" title="{{ og.name }}" ng-click="setGame( og )">{{ og.name }} </a> | Players Needed: {{ og.lookingForPlayers }}</li>
 </ul>
 
 </main>

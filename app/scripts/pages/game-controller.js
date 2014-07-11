@@ -72,12 +72,16 @@ angular.module('stormCrowApp')
 
     $scope.getCharacters = function() {
 
-      $rootScope.allCharacters = $rootScope.currentGame.characters;
+      console.log('im the current game!', $rootScope.currentGame);
 
-      // triggers send as function for event log
-      $rootScope.eventLoggerSendAs();
+      if ($rootScope.currentGame.characters) {
 
+        $rootScope.allCharacters = $rootScope.currentGame.characters;
 
+        // triggers send as function for event log
+        $rootScope.eventLoggerSendAs();
+      }
+      // end of if game characters statement
     };
 
 

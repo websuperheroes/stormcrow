@@ -10,7 +10,7 @@
             </div>
         </div>
     </span>
-    <div class="l-fixed l-vspace" ng-show="!userIsGM">
+    <div class="l-fixed l-vspace" ng-show="userCharacter">
         <div class="profile">
             <div class="profile__avatar">
                 <img src="/images/users/avatars/{{userCharacter.avatar }}">
@@ -36,6 +36,23 @@
         <!-- .character-profile-content -->
     </div>
     <!-- .character-profile -->
+
+
+
+<div class="modal-fury" ng-show="!userCharacter && !userIsGM">
+    <h2>You don't have a character buddy!</h2>
+<p>Make a new one</p>
+    <button class="btn btn-primary" ng-click="createCharacter()">Create</button>
+    <p>Or choose from the list of unassigned characters</p>
+    <ul>
+    <li><label><input type="radio" name="chosenCharacter" ng-model="chosenCharacter"> Hector the well endowed</label></li>
+    <li><label><input type="radio" name="chosenCharacter" ng-model="chosenCharacter"> Ming the Merciless</li>
+    <li><label><input type="radio" name="chosenCharacter" ng-model="chosenCharacter"> Fievel</label></li>
+    <li><label><input type="radio" name="chosenCharacter" ng-model="chosenCharacter"> Darg Heeffil</label></li>
+    </ul>
+<button class="btn btn-primary" ng-click="selectCharacter()">Choose</button>
+
+</div>
 
 
         <toolbar></toolbar>

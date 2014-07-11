@@ -12,6 +12,7 @@ angular.module('stormCrowApp')
         name: $scope.game.name,
         gm: $rootScope.currentUser.id,
         lookingForPlayers: $scope.game.lookingForPlayers,
+        characters: []
       });
 
       var createGamePromise = Games.createGame(gameInfo);

@@ -17,34 +17,41 @@ angular.module('stormCrowApp')
 
     $rootScope.setGame = function(game) {
 
-
       $rootScope.currentGame = game;
 
       // checks if the user is set to gm
-      if (game.gm == $rootScope.currentUser.id) {
+      if ($rootScope.currentGame.gm == $rootScope.currentUser.id) {
         $scope.userIsGM = true;
         $rootScope.userCharacter = '';
       } else {
         $scope.userIsGM = false;
         // if not loops through characters and finds match
-        for (var i = 0; i < game.characters.length; i++) {
-          if (game.characters[i]._userid == $rootScope.currentUser.id) {
-            // sets match to be users character
-            $rootScope.userCharacter = game.characters[i];
-            return;
-          } else if (i == game.characters.length - 1) {
-            // sets character blank and errors if no match found
-            $rootScope.userCharacter = '';
 
-            console.log('error, user is not a character or the GM?!?');
-
-            return;
+        if ($rootScope.currentGame.characters.length) {
+          console.log('game has chars');
+          for (var i = 0; i < $rootScope.currentGame.characters.length; i++) {
+            if ($rootScope.currentGame.characters[i]._userid == $rootScope.currentUser.id) {
+              // sets match to be users character
+              $rootScope.userCharacter = $rootScope.currentGame.characters[i];
+              return;
+            } else {
+              // sets character blank and errors if no match found
+              $rootScope.userCharacter = '';
+              console.log('error, user is not a character or the GM?!?');
+              return;
+            }
+            // end if /else statement
           }
-          // end if /else statement
+          //end for loop
+
+        } else {
+
+          $rootScope.userCharacter = '';
+          console.log('i am the game: ', $rootScope.currentGame);
         }
-        //end for loop
+        //end of game chars if  / else statement
       }
-      // end original if / else statement
+      // end of gm if / else statement
 
     };
     // end set game
