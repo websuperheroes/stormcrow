@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('stormCrowApp')
-  .controller('CreateGameCtrl', function($scope, Games, $location) {
+  .controller('CreateGameCtrl', function($scope, Games, $location, $q) {
     $scope.game = {};
     $scope.errors = {};
 
-    $scope.createGame = function(form) {
+    $scope.createGame = function() {
       $scope.submitted = true;
 
       var gameInfo = ({
@@ -13,17 +13,18 @@ angular.module('stormCrowApp')
         lookingForPlayers: $scope.game.lookingForPlayers
       });
 
-      console.log( gameInfo );
-      if (form) { //.$valid
-        Games.createGame( gameInfo )
-          .then(function() {
-            //   game created, redirect to home
-            $location.path('/home');
-          })
-          .catch(function(err) {
-            err = err.data;
-            $scope.errors.other = err.message;
-          });
-      }
+      var createGamePromise = Games.createGame(gameInfo);
+
+      $q.all([
+        createGamePromise.$promise
+      ])
+        .then(function() {
+      //    console.log('game made');
+          $location.path('/home');
+        })
+        .catch(function(err) {
+          err = err.data;
+          $scope.errors.other = err.message;
+        });
     };
   });
