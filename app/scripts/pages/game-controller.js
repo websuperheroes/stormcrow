@@ -88,6 +88,22 @@ angular.module('stormCrowApp')
 
 
     /**
+     * Select Character
+     * @No parameters
+     */
+
+    $scope.selectCharacter = function() {
+
+console.log($scope.chosenCharacter);
+
+      // sets current char to newly created
+      $rootScope.userCharacter = $scope.chosenCharacter;
+
+
+      $rootScope.addAlertMessage('success', 'Welcome to the game, ' + $scope.character.characterName);
+    };
+
+    /**
      * Alert Messages function
      * @Parameters type and text
      */
@@ -197,12 +213,19 @@ angular.module('stormCrowApp')
     $scope.saveCharacter = function(form) {
 
       $scope.submitted = true;
+      var uid = '';
+      if ($scope.userIsGM) {
+        console.log('user is gM');
+        uid = '';
+      } else {
+        uid = $rootScope.currentUser.id;
+      }
 
       // sets up info from form about char
       var charInfo = ([{
         gameID: $rootScope.currentGame._id
       }, {
-        _userid: $rootScope.currentUser.id,
+        _userid: uid,
         characterName: $scope.character.characterName,
         avatar: 'troglor.png',
         attributeOne: $scope.character.attributeOne,
@@ -212,7 +235,7 @@ angular.module('stormCrowApp')
         attributeThree: $scope.character.attributeThree
       }]);
 
-// sends data to endpoint
+      // sends data to endpoint
       var createCharPromise = Games.createChar(charInfo);
 
       $q.all([
@@ -220,10 +243,18 @@ angular.module('stormCrowApp')
       ])
         .then(function(response) {
           // when successful, launches alert box, closes modal
-          $rootScope.addAlertMessage('success', 'Welcome to the game, ' + $scope.character.characterName);
+
+          if ($scope.userIsGM) {
+            $rootScope.addAlertMessage('success', 'Created character: ' + $scope.character.characterName);
+          } else {
+            // if user isn't GM, makes them the new character
+            $rootScope.addAlertMessage('success', 'Welcome to the game, ' + $scope.character.characterName);
+            // sets current char to newly created
+            $rootScope.userCharacter = charInfo[1];
+          }
+          // closes modal
           $scope.characterCreationActive = false;
-          // sets current char to newly created
-          $rootScope.userCharacter = charInfo[1];
+
         })
         .catch(function(err) {
           err = err.data;

@@ -1,7 +1,8 @@
-  <main ng-controller="GameCtrl">
+<main ng-controller="GameCtrl">
 
-  <div ng-show="showGridLines" class="grid-lines"></div>
+    <div ng-show="showGridLines" class="grid-lines"></div>
 
+    <!-- notification alerts -->
     <span class="notifications">
         <div id="alert-messages" class="notifications__message" ng-cloak>
             <div ng-repeat="message in alertMessages" class="message__{{message.type}}">
@@ -10,91 +11,15 @@
             </div>
         </div>
     </span>
-    <div class="l-fixed l-vspace" ng-show="userCharacter">
-        <div class="profile">
-            <div class="profile__avatar">
-                <img src="/images/users/avatars/{{userCharacter.avatar }}">
-            </div>
-            <div class="profile__information">
-                <div class="character__name">
-                    <h2>{{ userCharacter.characterName }}</h2>
-                </div>
-                <ul class="profile__attributes">
-                    <li class="attributes__bar" title="{{ userCharacter.attributeOne }}/{{ userCharacter.attributeOneMax }}">
-                       <span style="width: {{ (userCharacter.attributeOne / userCharacter.attributeOneMax) * 100 }}%"></span>
-                    </li>
-                    <li class="attributes__bar" title="{{ userCharacter.attributeTwo }}/{{ userCharacter.attributeTwoMax }}">
-                        <span style="width: {{ (userCharacter.attributeTwo / userCharacter.attributeTwoMax) * 100 }}%"></span>
-                    </li>
-                    <li class="attributes__standalone">
-                        {{ userCharacter.attributeThree }}
-                    </li>
-                </ul>
-            </div>
-            <!-- .character-information -->
-        </div>
-        <!-- .character-profile-content -->
-    </div>
-    <!-- .character-profile -->
+    <!-- end of notification alerts -->
 
+    <characterprofile></characterprofile>
 
+    <nocharacter></nocharacter>
 
-<div class="modal-fury" ng-show="!userCharacter && !userIsGM && !characterCreationActive">
-    <h2>You don't have a character buddy!</h2>
-<p>Make a new one</p>
-    <button class="btn btn-primary" ng-click="createCharacter()">Create</button>
-    <p>Or choose from the list of unassigned characters</p>
-    <ul>
-    <li><label><input type="radio" name="chosenCharacter" ng-model="chosenCharacter"> Hector the well endowed</label></li>
-    <li><label><input type="radio" name="chosenCharacter" ng-model="chosenCharacter"> Ming the Merciless</li>
-    <li><label><input type="radio" name="chosenCharacter" ng-model="chosenCharacter"> Fievel</label></li>
-    <li><label><input type="radio" name="chosenCharacter" ng-model="chosenCharacter"> Darg Heeffil</label></li>
-    </ul>
-<button class="btn btn-primary" ng-click="selectCharacter()">Choose</button>
+    <createcharacter></createcharacter>
 
-</div>
-
-<div class="modal-fury" ng-show="characterCreationActive">
-    <h2>Create a character</h2>
-
-    <form class="form" name="form" novalidate>
-
-      <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted, 'has-error': form.name.$invalid && submitted }">
-        <label>Character Name</label>
-
-        <input type="text" name="name" class="form-control" ng-model="character.characterName" required>
-       <p class="help-block" ng-show="form.name.$error.required && submitted">
-          A name is required
-        </p>
-      </div>
-      <div class="form-group">
-        <label>Attribute 1</label>
-        <input type="number" class="form-control" ng-model="character.attributeOne">
-      </div>
-      <div class="form-group">
-        <label>Attribute 1 Max</label>
-        <input type="number" class="form-control" ng-model="character.attributeOneMax">
-      </div>
-      <div class="form-group">
-        <label>Attribute 2</label>
-        <input type="number" class="form-control" ng-model="character.attributeTwo">
-      </div>
-      <div class="form-group">
-        <label>Attribute 2 Max</label>
-        <input type="number" class="form-control" ng-model="character.attributeTwoMax">
-      </div>
-      <div class="form-group">
-        <label>Attribute 3</label>
-        <input type="number" class="form-control" ng-model="character.attributeThree">
-      </div>
-
-<button class="btn btn-secondary" ng-click="cancelCreation()">Cancel</button>
-<a class="btn btn-primary" ng-click="saveCharacter()">Save</a>
-</form>
-</div>
-
-
-        <toolbar></toolbar>
+    <toolbar></toolbar>
 
     <div id="roll-breakdown" class="breakdown clearfix">
 
@@ -105,7 +30,7 @@
 
         <div ng-repeat="dr in diceRoll">
             <span class="badge">{{ roll.grandtotal }}</span>
-             <i ng-repeat="item in dr.combo">
+            <i ng-repeat="item in dr.combo">
                     <span ng-show="item.dx !== 100" ng-repeat="roll in item.rolls" class="d{{item.dx}}-{{roll.score}}"></span>
                     <span ng-show="item.dx == 100" ng-repeat="roll in item.rolls" class="d10-{{roll.score}}"></span>
                 </i>
@@ -113,6 +38,12 @@
     </div>
     <!-- breakdown -->
 
-    <eventlog></eventlog>
+    <aside>
 
-    </main>
+        <characterlist></characterlist>
+
+        <eventlog></eventlog>
+
+    </aside>
+
+</main>
