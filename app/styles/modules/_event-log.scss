@@ -12,13 +12,20 @@
 //   Base
 // -------------------------------------
 
-.panel-event-log {
-   position: fixed;
-   bottom: 0;
+aside {
+  position: fixed;
+  width: 300px;
    right: 0;
-   width: 300px;
+   bottom: 0;
+   top: 0;
+}
+
+.panel-event-log {
+  position: absolute;
+  bottom: 0;
    margin-bottom: 0;
    height: 400px;
+   width: 100%;
 }
 .panel-event-log ul {
   overflow: auto;

@@ -10,23 +10,40 @@ End game being an app for playing D&D and other rpgs online
 
 ### How do I get set up? ###
 
-1. Install Node from [Node](http://nodejs.org/)
+1. Install Mongodb:  [OSX](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/) | [Windows](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/)
 
-2. Install [Grunt](http://gruntjs.com/)  globally  from the command line 'npm install -g grunt-cli'
+2. Install Node from [Node](http://nodejs.org/)
 
-3. Install [Bower](http://bower.io/)  globally from the command line 'npm install -g bower'
+3. Install [Grunt](http://gruntjs.com/)  globally  from the command line 'npm install -g grunt-cli'
 
-4. Install latest version of [Ruby](http://rubyinstaller.org/) and then run 'gem install Compass' for [SASS](http://sass-lang.com/)
+4. Install [Bower](http://bower.io/)  globally from the command line 'npm install -g bower'
 
-5. set up your private fork of this repo (see the "working with git" section)
+5. Install latest version of [Ruby](http://rubyinstaller.org/)
 
-6. Navigate to the folder using the command line
+6. We need bleeding edge version of  [SASS](http://sass-lang.com/) with compass so run 'gem install compass --pre'
+- check out this [link](http://stackoverflow.com/questions/22427567/is-sass-3-3-3-compatible-with-compass) if having issues.
 
-7. Run 'npm install'
+7. set up your private fork of this repo (see the "working with git" section)
 
-8. Run 'bower install'
+8. Navigate to the folder using the command line
 
-9. Run 'grunt serve' - good to go!
+9. Run 'npm install'
+
+10. Run 'bower install'
+
+
+
+### How do I work on this bad boy? ###
+
+Once you're all set up following the steps above, you'll need two shells (terminal or commandline) running.  One with Mongodb and one with the app.  Steps below.
+
+1.  To start local mongoDB instance, in a terminal/commandline shell run ‘sudo mongod’ on mac or just 'mongod' if windows
+
+2. Navigate to your local Stormcrow folder  using a second shell.
+
+3. Run 'grunt serve' - good to go!
+
+If it isn't working and you've recently pulled from upstream, try doing npm install or bower install to make sure all dependencies are up to date.
 
 
 ### Working with Git ###
@@ -57,7 +74,7 @@ End game being an app for playing D&D and other rpgs online
 
 ### Troubleshooting ###
 
-* If you encounter build errors related to SASS compilation (triggered by compass), try updating your sass to 3.3+ and compass versions to the latest releases. 
+* If you encounter build errors related to SASS compilation (triggered by compass), try updating your sass to 3.3+ and compass versions to the latest releases.
 
 
 ### Useful Info / Links ###

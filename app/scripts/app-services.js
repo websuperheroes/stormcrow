@@ -8,10 +8,20 @@ angular.module('stormCrowApp')
           getNoOfDice: {method: 'GET', params: {dest: 'noOfDice'}, isArray: false}
         });
     })
-      .factory('UserCharacter', function($resource) {
-        return $resource('/api/user-character-api/:dest', {}, {
-            getUserCharacter: {method: 'GET', params: {dest: 'userCharacter'}, isArray: false},
-            getAllCharacters: {method: 'GET', params: {dest: 'allCharacters'}, isArray: false}
-          });
+    .factory('User', function($resource) {
+    return $resource('/api/users/:id', { id: '@id' }, {
+        update: { method: 'PUT', params: {} },
+        get: { method: 'GET', params: { id:'me' }
+      }
       });
+  })
+    .factory('Games', function($resource) {
+      return $resource('/api/games-api/:dest', {}, {
+          getUserGames: {method: 'GET', params: {dest: 'userGames'}, isArray: false},
+          getOpenGames: {method: 'GET', params: {dest: 'openGames'}, isArray: false},
+          createGame: {method: 'POST', params: {dest: 'createGame'}, isArray: false},
+          createChar: {method: 'POST', params: {dest: 'createCharacter'}, isArray: false}
+
+        });
+    });
 

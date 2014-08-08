@@ -1,7 +1,8 @@
-  <main ng-controller="GameCtrl">
+<main ng-controller="GameCtrl">
 
-  <div ng-show="showGridLines" class="grid-lines"></div>
+    <div ng-show="showGridLines" class="grid-lines"></div>
 
+    <!-- notification alerts -->
     <span class="notifications">
         <div id="alert-messages" class="notifications__message" ng-cloak>
             <div ng-repeat="message in alertMessages" class="message__{{message.type}}">
@@ -10,35 +11,15 @@
             </div>
         </div>
     </span>
-    <div class="l-fixed l-vspace" ng-show="!userIsGM">
-        <div class="profile">
-            <div class="profile__avatar">
-                <img src="/images/users/avatars/{{userCharacter.avatar }}">
-            </div>
-            <div class="profile__information">
-                <div class="character__name">
-                    <h2>{{ userCharacter.characterName }}</h2>
-                </div>
-                <ul class="profile__attributes">
-                    <li class="attributes__bar" title="{{ userCharacter.attributeOne }}/{{ userCharacter.attributeOneMax }}">
-                       <span style="width: {{ (userCharacter.attributeOne / userCharacter.attributeOneMax) * 100 }}%"></span>
-                    </li>
-                    <li class="attributes__bar" title="{{ userCharacter.attributeTwo }}/{{ userCharacter.attributeTwoMax }}">
-                        <span style="width: {{ (userCharacter.attributeTwo / userCharacter.attributeTwoMax) * 100 }}%"></span>
-                    </li>
-                    <li class="attributes__standalone">
-                        {{ userCharacter.attributeThree }}
-                    </li>
-                </ul>
-            </div>
-            <!-- .character-information -->
-        </div>
-        <!-- .character-profile-content -->
-    </div>
-    <!-- .character-profile -->
+    <!-- end of notification alerts -->
 
+    <characterprofile></characterprofile>
 
-        <toolbar></toolbar>
+    <nocharacter></nocharacter>
+
+    <createcharacter></createcharacter>
+
+    <toolbar></toolbar>
 
     <div id="roll-breakdown" class="breakdown clearfix">
 
@@ -49,7 +30,7 @@
 
         <div ng-repeat="dr in diceRoll">
             <span class="badge">{{ roll.grandtotal }}</span>
-             <i ng-repeat="item in dr.combo">
+            <i ng-repeat="item in dr.combo">
                     <span ng-show="item.dx !== 100" ng-repeat="roll in item.rolls" class="d{{item.dx}}-{{roll.score}}"></span>
                     <span ng-show="item.dx == 100" ng-repeat="roll in item.rolls" class="d10-{{roll.score}}"></span>
                 </i>
@@ -57,6 +38,12 @@
     </div>
     <!-- breakdown -->
 
-    <eventlog></eventlog>
+    <aside>
 
-    </main>
+        <characterlist></characterlist>
+
+        <eventlog></eventlog>
+
+    </aside>
+
+</main>
