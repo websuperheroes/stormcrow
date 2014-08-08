@@ -10,7 +10,7 @@ End game being an app for playing D&D and other rpgs online
 
 ### How do I get set up? ###
 
-1. Install Mongodb from [Mongo](http://www.mongodb.org/downloads)
+1. Install Mongodb:  [OSX](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-os-x/) | [Windows](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/)
 
 2. Install Node from [Node](http://nodejs.org/)
 
@@ -18,15 +18,19 @@ End game being an app for playing D&D and other rpgs online
 
 4. Install [Bower](http://bower.io/)  globally from the command line 'npm install -g bower'
 
-5. Install latest version of [Ruby](http://rubyinstaller.org/) and then run 'gem install Compass' for [SASS](http://sass-lang.com/)
+5. Install latest version of [Ruby](http://rubyinstaller.org/)
 
-6. set up your private fork of this repo (see the "working with git" section)
+6. We need bleeding edge version of  [SASS](http://sass-lang.com/) with compass so run 'gem install compass --pre'
+- check out this [link](http://stackoverflow.com/questions/22427567/is-sass-3-3-3-compatible-with-compass) if having issues.
 
-7. Navigate to the folder using the command line
+7. set up your private fork of this repo (see the "working with git" section)
 
-8. Run 'npm install'
+8. Navigate to the folder using the command line
 
-9. Run 'bower install'
+9. Run 'npm install'
+
+10. Run 'bower install'
+
 
 
 ### How do I work on this bad boy? ###
@@ -70,7 +74,7 @@ If it isn't working and you've recently pulled from upstream, try doing npm inst
 
 ### Troubleshooting ###
 
-* If you encounter build errors related to SASS compilation (triggered by compass), try updating your sass to 3.3+ and compass versions to the latest releases. 
+* If you encounter build errors related to SASS compilation (triggered by compass), try updating your sass to 3.3+ and compass versions to the latest releases.
 
 
 ### Useful Info / Links ###
