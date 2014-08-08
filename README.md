@@ -10,23 +10,36 @@ End game being an app for playing D&D and other rpgs online
 
 ### How do I get set up? ###
 
-1. Install Node from [Node](http://nodejs.org/)
+1. Install Mongodb from [Mongo](http://www.mongodb.org/downloads)
 
-2. Install [Grunt](http://gruntjs.com/)  globally  from the command line 'npm install -g grunt-cli'
+2. Install Node from [Node](http://nodejs.org/)
 
-3. Install [Bower](http://bower.io/)  globally from the command line 'npm install -g bower'
+3. Install [Grunt](http://gruntjs.com/)  globally  from the command line 'npm install -g grunt-cli'
 
-4. Install latest version of [Ruby](http://rubyinstaller.org/) and then run 'gem install Compass' for [SASS](http://sass-lang.com/)
+4. Install [Bower](http://bower.io/)  globally from the command line 'npm install -g bower'
 
-5. set up your private fork of this repo (see the "working with git" section)
+5. Install latest version of [Ruby](http://rubyinstaller.org/) and then run 'gem install Compass' for [SASS](http://sass-lang.com/)
 
-6. Navigate to the folder using the command line
+6. set up your private fork of this repo (see the "working with git" section)
 
-7. Run 'npm install'
+7. Navigate to the folder using the command line
 
-8. Run 'bower install'
+8. Run 'npm install'
 
-9. Run 'grunt serve' - good to go!
+9. Run 'bower install'
+
+
+### How do I work on this bad boy? ###
+
+Once you're all set up following the steps above, you'll need two shells (terminal or commandline) running.  One with Mongodb and one with the app.  Steps below.
+
+1.  To start local mongoDB instance, in a terminal/commandline shell run ‘sudo mongod’ on mac or just 'mongod' if windows
+
+2. Navigate to your local Stormcrow folder  using a second shell.
+
+3. Run 'grunt serve' - good to go!
+
+If it isn't working and you've recently pulled from upstream, try doing npm install or bower install to make sure all dependencies are up to date.
 
 
 ### Working with Git ###

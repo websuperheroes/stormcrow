@@ -25,46 +25,6 @@ angular.module('stormCrowApp')
       }
     };
 
-    /**
-     * Event Logger "Send As" function
-     * @Parameters type and text
-     */
-
-    $rootScope.eventLoggerSendAs = function() {
-
-      // if the user isn't the GM they can send as player or character
-      if (!$scope.userIsGM) {
-
-        $scope.sendAsOptions = [{
-          type: 'character',
-          name: $rootScope.userCharacter.characterName,
-        }, {
-          type: 'player',
-          name: $rootScope.currentUser.name,
-        }];
-      } // GM can send as GM or any character
-      else {
-        // adds GM option
-        $scope.sendAsOptions = [{
-          type: 'character',
-          name: 'GM'
-        }];
-        // loops through characters and adds names to GM send as options
-        for (var i = 0; i < $rootScope.allCharacters.length; i++) {
-
-          var character = {
-            type: 'playercharacter',
-            name: $rootScope.allCharacters[i].characterName
-          };
-          $scope.sendAsOptions.push(character);
-        }
-        // end of for loop
-      }
-      // end of if/else
-      $scope.sendMessageAs = $scope.sendAsOptions[0];
-    };
-    // end of eventLoggerSendAs
-
 
     /**
      * Send message function

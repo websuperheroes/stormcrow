@@ -13,6 +13,30 @@ angular.module('stormCrowApp')
          templateUrl: '/views/modules/tool-bar/tool-bar.html'
       };
    })
+    .directive('createcharacter', function() {
+      return {
+         restrict: 'E',
+         templateUrl: '/views/modules/characters/create-character.html'
+      };
+   })
+     .directive('nocharacter', function() {
+      return {
+         restrict: 'E',
+         templateUrl: '/views/modules/characters/no-character.html'
+      };
+   })
+       .directive('characterprofile', function() {
+        return {
+           restrict: 'E',
+           templateUrl: '/views/modules/characters/character-profile.html'
+        };
+     })
+     .directive('characterlist', function() {
+        return {
+           restrict: 'E',
+           templateUrl: '/views/modules/characters/character-list.html'
+        };
+     })
     .directive('turnorder', function() {
       return {
          restrict: 'E',

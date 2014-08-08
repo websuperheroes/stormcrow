@@ -26,6 +26,10 @@ angular.module('stormCrowApp', [
         templateUrl: 'pages/home',
         authenticate: true
       })
+      .when('/create-game', {
+        templateUrl: 'pages/create-game',
+        authenticate: true
+      })
       .when('/game', {
         templateUrl: 'pages/game',
         authenticate: true
