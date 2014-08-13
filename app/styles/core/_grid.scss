@@ -1,4 +1,4 @@
-    
+
 
 // *************************************
 //
@@ -12,3 +12,17 @@
 //   Variables
 // -------------------------------------
 
+
+// Dave custom grid :S
+
+@mixin cells($span) {
+  width: (8.33333333 * $span) * 1%;
+  display: inline-block;
+  vertical-align: top;
+}
+@mixin push($span) {
+   margin-left: (8.33333333 * $span) * 1%;
+}
+@mixin pull($span) {
+   margin-right: -((8.33333333 * $span) * 1%);
+}

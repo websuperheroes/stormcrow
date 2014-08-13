@@ -1,17 +1,13 @@
 <div ng-controller="LoginCtrl">
-<header>
-  <h1>Stormcrow</h1>
-      <form class="navbar-form navbar-right pull-right" name="form" ng-submit="login(form)" novalidate>
+<header class="clear">
+  <h1 class="pull-left">Stormcrow</h1>
+      <form class="inline-form pull-right" name="form" ng-submit="login(form)" novalidate>
+      <ul class="inline-form-item">
+        <li class="inline-form-item"><label for="email-field">Email</label><input id="email-field" type="text" name="email" class="form-control" ng-model="user.email" placeholder="Email" required></li>
+        <li class="inline-form-item"><label for="password-field">Password</label><input id="password-field" type="password" name="password" class="form-control" ng-model="user.password"  placeholder="Password" required></li>
+    </ul>
+      <button type="submit"  class="inline-form-item"> Sign in </button>
 
-      <div class="input-group input-group-sm">
-<span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-        <input type="text" name="email" class="form-control" ng-model="user.email" placeholder="Email" required>
-      </div>
-
-      <div class="input-group input-group-sm">
-        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-        <input type="password" name="password" class="form-control" ng-model="user.password"  placeholder="Password" required>
-      </div>
 
       <div class="form-group has-error">
         <p class="help-block" ng-show="form.email.$error.required && form.password.$error.required && submitted">
@@ -20,79 +16,69 @@
         <p class="help-block">{{ errors.other }}</p>
       </div>
 
-      <button type="submit" class="btn btn-sm btn-primary"> Sign in </button>
     </form>
 </header>
 
 
 <div id="headerwrap" class="header-wrap">
-    <div class="container">
-      <div class="row centered">
-        <div class="col-lg-8 col-lg-offset-2">
+
         <h1>No matter your game system</h1>
         <h2>We've got you covered!</h2>
-        <a href="/signup" class="text-center new-account btn btn-lg btn-primary">Sign Up Free!</a>
-        </div>
-      </div><!-- row -->
-    </div><!-- container -->
-  </div><!-- headerwrap -->
+        <a href="/signup" class="button">Sign Up Free!</a>
+
+  </div>
+  <!-- .header-wrap -->
 
 
-  <div id="lg">
-    <div class="container">
-      <div class="row centered">
-        <div class="col-lg-2 col-lg-offset-1">
+
+    <ul class="game-system-strip">
+
+        <li class="game-system">
           <img src="images/assets/dnd-logo.png" alt="">
-        </div>
-        <div class="col-lg-2">
+        </li><!--
+        --><li class="game-system">
           <img src="images/assets/gurps-logo.png" alt="">
-        </div>
-        <div class="col-lg-2">
+        </li><!--
+        --><li class="game-system">
           <img src="images/assets/starwars-logo.png" alt="">
-        </div>
-        <div class="col-lg-2">
+        </li><!--
+        --><li class="game-system">
           <img src="images/assets/pathfinder-logo.png" alt="">
-        </div>
-        <div class="col-lg-2">
+        </li><!--
+        --><li class="game-system">
           <img src="images/assets/vampire-logo.png" alt="">
-        </div>
-      </div><!-- row -->
-    </div><!-- container -->
-  </div><!-- dg -->
-<div class="container w">
-    <div class="row centered">
-      <br><br>
-      <div class="col-lg-4">
-        <i class="fa fa-heart"></i>
+        </li>
+    </ul>
+    <!-- .game-system-strip -->
+
+<ul class="information-panels">
+<li class="information-panel">
         <h4>From D&amp;D to Pathfinder</h4>
         <p>Our tools are interchangeable with any game system.  In some form, by injected humour, or randomised words which don't look even believable.  There are many variations of passages of Lorem Ipsum available</p>
-      </div><!-- col-lg-4 -->
-
-      <div class="col-lg-4">
+      </li><!--
+--><li class="information-panel">
         <i class="fa fa-laptop"></i>
         <h4>Play in your browser</h4>
         <p>Nothing to install or download, literally just login and start playing with your buddies online.  In some form, by injected humour, or randomised words which don't look even believable.</p>
-      </div><!-- col-lg-4 -->
-
-      <div class="col-lg-4">
-        <i class="fa fa-trophy"></i>
+              </li><!--
+        --><li class="information-panel">
         <h4>As close to P&amp;P as possible</h4>
         <p>Whilst we can't put you in around a table with your mates to play, this is the next best thing.  A virtual tabletop where you can see and speak to each other whilst adventuring.  In some form, by injected humour.</p>
-      </div><!-- col-lg-4 -->
-    </div><!-- row -->
-    <br>
-    <br>
-  </div><!-- container -->
+      </li>
+      </ul>
 
 
-    <p>Accounts are reset on server restart from <code>dummydata.js</code>.</p>
+<div class="dummy-login-data">
+    <p>Accounts are reset on server restart from <span>dummydata.js</span></p>
 
-    <p>Test accounts are:</p>
+  <p>Password it always <span>test</span>.  Login emails are:</p>
     <ul>
-    <li><code>davidajberner@gmail.com</code> / <code>test</code></li>
-    <li><code>bnhovde@gmail.com</code> / <code>test</code></li>
-    <li><code>gwood_2k1@gmail.com</code> / <code>test</code></li>
+    <li>davidajberner@gmail.com</li>
+    <li>bnhovde@gmail.com</li>
+    <li>gwood_2k1@gmail.com</li>
     </ul>
+</div>
+<!-- .dummy-login-data -->
 
 </div>
 <!-- LoginCtrl -->

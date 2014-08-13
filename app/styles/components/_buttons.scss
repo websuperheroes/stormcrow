@@ -1,0 +1,40 @@
+
+// *************************************
+//
+//   Buttons
+//
+// *************************************
+
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$button-color: #085BB3;
+$button-height: 30px;
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.button,
+button {
+   border: none;
+  background: rgba(255,255,255,0.1);
+  color: rgba(0,0,0,0.7);
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.1);
+  text-decoration: none;
+  border: solid 1px rgba(20,20,20,1);
+  border-radius: 10px;
+  box-shadow: inset 1px 1px 1px rgba(255,255,255,0.05), inset 0 0 35px rgba(0,0,0,0.6), 0 5px 5px -4px rgba(0,0,0,0.8);
+    padding: 10px 30px;
+}
+button:hover {
+  background: rgba(255,255,255,0.09);
+}
+
+button:active {
+  position: relative;
+  top: 5px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.4), inset 0 0 35px rgba(0,0,0,0.6), 0 1px 1px rgba(255,255,255,0.1), inset 0 6px 4px rgba(0,0,0,0.4);
+}
