@@ -1,0 +1,41 @@
+
+// *************************************
+//
+//   Forms
+//
+// *************************************
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+input[type=email],
+input[type=password],
+input[type=text] {
+  border: none;
+  padding: 2px 5px;
+    border: 1px solid #CCC;
+
+}
+label {
+  font-weight: 700;
+
+    width: 100px;
+    display: inline-block;
+}
+
+// -------------------------------------
+//  Block Forms
+// -------------------------------------
+.block-form li {
+  margin-bottom: 5px;
+}
+// -------------------------------------
+//   Inline Forms
+// -------------------------------------
+
+.inline-form-item {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20px;
+}

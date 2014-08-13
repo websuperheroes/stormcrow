@@ -6,6 +6,12 @@
 //
 // *************************************
 
+.pull-left {
+  float: left;
+}
+.pull-right {
+  float: right;
+}
 
 // -------------------------------------
 //   HSL Lightness variations for hover/active states
@@ -56,11 +62,11 @@
 
 @mixin cross-browser-inline-block {
   display: inline-block; /* For normal, healthy browsers */
- 
+
   * html & { /* for IE6 */
     display: inline;
   }
- 
+
   *+html & { /* for IE7 */
     display: inline;
   }

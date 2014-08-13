@@ -11,20 +11,7 @@
 //   Something something
 // -------------------------------------
 
-// -------------------------------------
-//   Panels
-// -------------------------------------
 
-.panel-heading a {
-    float: right;
-    text-decoration: none;
-}
-.panel-footer {
-    padding-bottom: 0;
-}
-.panel p {
-    margin: 15px;
-}
 .grid-lines {
   background: url(../images/assets/grid-tile.png) repeat;
   position: absolute;
@@ -46,12 +33,6 @@
 
 .navbar-form input {
   width: 200px !important;
-}
-
-.header-wrap {
-  background: url(../images/assets/orc.png) no-repeat 98% 95% #CCC;
-  text-align: center;
-  padding: 100px 0;
 }
 
 .modal-fury {
