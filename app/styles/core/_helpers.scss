@@ -1,0 +1,59 @@
+
+// *************************************
+//
+//   Helpers
+//   -> Various helper classes
+//
+// *************************************
+
+
+// -------------------------------------
+//   Image utilities
+// -------------------------------------
+
+.responsive-img {
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+// -------------------------------------
+//   Clearfix
+// -------------------------------------
+
+.clearfix {
+    &:after{
+        content:"";
+        display:table;
+        clear:both;
+    }
+}
+
+
+// -------------------------------------
+//   Add/remove floats
+// -------------------------------------
+
+.float--right   { float:right!important; }
+.float--left    { float:left !important; }
+.float--none    { float:none !important; }
+
+
+// -------------------------------------
+//   Text alignment
+// ------------------------------------
+
+.text--left     { text-align:left  !important; }
+.text--center   { text-align:center!important; }
+.text--right    { text-align:right !important; }
+
+
+// -------------------------------------
+//   Font weights
+// -------------------------------------
+
+.weight--light      { font-weight:300!important; }
+.weight--normal     { font-weight:400!important; }
+.weight--semibold   { font-weight:600!important; }
