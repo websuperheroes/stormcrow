@@ -20,7 +20,7 @@ End game being an app for playing D&D and other rpgs online
 
 5. Install latest version of [Ruby](http://rubyinstaller.org/)
 
-6. We need bleeding edge version of  [SASS](http://sass-lang.com/) with compass so run 'gem install compass --pre'
+6. We need bleeding edge version of [SASS](http://sass-lang.com/) with compass so run 'gem install compass --pre'
 - check out this [link](http://stackoverflow.com/questions/22427567/is-sass-3-3-3-compatible-with-compass) if having issues.
 
 7. set up your private fork of this repo (see the "working with git" section)
@@ -37,7 +37,7 @@ End game being an app for playing D&D and other rpgs online
 
 Once you're all set up following the steps above, you'll need two shells (terminal or commandline) running.  One with Mongodb and one with the app.  Steps below.
 
-1.  To start local mongoDB instance, in a terminal/commandline shell run ‘sudo mongod’ on mac or just 'mongod' if windows
+1. To start local mongoDB instance, in a terminal/commandline shell run ‘sudo mongod’ on mac or just 'mongod' if windows
 
 2. Navigate to your local Stormcrow folder  using a second shell.
 
@@ -63,6 +63,16 @@ If it isn't working and you've recently pulled from upstream, try doing npm inst
 7. code review will be completed, if necessary, fix code and return to step 6
 
 8. if your code is accepted, it will be pulled to the dev branch of the upstream repo for futher testing and eventual integration in the release/master branch.
+
+
+### Working with SASS ###
+
+#### The Folder structure ####
+
+* core - Contains a base set of partials that will be part of every project. These include the grid system, normalise, layout and helper classes/functions
+* Foundation - This lays on top of core, adding project specific modifiers and config files containing project-wide variables.
+* modules - This holds the projects modules. These are independent and reusable chunks of code that can be reused throughout the project and other projects.
+* vendor - External libraries
 
 
 ### Who do I talk to? ###

@@ -1,84 +1,73 @@
+@import
 
 // *************************************
 //
 //   Stormcrow stylesheet
 //   -> Keep it modular & commented
 //   -> use Inbox for quick fixes
+//   -> see readme for help
 //
 // *************************************
 
-@import
-//----------------------------------*\
-// MIXINS & HELPERS
-//----------------------------------*/
-
- 'helpers/_breakpoints',
-'helpers/_fonts',
-'helpers/_utilities',
 
 //----------------------------------*\
-// SETUP & CORE MODULES
+// THEMES (temp - will be in own css)
 //----------------------------------*/
 
-'core/_normalise',
-'core/_settings',
-'core/_base',
-'core/_layout',
-'core/_grid',
-'core/_typography',
-
-//----------------------------------*\
-// COMPONENTS
-//----------------------------------*/
-
-'components/_buttons',
-'components/_forms',
+"themes/fantasy/main",
 
 
 //----------------------------------*\
-// SITE
+// CORE (Not to be modified)
 //----------------------------------*/
 
-// ----- Layout ----- //
-'site/layout/_header',
+// ----- Mixins ----- //
+"core/_utilities",
 
-// ----- Pages ----- //
-'site/pages/_login',
-
-
-
-//----------------------------------*\
-// GAME
-//----------------------------------*/
-
-// ----- Themes ----- //
-'game/themes/fantasy/main',
-
-// ----- Base ----- //
-'game/game-base',
-
-
-// ----- Modules ----- //
-'game/modules/_dice-roller',
-'game/modules/_profile',
-'game/modules/_notifications',
-'game/modules/_event-log',
-'game/modules/_tool-bar',
-'game/modules/_loading-spinner',
-'game/modules/_turn-order',
-
-
-
-
-//----------------------------------*\
-// VENDOR AND ACCESSIBILITY
-//----------------------------------*/
-
-'generic/_external',
-'generic/_print',
+"core/_normalise",
+"core/_helpers",
+"core/_layout",
+"core/_grid",
+"core/_print",
 
 // -------------------------------------
-//   INBOX
+//   FOUNDATION
 // -------------------------------------
 
-'_inbox';
+// ----- Mixins ----- //
+"foundation/_typography",
+"foundation/_breakpoints",
+
+"foundation/_config",
+"foundation/_base",
+"foundation/_game-base",
+
+
+//----------------------------------*\
+// OBJECTS & MODULES
+//----------------------------------*/
+
+"modules/game/_dice-roller",
+"modules/game/_profile",
+"modules/game/_notifications",
+"modules/game/_event-log",
+"modules/game/_tool-bar",
+"modules/game/_loading-spinner",
+"modules/game/_turn-order",
+
+"modules/app/_buttons",
+"modules/app/_forms",
+"modules/app/_header",
+"modules/app/_login",
+
+// -------------------------------------
+//   VENDOR
+// -------------------------------------
+
+"vendor/_external",
+
+// -------------------------------------
+//   Inbox
+// -------------------------------------
+
+"_inbox";
