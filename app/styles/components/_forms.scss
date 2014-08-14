@@ -19,8 +19,6 @@ input[type=text] {
 }
 label {
   font-weight: 700;
-
-    width: 100px;
     display: inline-block;
 }
 
@@ -34,8 +32,7 @@ label {
 //   Inline Forms
 // -------------------------------------
 
-.inline-form-item {
+.inline-form__item {
   display: inline-block;
   vertical-align: top;
-  margin-right: 20px;
 }
