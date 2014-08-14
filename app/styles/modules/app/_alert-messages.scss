@@ -1,0 +1,53 @@
+
+// *************************************
+//
+//   Alert Messages
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$panel-primary-color: #E7C6A5; // light brown
+$panel-secondary-color: #654321; // dark brown
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+%alert-box {
+    color:#555;
+    border-radius:10px;
+    font-family:Tahoma,Geneva,Arial,sans-serif;font-size:11px;
+    padding:10px 10px 10px 36px;
+    margin:10px;
+
+      span {
+          font-weight: 700;
+          text-transform:uppercase;
+      }
+
+}
+
+.error-message {
+    @extend %alert-box;
+    background:#ffecec url('images/error.png') no-repeat 10px 50%;
+    border:1px solid #f5aca6;
+}
+.success-message {
+  @extend %alert-box;
+    background:#e9ffd9 url('images/success.png') no-repeat 10px 50%;
+    border:1px solid #a6ca8a;
+}
+.warning-message {
+  @extend %alert-box;
+    background:#fff8c4 url('images/warning.png') no-repeat 10px 50%;
+    border:1px solid #f2c779;
+}
+.notice-message {
+  @extend %alert-box;
+    background:#e3f7fc url('images/notice.png') no-repeat 10px 50%;
+    border:1px solid #8ed9f6;
+}

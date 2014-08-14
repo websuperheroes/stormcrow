@@ -81,27 +81,3 @@ $l-base-whitespace-big: 8% 5%;
 // -------------------------------------
 
 .l-fixed  { position: fixed; }
-
-
-
-// -------------------------------------
-//   Utilities
-// -------------------------------------
-
-// ----- Clearfix ----- //
-
-%clear {
-  content:' ';
-  display:table;
-}
-
-%group {
-  *zoom:1;
-  &:before {
-    @extend %clear;
-  }
-  &:after {
-    @extend %clear;
-    clear:both;
-  }
-}

@@ -1,7 +1,7 @@
 
 // *************************************
 //
-//   Header
+//   Containers
 //
 // *************************************
 
@@ -9,16 +9,22 @@
 //   Base
 // -------------------------------------
 
-header{
+.container {
+   @extend %global-width;
+   @extend %group;
     padding: 10px;
 }
 
-.header-wrap {
-  border: 1px solid #000;
-  border-left: none;
-  border-right: none;
+.hero {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
   background: url(../images/assets/orc.png) no-repeat 98% 95% #141414;
   text-align: center;
   padding: 100px 0;
   color: #CCC;
+}
+
+.info-box {
+   @include cells(4);
+   padding: 10px 30px;
 }
