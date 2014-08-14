@@ -25,12 +25,12 @@ $l-base-whitespace-big: 8% 5%;
 
 // unlimited widths
 .l-full-width { max-width: auto; }
-.l-half-width { 
-  max-width: $l-block-max-width-half; 
+.l-half-width {
+  max-width: $l-block-max-width-half;
   margin: 0 auto;
 }
-.l-third-width { 
-  max-width: $l-block-max-width-third; 
+.l-third-width {
+  max-width: $l-block-max-width-third;
   margin: 0 auto;
 }
 
@@ -94,7 +94,8 @@ $l-base-whitespace-big: 8% 5%;
   content:' ';
   display:table;
 }
-.clear {
+
+%group {
   *zoom:1;
   &:before {
     @extend %clear;

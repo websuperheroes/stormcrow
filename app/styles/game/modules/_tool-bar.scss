@@ -1,6 +1,6 @@
 // *************************************
 //
-//   Sidebar
+//   Toolbar
 //
 // *************************************
 
@@ -15,16 +15,22 @@ $tool-bar-background: $tool-bar-skin;
 // -------------------------------------
 
 .tool-bar {
+    @include innershadows;
     position: fixed;
     bottom: 0;
     left: 30%;
-}
-.tool-bar > ul {
     background: $tool-bar-background;
     padding: 0;
     margin: 0;
+    border-radius: 6px 6px 0 0;
 }
-.tool-bar > ul > li {
+
+
+// -------------------------------------
+//   Items
+// -------------------------------------
+
+.tool-bar__item {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -33,10 +39,10 @@ $tool-bar-background: $tool-bar-skin;
     border-left: 1px solid darken($tool-bar-background, 3%);
     vertical-align: top;
 }
-.tool-bar > ul > li:first-child {
+.tool-bar .tool-bar__item:first-child {
     border-left: none;
 }
-.tool-bar > ul > li > a {
+.tool-bar__item > a {
     display: block;
     text-align: center;
     font-size: 16px;
@@ -46,9 +52,9 @@ $tool-bar-background: $tool-bar-skin;
     height: 40px;
     color: #FFF;
 }
-.tool-bar li a:hover {
+.tool-bar__item > a:hover {
    text-decoration: none;
 }
-.tool-bar li a span {
+.tool-bar__item > a span {
    display: none;
 }

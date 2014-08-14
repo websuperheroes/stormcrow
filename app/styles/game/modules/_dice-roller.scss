@@ -36,10 +36,14 @@
         background-position: center top;
         margin-bottom: 10px;
     }
-    p { margin-left: 0; }
+    p {
+        margin-left: 0;
+    }
 }
 
-.hidden-roll { color: #CCC; }
+.hidden-roll {
+    color: #CCC;
+}
 
 // -------------------------------------
 //   Dice rolls
