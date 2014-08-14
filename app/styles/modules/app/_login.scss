@@ -12,25 +12,10 @@
 .game-system-strip {
    padding: 20px;
 }
-
 .game-system {
    @include cells(2.3);
 }
 .game-system img {
    display: block;
    margin: 0 auto;
-}
-
-.information-panel {
-   @include cells(4);
-   padding: 10px 30px;
-}
-
-.dummy-login-data {
-    @include cells(4);
-    @include push(4);
-}
-
-.dummy-login-data span {
-   color: pink;
 }

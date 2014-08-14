@@ -40,12 +40,20 @@
 
 "foundation/_config",
 "foundation/_base",
-"foundation/_game-base",
+
 
 
 //----------------------------------*\
 // OBJECTS & MODULES
 //----------------------------------*/
+
+"modules/app/_alert-messages",
+"modules/app/_buttons",
+"modules/app/_forms",
+"modules/app/_containers",
+"modules/app/_login",
+"modules/app/_panels",
+
 
 "modules/game/_dice-roller",
 "modules/game/_profile",
@@ -55,10 +63,7 @@
 "modules/game/_loading-spinner",
 "modules/game/_turn-order",
 
-"modules/app/_buttons",
-"modules/app/_forms",
-"modules/app/_header",
-"modules/app/_login",
+
 
 // -------------------------------------
 //   VENDOR
