@@ -1,7 +1,7 @@
 
 // *************************************
 //
-//   Game Base
+//   Panels
 //
 // *************************************
 
@@ -14,7 +14,7 @@ $panel-secondary-color: #654321; // dark brown
 
 
 // -------------------------------------
-//   Panels
+//   Base
 // -------------------------------------
 
 .panel {
@@ -23,6 +23,7 @@ $panel-secondary-color: #654321; // dark brown
    border: none;
 }
 
+// ----- Panel Header ----- //
 
 .panel__header {
    @extend %group;
@@ -32,14 +33,21 @@ $panel-secondary-color: #654321; // dark brown
    padding: 3px 10px;
 }
 
-.panel__heading a {
+.panel__header a {
     float: right;
     text-decoration: none;
 }
+
+// ----- Panel Footer----- //
+
 .panel__footer {
      @extend %group;
      padding: 3px 10px;
 }
+
+// ----- Panel Typography ----- //
+
+
 .panel p {
     margin: 15px;
 }

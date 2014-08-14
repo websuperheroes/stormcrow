@@ -23,14 +23,30 @@
 //   Clearfix
 // -------------------------------------
 
-.clearfix {
-    &:after{
-        content:"";
-        display:table;
-        clear:both;
-    }
+%clear {
+  content:' ';
+  display:table;
+}
+%group {
+  *zoom:1;
+  &:before {
+    @extend %clear;
+  }
+  &:after {
+    @extend %clear;
+    clear:both;
+  }
 }
 
+// -------------------------------------
+//   Global Width
+// -------------------------------------
+
+%global-width {
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
+}
 
 // -------------------------------------
 //   Add/remove floats
