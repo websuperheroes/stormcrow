@@ -19,22 +19,37 @@ $button-height: 30px;
 
 .button,
 button {
-   border: none;
-  background: rgba(255,255,255,0.1);
-  color: rgba(0,0,0,0.7);
-  text-shadow: 1px 1px 0 rgba(255,255,255,0.1);
+  @include innershadows;
+  background: $button-color;
   text-decoration: none;
-  border: solid 1px rgba(20,20,20,1);
   border-radius: 10px;
-  box-shadow: inset 1px 1px 1px rgba(255,255,255,0.05), inset 0 0 35px rgba(0,0,0,0.6), 0 5px 5px -4px rgba(0,0,0,0.8);
-    padding: 10px 30px;
+  padding: 2px 12px;
+  display: inline-block;
 }
+.button:hover,
 button:hover {
-  background: rgba(255,255,255,0.09);
+  background: darken($button-color, 10%);
+  color: #CCC;
 }
-
+.button:active,
 button:active {
   position: relative;
-  top: 5px;
+  top: 2px;
   box-shadow: inset 0 1px 1px rgba(0,0,0,0.4), inset 0 0 35px rgba(0,0,0,0.6), 0 1px 1px rgba(255,255,255,0.1), inset 0 6px 4px rgba(0,0,0,0.4);
+}
+.button.close,
+button.close {
+border: none;
+background: none;
+box-shadow: none;
+}
+.button.close:hover,
+.button.close:active,
+button.close:hover,
+button.close:active {
+   position: static;
+   border: none;
+   background: none;
+   box-shadow: none;
+   color: #222;
 }

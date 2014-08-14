@@ -1,7 +1,7 @@
 <div class="modal-fury" ng-show="!userCharacter && !userIsGM && !characterCreationActive">
     <h2>You don't have a character buddy!</h2>
     <p>Make a new one</p>
-    <button class="btn btn-primary" ng-click="createCharacter()">Create</button>
+    <button ng-click="createCharacter()">Create</button>
     <p>Or choose from the list of unassigned characters</p>
     <ul>
         <li ng-repeat="item in currentGame.characters">
@@ -9,5 +9,5 @@
                 <input type="radio" name="chosenChar" ng-value="item" ng-model="chosenCharacter">{{ item.characterName }}</label>
         </li>
     </ul>
-    <button class="btn btn-primary" ng-click="selectCharacter()">Choose</button>
+    <button ng-click="selectCharacter()">Choose</button>
 </div>

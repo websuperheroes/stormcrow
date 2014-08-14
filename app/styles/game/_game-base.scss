@@ -6,16 +6,51 @@
 // *************************************
 
 // -------------------------------------
+//   Variables
+// -------------------------------------
+
+$panel-primary-color: #E7C6A5; // light brown
+$panel-secondary-color: #654321; // dark brown
+
+
+// -------------------------------------
 //   Panels
 // -------------------------------------
 
-.panel-heading a {
+.panel {
+   @include innershadows;
+   background: $panel-primary-color;
+   border: none;
+}
+
+
+.panel__header {
+   @extend %group;
+   @include innershadows;
+   background: $panel-secondary-color;
+   border-radius: 5px 5px 0 0;
+   padding: 3px 10px;
+}
+
+.panel__heading a {
     float: right;
     text-decoration: none;
 }
-.panel-footer {
-    padding-bottom: 0;
+.panel__footer {
+     @extend %group;
+     padding: 3px 10px;
 }
 .panel p {
     margin: 15px;
+}
+
+
+// -------------------------------------
+//   Panel Lists
+// -------------------------------------
+
+.panel-list__item {
+  @extend %group;
+   border-bottom: 1px solid darken($panel-primary-color, 5%);
+   padding: 5px 10px;
 }
