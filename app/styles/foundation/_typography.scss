@@ -39,6 +39,20 @@
 //   Icons
 // -------------------------------------
 
+i span {
+ @extend %hidden;
+}
+
+.icon-eye:before {
+    content: "\e60c";
+}
+.icon-eye-closed:before {
+    content: "\e60d";
+}
+.icon-add:before {
+    content: "\e60e";
+}
+
 .icon-smiley:before { content: "\e60b"; }
 .icon-evil:before { content: "\e609"; }
 .icon-evil2:before { content: "\e60a"; }

@@ -1,37 +1,28 @@
 <main ng-controller="SettingsCtrl">
-<div class="row">
-  <div class="col-sm-12">
+
     <h1>Change Password</h1>
-  </div>
-  <div class="col-sm-12">
-    <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
 
-      <div class="form-group">
-        <label>Current Password</label>
+    <form class="block-form" name="form" ng-submit="changePassword(form)" novalidate>
+        <ul>
+            <li class="form__item">
+                <label>Current Password</label>
 
-        <input type="password" name="password" class="form-control" ng-model="user.oldPassword"
-               mongoose-error/>
-        <p class="help-block" ng-show="form.password.$error.mongoose">
-            {{ errors.other }}
-        </p>
-      </div>
+                <input type="password" name="password" class="form-control" ng-model="user.oldPassword" mongoose-error/>
+                <p class="help-block" ng-show="form.password.$error.mongoose">
+                    {{ errors.other }}
+                </p>
+            </li>
+            <li class="form__item">
+                <label>New Password</label>
 
-      <div class="form-group">
-        <label>New Password</label>
-
-        <input type="password" name="newPassword" class="form-control" ng-model="user.newPassword"
-               ng-minlength="3"
-               required/>
-        <p class="help-block"
-           ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
-          Password must be at least 3 characters.
-        </p>
-      </div>
-
-      <p class="help-block"> {{ message }} </p>
-
-      <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
+                <input type="password" name="newPassword" class="form-control" ng-model="user.newPassword" ng-minlength="3" required/>
+                <p class="help-block" ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
+                    Password must be at least 3 characters.
+                </p>
+            </li>
+        </ul>
+        <p class="help-block">{{ message }}</p>
+        <button type="submit">Save changes</button>
     </form>
-  </div>
-</div>
+
 </main>

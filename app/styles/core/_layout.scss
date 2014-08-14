@@ -1,0 +1,107 @@
+
+// *************************************
+//
+//   Layout
+//   -> Site-wide Margin, Padding, Sizing
+//
+// *************************************
+
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+
+$l-block-max-width: 1400px; // Max width the block will expand to
+$l-block-max-width-half: 960px; // Max width the small block will expand to
+$l-block-max-width-third: 600px; // Max width the small block will expand to
+$l-base-whitespace: 5%;
+$l-base-whitespace-big: 8% 5%;
+
+
+// -------------------------------------
+//   Global page widths
+// -------------------------------------
+
+// unlimited widths
+.l-full-width { max-width: auto; }
+.l-half-width {
+  max-width: $l-block-max-width-half;
+  margin: 0 auto;
+}
+.l-third-width {
+  max-width: $l-block-max-width-third;
+  margin: 0 auto;
+}
+
+
+// -------------------------------------
+//   Block Spacing
+// -------------------------------------
+
+// Vertical spacing
+
+%l-vspace, .l-vspace {
+
+    padding: $l-base-whitespace;
+}
+
+%l-vspace-big, .l-vspace-big {
+
+    padding: $l-base-whitespace-big;
+}
+
+// Horizontal spacing
+
+%l-hspace, .l-hspace {
+
+  padding: $l-base-whitespace;
+  * { padding: 0 $l-base-whitespace * 2; }
+  .button { margin: 2% 10%; }
+}
+
+
+// -------------------------------------
+//   Blocks sizing
+// -------------------------------------
+
+
+.l-block  {
+  [class*='col-']:not(.no-padding) {
+  }
+}
+
+.l-block  {
+  max-width: $l-block-max-width;
+  margin: 0 auto;
+}
+
+// -------------------------------------
+//   Block Positioning
+// -------------------------------------
+
+.l-fixed  { position: fixed; }
+
+
+
+// -------------------------------------
+//   Utilities
+// -------------------------------------
+
+// ----- Clearfix ----- //
+
+%clear {
+  content:' ';
+  display:table;
+}
+
+%group {
+  *zoom:1;
+  &:before {
+    @extend %clear;
+  }
+  &:after {
+    @extend %clear;
+    clear:both;
+  }
+}

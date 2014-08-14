@@ -38,6 +38,8 @@
    margin-right:10px;
 }
 .current-turn {
-  background: lighten($primary-highlight-color, 10%);
+  @include innershadows;
+  border: none;
+  background: darken($panel-primary-color, 2%);
   color: #FFF;
 }

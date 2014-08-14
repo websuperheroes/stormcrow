@@ -1,28 +1,25 @@
 <main ng-controller="CreateGameCtrl">
 
-<div class="row">
-  <div class="col-sm-12">
-    <h1>Create Game</h1>
-  </div>
-  <div class="col-sm-12">
-    <form class="form" name="form" ng-submit="createGame(form)" novalidate>
 
-      <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted, 'has-error': form.name.$invalid && submitted }">
+    <h1>Create Game</h1>
+
+    <form class="block-form" name="form" ng-submit="createGame(form)" novalidate>
+<ul>
+      <li class="form__item" ng-class="{ 'has-success': form.name.$valid && submitted, 'has-error': form.name.$invalid && submitted }">
         <label>Game Name</label>
 
         <input type="text" name="name" class="form-control" ng-model="game.name" required>
        <p class="help-block" ng-show="form.name.$error.required && submitted">
           A name is required
         </p>
-      </div>
-
-      <div class="form-group">
+      </li>
+      <li class="form__item">
         <label>Number of players needed</label>
 
         <input type="number" class="form-control" ng-model="game.lookingForPlayers">
-      </div>
-
-      <button type="submit" class="btn btn-lg btn-primary"> Create </button>
+  </li>
+  </ul>
+      <button type="submit">Create</button>
     </form>
   </div>
 </div>
