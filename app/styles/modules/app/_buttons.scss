@@ -19,7 +19,7 @@ $button-height: 30px;
 
 .button,
 button {
-  @include innershadows;
+  @extend %inner-shadows;
   background: $button-color;
   text-decoration: none;
   border-radius: 10px;
@@ -39,9 +39,9 @@ button:active {
 }
 .button.close,
 button.close {
-border: none;
-background: none;
-box-shadow: none;
+  border: none;
+  background: none;
+  box-shadow: none;
 }
 .button.close:hover,
 .button.close:active,
