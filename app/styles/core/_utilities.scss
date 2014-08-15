@@ -61,7 +61,7 @@
 // -------------------------------------
 
 
-@mixin cross-browser-inline-block {
+%cross-browser-inline-block {
     display: inline-block; /* For normal, healthy browsers */
 
     * html & { /* for IE6 */
