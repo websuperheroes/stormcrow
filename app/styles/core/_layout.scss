@@ -12,72 +12,79 @@
 // -------------------------------------
 
 
-$l-block-max-width: 1400px; // Max width the block will expand to
-$l-block-max-width-half: 960px; // Max width the small block will expand to
-$l-block-max-width-third: 600px; // Max width the small block will expand to
+$l-block-max-width: 1400px;
+$l-block-max-width-medium: 960px;
+$l-block-max-width-narrow: 600px;
 $l-base-whitespace: 5%;
-$l-base-whitespace-big: 8% 5%;
 
 
 // -------------------------------------
-//   Global page widths
+//   Block sections width limitations
 // -------------------------------------
 
-// unlimited widths
-.l-full-width { max-width: auto; }
-.l-half-width {
-  max-width: $l-block-max-width-half;
-  margin: 0 auto;
-}
-.l-third-width {
-  max-width: $l-block-max-width-third;
-  margin: 0 auto;
+.l-block  {
+
+    width: 100%;
+    margin: 0 auto;
+
+    &--full { max-width: $l-block-max-width; }
+    &--half { max-width: $l-block-max-width-medium; }
+    &--third { max-width: $l-block-max-width-narrow; }
 }
 
 
 // -------------------------------------
-//   Block Spacing
+//   Element Positioning
 // -------------------------------------
 
-// Vertical spacing
+.l-fixed  { 
+    position: fixed; 
 
-%l-vspace, .l-vspace {
+    &--l { left: 0; }
+    &--r { right: 0; }
+    &--t { top: 0; }
+    &--b { bottom: 0; }
+}
 
+.l-float  { 
+
+    &--l { float: left; }
+    &--r { float: right; }
+}
+
+
+// -------------------------------------
+//   Flexbox
+// -------------------------------------
+
+.l-flex {
+    display: flex;
+
+    &--vcenter { align-items: center; }
+    &--hcenter { justify-content: center; }
+
+    &__item { flex: 1; }
+    &__item--left { justify-content: flex-start; }
+    &__item--right { justify-content: flex-end; }
+}
+
+
+// -------------------------------------
+//   Block spacing
+// -------------------------------------
+
+// Horizontal and Vertical spacing
+%l-pad, .l-pad {
     padding: $l-base-whitespace;
 }
 
-%l-vspace-big, .l-vspace-big {
-
-    padding: $l-base-whitespace-big;
+// Vertical spacing
+%l-vpad, .l-vpad {
+    padding: $l-base-whitespace 0;
 }
 
 // Horizontal spacing
-
-%l-hspace, .l-hspace {
-
-  padding: $l-base-whitespace;
-  * { padding: 0 $l-base-whitespace * 2; }
-  .button { margin: 2% 10%; }
+%l-hpad, .l-hpad {
+    padding: 0 $l-base-whitespace;
 }
 
-
-// -------------------------------------
-//   Blocks sizing
-// -------------------------------------
-
-
-.l-block  {
-  [class*='col-']:not(.no-padding) {
-  }
-}
-
-.l-block  {
-  max-width: $l-block-max-width;
-  margin: 0 auto;
-}
-
-// -------------------------------------
-//   Block Positioning
-// -------------------------------------
-
-.l-fixed  { position: fixed; }
