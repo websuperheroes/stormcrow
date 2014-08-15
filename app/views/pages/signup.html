@@ -2,9 +2,9 @@
 
     <h1>Sign up</h1>
 
-    <form class="block-form" name="form" ng-submit="register(form)" novalidate>
+    <form class="signup-form" name="form" ng-submit="register(form)" novalidate>
         <ul>
-            <li class="block-form__item" ng-class="{ 'has-success': form.name.$valid && submitted,
+            <li class="form__item" ng-class="{ 'has-success': form.name.$valid && submitted,
                                           'has-error': form.name.$invalid && submitted }">
                 <label><span class="label">Name</span>
                 <input type="text" name="name" ng-model="user.name" required>
@@ -14,7 +14,7 @@
                 </p>
             </li>
 
-            <li class="block-form__item" ng-class="{ 'has-success': form.email.$valid && submitted,
+            <li class="form__item" ng-class="{ 'has-success': form.email.$valid && submitted,
                                           'has-error': form.email.$invalid && submitted }">
                 <label><span class="label">Email</span>
                 <input type="email" name="email" ng-model="user.email" required mongoose-error/>
@@ -30,7 +30,7 @@
                 </p>
             </li>
 
-            <li class="block-form__item" ng-class="{ 'has-success': form.password.$valid && submitted,
+            <li class="form__item" ng-class="{ 'has-success': form.password.$valid && submitted,
                                           'has-error': form.password.$invalid && submitted }">
                 <label><span class="label">Password</span>
 
@@ -44,7 +44,7 @@
                 </p>
             </li>
         </ul>
-        <button type="submit">Sign up</button>
+        <button type="submit" class="form__item">Sign up</button>
     </form>
 
  <p>Have an account? <a href="/login">Log in.</a></p>
