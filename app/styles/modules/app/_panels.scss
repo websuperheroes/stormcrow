@@ -45,6 +45,10 @@ $panel-secondary-color: #654321; // dark brown
      padding: 3px 10px;
 }
 
+.panel__footer button {
+  float: right;
+}
+
 // ----- Panel Typography ----- //
 
 
@@ -61,4 +65,8 @@ $panel-secondary-color: #654321; // dark brown
   @extend %group;
    border-bottom: 1px solid darken($panel-primary-color, 5%);
    padding: 5px 10px;
+}
+
+.panel-list__actions {
+  float: right;
 }

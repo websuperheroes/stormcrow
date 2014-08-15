@@ -45,6 +45,11 @@
     color: #CCC;
 }
 
+.diceroll-form span {
+    @extend %visually-hidden;
+}
+
+
 // -------------------------------------
 //   Dice rolls
 // -------------------------------------
@@ -110,5 +115,3 @@
 .d20-18 { background: url(../images/dice/d20-18.png) no-repeat; }
 .d20-19 { background: url(../images/dice/d20-19.png) no-repeat; }
 .d20-20 { background: url(../images/dice/d20-20.png) no-repeat; }
-
-
