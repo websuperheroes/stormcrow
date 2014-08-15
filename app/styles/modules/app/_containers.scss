@@ -24,7 +24,10 @@
   color: #CCC;
 }
 
+.info-box-wrapper {
+  @extend %grid--wide;
+}
 .info-box {
+   @extend %grid__item;
    @include cells(4);
-   padding: 10px 30px;
 }

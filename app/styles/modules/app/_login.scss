@@ -10,10 +10,12 @@
 // -------------------------------------
 
 .game-system-strip {
+   @extend %grid--rev;
    padding: 20px;
 }
 .game-system {
-   @include cells(2.3);
+   @extend %grid__item;
+   @include cells(3);
 }
 .game-system img {
    display: block;
