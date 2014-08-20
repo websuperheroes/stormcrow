@@ -6,11 +6,38 @@ angular.module('stormcrowApp', [
   'ngSanitize',
   'btford.socket-io',
   'ui.router',
-  'ui.bootstrap'
+  'angularMoment'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
-      .otherwise('/');
+      .when('/', {
+        templateUrl: 'admin/login'
+      })
+      .when('/login', {
+        templateUrl: 'admin/login'
+      })
+      .when('/signup', {
+        templateUrl: 'admin/signup'
+      })
+      .when('/settings', {
+        templateUrl: 'admin/settings',
+        authenticate: true
+      })
+      .when('/home', {
+        templateUrl: 'home',
+        authenticate: true
+      })
+      .when('/create-game', {
+        templateUrl: 'create-game',
+        authenticate: true
+      })
+      .when('/game', {
+        templateUrl: 'game',
+        authenticate: true
+      })
+      .otherwise({
+        redirectTo: '/'
+      });
 
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
