@@ -12,7 +12,7 @@
       "js": true,
       "html": true,
       "sass": true,
-      "uirouter": true,
+      "ngroute": true,
       "bootstrap": false,
       "socketio": true,
       "mongoose": true,
@@ -30,7 +30,7 @@
     "serviceDirectory": "client/app/",
     "basePath": "client",
     "filters": [
-      "uirouter"
+      "ngroute"
     ],
     "extensions": [
       "js",

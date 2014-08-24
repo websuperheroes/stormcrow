@@ -4,37 +4,12 @@ angular.module('stormcrowApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
+  'ngRoute',
   'btford.socket-io',
-  'ui.router',
-  'angularMoment'
+  'ui.bootstrap'
 ])
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
-    $urlRouterProvider
-      .when('/', {
-        templateUrl: 'admin/login'
-      })
-      .when('/login', {
-        templateUrl: 'admin/login'
-      })
-      .when('/signup', {
-        templateUrl: 'admin/signup'
-      })
-      .when('/settings', {
-        templateUrl: 'admin/settings',
-        authenticate: true
-      })
-      .when('/home', {
-        templateUrl: 'home',
-        authenticate: true
-      })
-      .when('/create-game', {
-        templateUrl: 'create-game',
-        authenticate: true
-      })
-      .when('/game', {
-        templateUrl: 'game',
-        authenticate: true
-      })
+  .config(function ($routeProvider, $locationProvider, $httpProvider) {
+    $routeProvider
       .otherwise({
         redirectTo: '/'
       });
@@ -71,7 +46,7 @@ angular.module('stormcrowApp', [
 
   .run(function ($rootScope, $location, Auth) {
     // Redirect to login if route requires auth and you're not logged in
-    $rootScope.$on('$stateChangeStart', function (event, next) {
+    $rootScope.$on('$routeChangeStart', function (event, next) {
       Auth.isLoggedInAsync(function(loggedIn) {
         if (next.authenticate && !loggedIn) {
           $location.path('/login');
