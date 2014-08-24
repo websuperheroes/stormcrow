@@ -15,7 +15,7 @@ $tool-bar-background: $tool-bar-skin;
 // -------------------------------------
 
 .tool-bar {
-    @include innershadows;
+    @extend %inner-shadows;
     position: fixed;
     bottom: 0;
     left: 30%;

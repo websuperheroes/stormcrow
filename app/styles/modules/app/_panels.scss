@@ -18,16 +18,17 @@ $panel-secondary-color: #654321; // dark brown
 // -------------------------------------
 
 .panel {
-   @include innershadows;
+   @extend %inner-shadows;
    background: $panel-primary-color;
    border: none;
+   position: relative;
 }
 
 // ----- Panel Header ----- //
 
 .panel__header {
    @extend %group;
-   @include innershadows;
+   @extend %inner-shadows;
    background: $panel-secondary-color;
    border-radius: 5px 5px 0 0;
    padding: 3px 10px;
@@ -43,6 +44,10 @@ $panel-secondary-color: #654321; // dark brown
 .panel__footer {
      @extend %group;
      padding: 3px 10px;
+}
+
+.panel__footer button {
+  float: right;
 }
 
 // ----- Panel Typography ----- //
@@ -61,4 +66,8 @@ $panel-secondary-color: #654321; // dark brown
   @extend %group;
    border-bottom: 1px solid darken($panel-primary-color, 5%);
    padding: 5px 10px;
+}
+
+.panel-list__actions {
+  float: right;
 }

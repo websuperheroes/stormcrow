@@ -9,29 +9,14 @@
 //   Base
 // -------------------------------------
 
-input[type=email],
-input[type=password],
-input[type=text] {
-  border: none;
-  padding: 2px 5px;
-  border: 1px solid #CCC;
-
-}
-.label{
-  font-weight: 700;
-}
-
-
-// -------------------------------------
-//  Block Forms
-// -------------------------------------
-
-.block-form__item {
+.form__item,
+%form__item {
   margin-bottom: 5px;
-}
-.block-form__item .label {
-  display: inline-block;
- width: 100px;
+
+    .label {
+      display: inline-block;
+      width: 100px;
+  }
 }
 
 
@@ -39,28 +24,57 @@ input[type=text] {
 //   Inline Forms
 // -------------------------------------
 
+%inline-form {
 
-// ----- Base----- //
+    > ul {
+      display: inline-block;
+      vertical-align: top;
+  }
 
-.inline-form > ul {
-   display: inline-block;
-    vertical-align: top;
+  // ----- Inline form items ----- //
+  .form__item {
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 30px;
+
+      .label {
+        width: auto;
+        margin-right: 5px;
+      }
+
+      &:first-child {
+          margin-left: 0;
+        }
+  }
+
+    // ----- Buttons ----- //
+    button.form__item {
+          margin-left: 10px;
+  }
 }
 
-// -----Inline form groups ----- //
+ // ----- Multi select controls ----- //
 
-.inline-form__item {
-  display: inline-block;
-  vertical-align: top;
-  margin-left: 30px;
+%multi-select-control {
+
+   .form__item {
+      margin-left: 5px;
+    }
+
 }
-ul .inline-form__item:first-child {
-  margin-left: 0;
+
+// -------------------------------------
+//   Input and labels
+// -------------------------------------
+
+input[type=number],
+input[type=email],
+input[type=password],
+input[type=text] {
+  border: none;
+  padding: 2px 5px;
+  border: 1px solid #CCC;
 }
-
-
-// ----- Inline form buttons ----- //
-
-button.inline-form__item {
-  margin-left: 10px;
+.label{
+  font-weight: 700;
 }

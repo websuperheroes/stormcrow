@@ -1,46 +1,53 @@
 <div ng-controller="LoginCtrl">
-    <header class="container">
-        <h1 class="float--left">
-            Stormcrow
-        </h1>
-        <form class="inline-form float--right" name="form" ng-submit="login(form)" novalidate="">
-            <ul>
-                <li class="inline-form__item">
-                    <label for="email-field"><span class="label">Email</span> <input id="email-field" type="text" name="email" ng-model="user.email" placeholder="Email" required=""></label>
-                </li>
-                <li class="inline-form__item">
-                    <label for="password-field"><span class="label">Password</span> <input id="password-field" type="password" name="password" ng-model="user.password" placeholder="Password" required=""></label>
-                </li>
-            </ul><button type="submit" class="inline-form__item">Sign in</button>
-            <div class="has-error" ng-show="form.email.$error.required &amp;&amp; form.password.$error.required &amp;&amp; submitted">
-                <p class="error-message"></p>
-                <ul>
-                    <li class="form__item">Please enter your email and password.
-                        <p class="error-message"></p>
-                    </li>
-                    <li class="form__item">{{ errors.other }}
-                    </li>
-                </ul>
-            </div>
-        </form>
-    </header>
+  <header class="container">
+    <h1 class="logo">Stormcrow</h1>
+      <form  class="login-form" name="form" ng-submit="login(form)" novalidate>
+        <ul>
+          <li class="form__item">
+            <label for="email-field"><span class="label">Email</span>
+              <input id="email-field" type="text" name="email" ng-model="user.email" placeholder="Email" required>
+            </label>
+          </li>
+          <li class="form__item">
+            <label for="password-field"><span class="label">Password</span>
+            <input id="password-field" type="password" name="password" ng-model="user.password"  placeholder="Password" required>
+            </label>
+          </li>
+    </ul>
 
-    <div class="hero">
+      <button type="submit"  class="form__item">Sign in</button>
+
+      <div class="has-error" ng-show="form.email.$error.required && form.password.$error.required && submitted">
+        <p class="error-message">
+           Please enter your email and password.
+        </p>
+        <p class="error-message">{{ errors.other }}</p>
+      </div>
+
+    </form>
+</header>
+
+
+<div class="hero">
+
         <h1>No matter your game system</h1>
         <h2>We've got you covered!</h2>
         <a href="/signup" class="button">Sign Up Free!</a>
-    </div>
-    <!-- .hero -->
+
+  </div>
+  <!-- .hero -->
+
+
 
     <ul class="game-system-strip">
         <li class="game-system">
-            <img src="images/assets/dnd-logo.png" alt="">
+          <img src="images/assets/dnd-logo.png" alt="">
         </li><!--
         --><li class="game-system">
-            <img src="images/assets/gurps-logo.png" alt="">
+          <img src="images/assets/gurps-logo.png" alt="">
         </li><!--
         --><li class="game-system">
-            <img src="images/assets/starwars-logo.png" alt="">
+          <img src="images/assets/starwars-logo.png" alt="">
         </li><!--
         --><li class="game-system">
           <img src="images/assets/vampire-logo.png" alt="">
@@ -48,34 +55,22 @@
     </ul>
     <!-- .game-system-strip -->
 
-    <div class="container">
-        <ul class="info-box-wrapper">
-            <li class="info-box">
-                <h4>From D&amp;D to Pathfinder</h4>
-                <p>Our tools are interchangeable with any game system.  In some form, by injected humour, or randomised words which don't look even believable.  There are many variations of passages of Lorem Ipsum available</p>
-            </li><!--
-            --><li class="info-box">
-                <h4>Play in your browser</h4>
-                <p>Nothing to install or download, literally just login and start playing with your buddies online.  In some form, by injected humour, or randomised words which don't look even believable.</p>
-            </li><!--
-            --><li class="info-box">
-                <h4>As close to P&amp;P as possible</h4>
-                <p>Whilst we can't put you in around a table with your mates to play, this is the next best thing.  A virtual tabletop where you can see and speak to each other whilst adventuring.  In some form, by injected humour.</p>
-                <div class="info-box-wrapper">
-                    <div class="info-box">
-                        I'm a nested grid item
-                    </div><!--
-                  --><div class="info-box">
-                        Yeah me too
-                    </div><!--
-                  --><div class="info-box">
-                        Ah I wish you'd all just nest off and leave me in peace.
-                    </div>
-                </div>
-            </li>
-        </ul>
-    </div>
+<div class="container">
+<ul class="info-box-wrapper">
+    <li class="info-box">
+        <h4>From D&amp;D to Pathfinder</h4>
+        <p>Our tools are interchangeable with any game system.  In some form, by injected humour, or randomised words which don't look even believable.  There are many variations of passages of Lorem Ipsum available</p>
+      </li><!--
+--><li class="info-box">
+        <h4>Play in your browser</h4>
+        <p>Nothing to install or download, literally just login and start playing with your buddies online.  In some form, by injected humour, or randomised words which don't look even believable.</p>
+              </li><!--
+        --><li class="info-box">
+        <h4>As close to P&amp;P as possible</h4>
+        <p>Whilst we can't put you in around a table with your mates to play, this is the next best thing.  A virtual tabletop where you can see and speak to each other whilst adventuring.  In some form, by injected humour.</p>
+      </li>
+    </ul>
+</div>
 
 </div>
 <!-- LoginCtrl -->
-

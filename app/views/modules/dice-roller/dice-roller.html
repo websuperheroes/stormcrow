@@ -1,35 +1,34 @@
 <div ng-controller="DiceRollerCtrl" stop-event='click'>
 
     <div class="panel">
-        <!-- Default panel contents -->
         <div class="panel__header">
             <strong>Dice Selection</strong>
             <i class="icon-add pull-right" style="cursor: pointer;" ng-click="addMoreDice()"><span>Add more dice</span></i>
         </div>
-        <!-- .panel-heading -->
         <ul class="panel-list">
-
             <li class="panel-list__item" ng-repeat="item in getNumber(numberOfDiceCombos) track by $index" id="dice-row{{$index}}">
 
-                <form class="inline-form" role="form">
-                    <ul class="inline-form__item">
-                        <li class="inline-form__item">
-                            <label for="amount"></label>
-                            <select name="amount" class="amount" ng-model="numberOfTypeOfDiceOption[$index]" ng-options="n.value as n.value for n in numberOfTypeOfDiceOptions">
-
-                            </select>
+                <form class="diceroll-form" role="form">
+                    <ul>
+                        <li class="form__item">
+                            <label for="amount-of-dice"><span class="label">Amount of dice</span>
+                                <select id="amount-of-dice" name="amount-of-dice" ng-model="numberOfTypeOfDiceOption[$index]" ng-options="n.value as n.value for n in numberOfTypeOfDiceOptions">
+                                </select>
+                            </label>
                         </li><!--
-                  --><li class="inline-form__item">
-                            <label for="dice" class="hidden">Dice</label>
-                            <select name="dice" class="dice form-control" ng-model="diceOption[$index]" ng-options="d.value as d.sides for d in diceOptions"></select>
+                  --><li class="form__item">
+                            <label for="dice-sides"><span class="label">Dice Sides</span>
+                                <select id="dice-sides" name="dice-sides" ng-model="diceOption[$index]" ng-options="d.value as d.sides for d in diceOptions"></select>
+                            </label>
                              </li><!--
-                       --><li class="inline-form__item">
-                            <label for="modifier"></label>
-                            <select name="modifier" class="modifier" ng-model="modifierOption[$index]" ng-options="m.value  as m.value for m in modifierOptions"></select>
+                       --><li class="form__item">
+                            <label for="dice-modifier"><span class="label">Modifier</span>
+                                <select id="dice-modifier" name="dice-modifier" ng-model="modifierOption[$index]" ng-options="m.value  as m.value for m in modifierOptions"></select>
+                            </label>
                         </li>
                     </ul>
                     <!-- .inline-form -->
-                    <div class="pull-right" ng-show="1 < numberOfDiceCombos">
+                    <div class="panel-list__actions" ng-show="1 < numberOfDiceCombos">
                         <button type="button" class="close" title="Remove dice combo" ng-click="removeDice()" aria-hidden="true">&times;</button>
                     </div>
                 </form>
@@ -37,18 +36,16 @@
             <!--  #dice-rowX .list__item -->
         </ul>
         <div class="panel__footer">
-            <div class="checkbox pull-left">
+            <div class="float--left">
                 <label for="hideRoll">
                     <input type="checkbox" name="hideRoll" ng-model="hiddenroll">Hide roll?
                 </label>
             </div>
             <!-- .checkbox-->
-            <button class="pull-right" ng-click="rollTheDice()">Roll</button>
+            <button ng-click="rollTheDice()">Roll</button>
         </div>
         <!-- .panel__footer-->
     </div>
     <!-- .panel -->
-
-
 
 </div>
