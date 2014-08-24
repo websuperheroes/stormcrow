@@ -80,25 +80,29 @@ If it isn't working and you've recently pulled from upstream, try doing npm inst
 
 The API currently look like this:
 
-/api
-├── /users
-│   └── /               - [GET] List users (all users if admin)
-│   └── /               - [POST] Create user
-│   └── /me             - [GET] Get current user
-│   └── /:id            - [GET] show user by id
-│   └── /:id            - [DELETE] delete user by id (admin only)
-│   └── /:id/password   - Change a users password
-├── /games
-│   └── /               - [GET] Get all games
-│   └── /open           - [PUT] Get all games accepting new players
-│   └── /user           - [GET] Get all games user is involved with
-│   └── /create         - [POST] Create a game
-│   └── /character      - [PATCH] Create a character in the game
-├── /dice-rolls
-│   └── /sides          - [GET] Get all dice sides
-│   └── /modifiers      - [GET] Get all dice modifiers
-│   └── /amount         - [POST] Set the number of dice
-└── /*              - index.html
+    /api
+    ├── /users
+    │   ├── /               - [GET] List users (all users if admin)
+    │   ├── /               - [POST] Create user
+    │   ├── /me             - [GET] Get current user
+    │   ├── /:id            - [GET] show user by id
+    │   ├── /:id            - [DELETE] delete user by id (admin only)
+    │   └── /:id/password   - Change a users password
+    │
+    ├── /games
+    │   ├── /               - [GET] Get all games
+    │   ├── /open           - [PUT] Get all games accepting new players
+    │   ├── /user           - [GET] Get all games user is involved with
+    │   ├── /create         - [POST] Create a game
+    │   └── /character      - [PATCH] Create a character in the game
+    │
+    ├── /dice-rolls
+    │   ├── /sides          - [GET] Get all dice sides
+    │   ├── /modifiers      - [GET] Get all dice modifiers
+    │   └── /amount         - [POST] Set the number of dice
+    │
+    └── /*                  - index.html
+
 
 
 ### Who do I talk to? ###
