@@ -228,7 +228,7 @@ angular.module('stormcrowApp')
       $rootScope.diceRoll.push(roll);
       $timeout(function() {
         $rootScope.removeDiceRoll(-1);
-      }, 6000);
+      }, 600000);
     };
     // function remove an exisiting dice roll when new set of dice are rolled
     $rootScope.removeDiceRoll = function(index) {
