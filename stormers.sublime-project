@@ -1,0 +1,15 @@
+{
+	"folders":
+	[
+		{
+			"folder_exclude_patterns":
+			[
+				".sass-cache",
+				".tmp",
+				"node_modules"
+			],
+			"follow_symlinks": true,
+			"path": "."
+		}
+	]
+}

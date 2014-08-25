@@ -1,0 +1,55 @@
+
+// *************************************
+//
+//   Login
+//
+// *************************************
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.game-system-strip {
+   @extend %grid--rev;
+   padding: 20px 0;
+}
+.game-system {
+   @extend %grid__item;
+   @include cells(3);
+}
+.game-system img {
+   display: block;
+   margin: 0 auto;
+}
+
+// Logo
+
+.logo {
+   float: left;
+}
+
+
+// Login
+
+.login-form {
+  @extend %inline-form;
+  float: right
+}
+
+
+// Dice Roll Form
+
+.diceroll-form {
+   @extend %inline-form;
+   @extend %multi-select-control;
+}
+
+
+// Create Game From
+
+.create-game-form .form__item .label {
+   width: 150px;
+}
+
+
+

@@ -1,0 +1,45 @@
+
+// *************************************
+//
+//   Turn Order Block
+//
+// *************************************
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.turn-order-panel  {
+  position: absolute;
+  bottom: 100%;
+  left: -150px;
+  width: 300px;
+}
+.turn-order-panel .panel {
+  margin-bottom: 0;
+  position: relative;
+}
+.turn-order-panel  .list-group-item {
+  padding-right: 5px;
+}
+.turn-order-avatar img {
+   height: 50px;
+   width: 50px;
+   border-radius: 50%;
+}
+.initiative-roll {
+  float: right;
+  width: 70px;
+  display: inline-block;
+  margin-top: 12px;
+}
+.initiative-roll input[type=number] {
+   width: 40px;
+   margin-right:10px;
+}
+.current-turn {
+  @extend %inner-shadows;
+  border: none;
+  background: darken($panel-primary-color, 2%);
+  color: #FFF;
+}

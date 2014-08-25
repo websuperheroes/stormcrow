@@ -1,0 +1,74 @@
+
+// *************************************
+//
+//   General helper mixins
+//   -> Font and breakpoint mixins in separate files
+//
+// *************************************
+
+
+%inner-shadows {
+  color: rgba(0,0,0,0.7);
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.1);
+  border: solid 1px rgba(20,20,20,1);
+  box-shadow: inset 1px 1px 1px rgba(255,255,255,0.05), inset 0 0 35px rgba(0,0,0,0.6), 0 5px 5px -4px rgba(0,0,0,0.8);
+}
+
+// -------------------------------------
+//   HSL Lightness variations for hover/active states
+// -------------------------------------
+
+
+@mixin darken($color) {
+    color: darken( $color, 10% );
+}
+
+@mixin lighten($color) {
+    color: lighten( $color, 10% );
+}
+
+@mixin darken-bg($color) {
+    background-color: darken( $color, 10% );
+}
+
+@mixin lighten-bg($color) {
+    background-color: lighten( $color, 10% );
+}
+
+
+// ----- Transparent version ----- //
+
+
+@mixin darken-alpha($color) {
+    color: rgba( $color, .4);
+}
+
+@mixin lighten-alpha($color) {
+    color: rgba( $color, .4);
+}
+
+@mixin darken-bg-alpha($color) {
+    background-color: rgba( $color, .4);
+}
+
+@mixin lighten-bg-alpha($color) {
+    background-color: rgba( $color, .4);
+}
+
+
+// -------------------------------------
+//   Cross-browser fixes
+// -------------------------------------
+
+
+%cross-browser-inline-block {
+    display: inline-block; /* For normal, healthy browsers */
+
+    * html & { /* for IE6 */
+        display: inline;
+    }
+
+    *+html & { /* for IE7 */
+        display: inline;
+    }
+}

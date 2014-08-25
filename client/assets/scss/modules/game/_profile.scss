@@ -1,0 +1,97 @@
+
+// *************************************
+//
+//   Profile block for user information
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$profile-block-height: 100px;
+$profile-block-width: 300px;
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+
+.profile {
+
+    position: relative;
+    height: $profile-block-height;
+
+
+    // -------------------------------------
+    //   Elements
+    // -------------------------------------
+
+
+    // ----- Avatar container ----- //
+
+    &__avatar {
+        border-radius: 50%;
+        overflow: hidden;
+        float: left;
+        margin-right: 10px;
+    }
+
+    // ----- Information container ----- //
+
+    &__information {
+        float: left;
+        width: $profile-block-width;
+    }
+
+    // ----- Attributes container ----- //
+
+    &__attributes, &__attributes li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+  // -------------------------------------
+  //   Variations
+  // -------------------------------------
+
+
+}
+
+
+// -------------------------------------
+//   Sub-elements
+// -------------------------------------
+
+// ----- Attributes Contents ----- //
+
+.attributes {
+
+    &__bar {
+        background: #DDD;
+        margin-bottom: 3px;
+        border: 2px solid #CCC; 
+
+        &:first-child span { background: rgb(43,194,83); }
+        span {
+            background: #f0a3a3;
+            display: block;
+            height: 10px;
+        }
+    }
+
+    &__standalone {
+        background: #DDD;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        border: 3px solid black;
+        text-align: center;
+        font-weight: bold;
+    }
+}

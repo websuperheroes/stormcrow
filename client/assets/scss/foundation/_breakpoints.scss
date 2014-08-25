@@ -1,0 +1,52 @@
+
+// *************************************
+//
+//   Responsive breakpoints.
+//   -> 1em = 16px
+//
+// *************************************
+
+
+@mixin breakpoint($point) {
+
+    // 320px - iPhone and Galaxy Gear
+    @if $point == infant-bear {
+        @media (min-width: 20em) { @content; }
+    }
+
+    // 480px - larger mobile device
+    @if $point == baby-bear {
+        @media (min-width: 30em) { @content; }
+    }    
+
+    // 600px - Small tablet
+    @if $point == child-bear {
+        @media (min-width: 37.5em) { @content; }
+    }
+
+    // 768px - tablet/iPad portrait mode
+    @else if $point == teen-bear {
+        @media (min-width: 48em) { @content; }
+    }
+
+    // 1024px - tablet/iPad landscape mode
+    @else if $point == adult-bear {
+        @media (min-width: 64em) { @content; }
+    }
+
+    // 1100px - small monitors
+    @else if $point == mama-bear {
+        @media (min-width: 68.75em)  { @content; }
+    }
+
+    // 1300px - Full-size (Most common screen resolution on desktop jan 2014)
+    @else if $point == papa-bear {
+        @media (min-width: 81.25em)  { @content; }
+    }
+
+    // 1920px - Wide screen displays and HDTV 1080p
+    @else if $point == elder-bear {
+        @media (min-width: 120em)  { @content; }
+    }
+
+}
