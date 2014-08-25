@@ -1,0 +1,38 @@
+<div class="modal-fury" ng-show="characterCreationActive">
+    <h2>Create a character</h2>
+
+    <form class="form" name="form" novalidate>
+        <ul class="block-form">
+            <li class="form__item" ng-class="{ 'has-success': form.name.$valid && submitted, 'has-error': form.name.$invalid && submitted }">
+                <label>Character Name</label>
+                <input type="text" name="name" class="form-control" ng-model="character.characterName" required>
+                <p class="help-block" ng-show="form.name.$error.required && submitted">
+                    A name is required
+                </p>
+            </li>
+            <li class="form__item">
+                <label>Attribute 1</label>
+                <input type="number" class="form-control" ng-model="character.attributeOne">
+            </li>
+            <li class="form__item">
+                <label>Attribute 1 Max</label>
+                <input type="number" class="form-control" ng-model="character.attributeOneMax">
+            </li>
+            <li class="form__item">
+                <label>Attribute 2</label>
+                <input type="number" class="form-control" ng-model="character.attributeTwo">
+            </li>
+            <li class="form__item">
+                <label>Attribute 2 Max</label>
+                <input type="number" class="form-control" ng-model="character.attributeTwoMax">
+            </li>
+            <li class="form__item">
+                <label>Attribute 3</label>
+                <input type="number" class="form-control" ng-model="character.attributeThree">
+            </li>
+        </ul>
+
+        <button ng-click="cancelCreation()">Cancel</button>
+        <a class="button" ng-click="saveCharacter()">Save</a>
+    </form>
+</div>

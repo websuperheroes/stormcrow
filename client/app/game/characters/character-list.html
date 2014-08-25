@@ -1,0 +1,26 @@
+ <div class="panel">
+        <!-- Default panel contents -->
+        <div class="panel__header">
+                   Character List
+        </div>
+        <!-- .panel-heading -->
+        <ul class="panel-list">
+            <li class="panel-list__item" ng-repeat="item in currentGame.characters">
+                <span class="turn-order-avatar">
+                    <img src="/images/users/avatars/{{ item.avatar }}">
+                </span>
+                <span class="character-name">{{ item.characterName }}</span>
+            </li>
+            <!-- .list-group -->
+        </ul>
+        <div class="panel__footer" ng-show="currentGame.characters.length < 6">
+
+            <div class="pull-right" style="margin-bottom: 5px;">
+            <button ng-click="createCharacter()">Create</button>
+            </div>
+            <!-- .pull-right -->
+        </div>
+        <!-- end of show / hide -->
+    </div>
+
+

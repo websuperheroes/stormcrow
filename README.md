@@ -94,12 +94,12 @@ The API currently look like this:
     │   ├── /open           - [PUT] Get all games accepting new players
     │   ├── /user           - [GET] Get all games user is involved with
     │   ├── /create         - [POST] Create a game
-    │   └── /character      - [PATCH] Create a character in the game
+    │   └── /character      - [POST] Create a character in the game
     │
     ├── /dice-rolls
     │   ├── /sides          - [GET] Get all dice sides
     │   ├── /modifiers      - [GET] Get all dice modifiers
-    │   └── /amount         - [POST] Set the number of dice
+    │   └── /amount         - [GET] Set the number of dice
     │
     └── /*                  - index.html
 

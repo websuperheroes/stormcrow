@@ -7,6 +7,6 @@ var router = express.Router();
 
 router.get('/sides', controller.diceSides);
 router.get('/modifiers', controller.diceModifiers);
-router.post('/amount', controller.noOfDice);
+router.get('/amount', controller.noOfDice);
 
 module.exports = router;

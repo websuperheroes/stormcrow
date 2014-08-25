@@ -8,7 +8,7 @@ var router = express.Router();
 router.get('/', controller.allGames);
 router.get('/user', controller.userGames);
 router.post('/create', controller.createGame);
-router.put('/open', controller.openGames);
-router.patch('/character', controller.createCharacter);
+router.get('/open', controller.openGames);
+router.post('/character', controller.createCharacter);
 
 module.exports = router;
