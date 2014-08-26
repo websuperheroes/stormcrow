@@ -15,7 +15,7 @@
         <ul class="panel-list">
             <li class="panel-list__item" ng-repeat="item in orderOfPlay | orderBy: orderOfPlayOrder" ng-class="{'current-turn' : item.current}">
                 <span class="turn-order-avatar">
-                    <img src="/assets/images/users/avatars/{{ item.avatar }}">
+                    <img ng-src="/assets/images/users/avatars/{{ item.avatar }}">
                 </span>
 
                 <span class="character-name">{{ item.characterName }}</span>
