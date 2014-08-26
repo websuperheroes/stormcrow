@@ -1,9 +1,13 @@
 'use strict';
 
 angular.module('stormcrowApp')
-  .controller('EventLogCtrl', function($rootScope, $scope) {
+  .controller('EventLogCtrl', function($rootScope, $scope, Auth) {
 
+    $scope.isLoggedIn = Auth.isLoggedIn;
+    $scope.isAdmin = Auth.isAdmin;
+    $scope.currentUser = Auth.getCurrentUser();
 
+    
     /**
      * On change in chat function
      * @No parameters
@@ -40,7 +44,7 @@ angular.module('stormcrowApp')
       var whisper = false;
       var text = $scope.messageText;
       var character = $scope.sendMessageAs.name;
-      var user = $rootScope.currentUser.name;
+      var user = $scope.currentUser.name;
       var message = '';
       var sentAs = $scope.sendMessageAs.type;
 
