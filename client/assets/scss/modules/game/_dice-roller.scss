@@ -9,6 +9,15 @@
 //   Structure
 // -------------------------------------
 
+
+// Dice Roll Form
+
+.diceroll-form {
+   @extend %inline-form;
+   @extend %multi-select-control;
+}
+
+
 .dice-roller-panel {
     position: absolute;
     bottom: 100%;

@@ -15,15 +15,6 @@
     padding: 10px;
 }
 
-.hero {
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
-  background: url(../assets/images/assets/orc.png) no-repeat 98% 95% #141414;
-  text-align: center;
-  padding: 100px 0;
-  color: #CCC;
-}
-
 .info-box-wrapper {
   @extend %grid--wide;
 }

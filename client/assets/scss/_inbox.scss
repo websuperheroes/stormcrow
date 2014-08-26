@@ -11,6 +11,11 @@
 //   Something something
 // -------------------------------------
 
+// Logo
+
+.logo {
+   float: left;
+}
 
 .grid-lines {
   background: url(../images/assets/grid-tile.png) repeat;
@@ -45,4 +50,10 @@
   box-shadow: 0px 0px 700px rgba(0,0,0,1);
   padding: 20px;
   z-index: 99999999999;
+}
+
+// Create Game Form
+
+.create-game-form .form__item .label {
+   width: 150px;
 }
