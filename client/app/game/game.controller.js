@@ -259,7 +259,7 @@ angular.module('stormcrowApp')
         console.log('user is gM');
         uid = '';
       } else {
-        uid = $rootScope.currentUser.id;
+        uid = $scope.currentUser.id;
       }
 
       // sets up info from form about char

@@ -20,16 +20,21 @@
 
                 <span class="character-name">{{ item.characterName }}</span>
 
-                <span class="initiative-roll"><label><span class="label">Initiative roll</span><input type="number" value="{{item.initiativeRoll}}" ng-model="item.initiativeRoll" class="pull-left"></label><button type="button" class="close pull-left" title="Remove from order" ng-click="removeFromOrder( item )" aria-hidden="true">&times;</button></span>
-
+                <span class="initiative-roll">
+                    <label>
+                        <span class="label">Initiative roll</span>
+                        <input type="number" value="{{item.initiativeRoll}}" ng-model="item.initiativeRoll" class="pull-left">
+                    </label>
+                    <button type="button" class="close pull-left" title="Remove from order" ng-click="removeFromOrder( item )" aria-hidden="true">&times;</button>
+                </span>
             </li>
             <!-- .panel-list__item -->
         </ul>
         <div class="panel__footer" ng-show="orderOfPlay.length >= 1">
-        (<a href="" ng-click="clearOrder()">Clear</a>)
-<div class="float--right">
-        <span>Round: {{ roundNumber }}</span>
-            <button ng-click="moveTurnOn()">Next turn</button>
+            (<a href="" ng-click="clearOrder()">Clear</a>)
+            <div class="float--right">
+                <span>Round: {{ roundNumber }}</span>
+                <button ng-click="moveTurnOn()">Next turn</button>
             </div>
             <!-- .pull-right -->
         </div>
