@@ -62,7 +62,7 @@ angular.module('stormcrowApp')
 
         // sets up model for character
         var characterToAdd = {
-          id: $rootScope.userCharacter.id,
+          id: $rootScope.userCharacter._id,
           characterName: $rootScope.userCharacter.characterName,
           avatarSmall: $rootScope.userCharacter.avatar,
           initiativeRoll: grandtotal

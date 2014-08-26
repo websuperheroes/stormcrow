@@ -7,6 +7,7 @@ angular.module('stormcrowApp')
     $scope.isAdmin = Auth.isAdmin;
     $scope.currentUser = Auth.getCurrentUser();
 
+
     /**
      * Event Logger "Send As" function
      * @Parameters type and text
@@ -45,6 +46,7 @@ angular.module('stormcrowApp')
       // end of if/else
       $scope.sendMessageAs = $scope.sendAsOptions[0];
     };
+
 
     /**
      * Toggle GM / DM function
@@ -118,7 +120,6 @@ angular.module('stormcrowApp')
 
     $scope.getCharacters = function() {
 
-
       if ($rootScope.currentGame.characters) {
 
         $rootScope.allCharacters = $rootScope.currentGame.characters;
@@ -137,14 +138,12 @@ angular.module('stormcrowApp')
 
     $scope.selectCharacter = function() {
 
-      console.log($scope.chosenCharacter);
-
       // sets current char to newly created
       $rootScope.userCharacter = $scope.chosenCharacter;
 
-
       $rootScope.addAlertMessage('success', 'Welcome to the game, ' + $scope.character.characterName);
     };
+
 
     /**
      * Alert Messages function
@@ -228,7 +227,7 @@ angular.module('stormcrowApp')
       $rootScope.diceRoll.push(roll);
       $timeout(function() {
         $rootScope.removeDiceRoll(-1);
-      }, 600000);
+      }, 10000);
     };
     // function remove an exisiting dice roll when new set of dice are rolled
     $rootScope.removeDiceRoll = function(index) {
@@ -237,7 +236,6 @@ angular.module('stormcrowApp')
       }
       $rootScope.diceRoll.splice(index, 1);
     };
-
 
 
     /**
@@ -268,7 +266,7 @@ angular.module('stormcrowApp')
       var charInfo = ([{
         gameID: $rootScope.currentGame._id
       }, {
-        _userid: uid,
+        _uid: uid,
         characterName: $scope.character.characterName,
         avatar: 'troglor.png',
         attributeOne: $scope.character.attributeOne,
@@ -312,9 +310,5 @@ angular.module('stormcrowApp')
 
     // launches get characters function
     $scope.getCharacters();
-
-
-
-
 
   });

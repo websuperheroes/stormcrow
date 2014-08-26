@@ -6,7 +6,9 @@
     <ul>
         <li ng-repeat="item in currentGame.characters">
             <label>
-                <input type="radio" name="chosenChar" ng-value="item" ng-model="$rootScope.chosenCharacter">{{ item.characterName }}</label>
+                <input type="radio" name="chosenChar" ng-value="item" ng-model="$rootScope.chosenCharacter">
+                {{ item.characterName }}
+            </label>
         </li>
     </ul>
     <button ng-click="selectCharacter()">Choose</button>
