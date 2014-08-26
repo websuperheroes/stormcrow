@@ -26,10 +26,10 @@
 
     <div ng-repeat="dr in diceRoll">
         <span class="badge">{{ roll.grandtotal }}</span>
-        <i ng-repeat="item in dr.combo">
+        <div ng-repeat="item in dr.combo">
                 <span ng-show="item.dx !== 100" ng-repeat="roll in item.rolls" class="d{{item.dx}}-{{roll.score}}"></span>
                 <span ng-show="item.dx == 100" ng-repeat="roll in item.rolls" class="d10-{{roll.score}}"></span>
-            </i>
+            </div>
     </div>
 </div>
 <!-- breakdown -->
