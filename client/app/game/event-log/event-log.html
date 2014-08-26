@@ -46,16 +46,19 @@
             </li>
         </ul>
         <div class="chat-box">
-            <form ng-submit="sendMessage()" class="inline-form">
-                <div class="inline-form__item">
-                    <label for="sendAs">Send As</label>
-                    <select name="sendAs" class="form-control" ng-model="sendMessageAs" ng-options="p as p.name for p in sendAsOptions">
+            <form ng-submit="sendMessage()" class="send-message-form">
+                <div class="form__item">
+                    <label for="sendAs">Send As
+                    <select id="sendAs" class="form-control" ng-model="sendMessageAs" ng-options="p as p.name for p in sendAsOptions">
                     </select>
+                    </label>
                 </div>
-                <div class="inline-form__item">
-                    <input type="text" ng-model="messageText" placeholder="Type your message here" ng-change="macroChecker()">
+                <div class="form__item">
+                <label for="messageText"><span class="label">Message</span>
+                    <input id="messageText" type="text" ng-model="messageText" placeholder="Type your message here" ng-change="macroChecker()">
+                    </label>
                 </div>
-                <div class="inline-form__item">
+                <div class="form__item">
                     <button type="submit">Send</button>
                 </div>
             </form>

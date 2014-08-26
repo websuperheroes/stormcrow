@@ -16,7 +16,9 @@
    @extend %inline-form;
    @extend %multi-select-control;
 }
-
+.diceroll-form span {
+    @extend %visually-hidden;
+}
 
 .dice-roller-panel {
     position: absolute;
@@ -49,9 +51,7 @@
     color: #CCC;
 }
 
-.diceroll-form span {
-    @extend %visually-hidden;
-}
+
 
 
 // -------------------------------------

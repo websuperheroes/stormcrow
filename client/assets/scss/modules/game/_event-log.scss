@@ -12,6 +12,18 @@
 //   Base
 // -------------------------------------
 
+.send-message-form {
+   @extend %inline-form;
+   @extend %multi-select-control;
+}
+.chat-box span {
+    @extend %visually-hidden;
+}
+.chat-box input[type=text] {
+  width: 220px;
+  vertical-align: bottom;
+}
+
 aside {
   position: fixed;
   width: 300px;
@@ -57,10 +69,7 @@ aside {
   width: 300px;
 padding: 2px;
 }
-.chat-box input[type=text] {
-  width: 230px;
-  vertical-align: bottom;
-}
+
 .whisper-text {
   color: #CCC;
 }
