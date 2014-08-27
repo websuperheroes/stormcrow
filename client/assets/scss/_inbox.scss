@@ -8,15 +8,12 @@
 
 
 // -------------------------------------
-//   Something something
+//   Random bits
 // -------------------------------------
-
-// Logo
 
 .logo {
    float: left;
 }
-
 .grid-lines {
   background: url(../assets/images/assets/grid-tile.png) repeat;
   position: absolute;
@@ -26,19 +23,10 @@
   right: 0;
 }
 
-// -------------------------------------
-//   Forms
-// -------------------------------------
 
-.checkbox {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 7px;
-}
-
-.navbar-form input {
-  width: 200px !important;
-}
+// -------------------------------------
+//   Dummy modal
+// -------------------------------------
 
 .modal-fury {
   position: absolute;
@@ -52,14 +40,28 @@
   z-index: 99999999999;
 }
 
-// Create Game Form
 
+// -------------------------------------
+//   Adhoc Forms
+// -------------------------------------
+
+// Create Game Form
+.change-password-form .form__item .label,
+.create-character-form .form__item .label,
 .create-game-form .form__item .label {
    width: 150px;
 }
 
-// Create Character Form
 
-.create-character-form .form__item .label {
-   width: 150px;
+// -------------------------------------
+//   Navigation
+// -------------------------------------
+
+.navigation {
+  float: right;
+  margin-top: 10px;
+}
+nav li {
+  display: inline-block;
+  margin-left: 10px;
 }
