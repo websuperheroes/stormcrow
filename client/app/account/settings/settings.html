@@ -8,18 +8,16 @@
       <form class="change-password-form" name="form" ng-submit="changePassword(form)" novalidate>
 <ul>
             <li class="form__item">
-                <label><span class="label">Current Password</span>
-
-        <input type="password" name="password" class="form-control" ng-model="user.oldPassword" mongoose-error/></label>
+                <label for="current-password"><span class="label">Current Password</span>
+                    <input id="current-password" type="password" name="password" class="form-control" ng-model="user.oldPassword" mongoose-error/>
+                </label>
                 <p class="error-message" ng-show="form.password.$error.mongoose">
                     {{ errors.other }}
                 </p>
             </li>
             <li class="form__item">
-                <label><span class="label">New Password</span>
-
-
-                <input type="password" name="newPassword" ng-model="user.newPassword" ng-minlength="3" required/>
+                <label for="current-password"><span class="label">New Password</span>
+                    <input id="current-password" type="password" name="newPassword" ng-model="user.newPassword" ng-minlength="3" required/>
                 </label>
                 <p class="error-message" ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
                     Password must be at least 3 characters.

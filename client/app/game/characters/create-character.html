@@ -4,36 +4,36 @@
     <form class="create-character-form" name="form" novalidate>
         <ul>
             <li class="form__item" ng-class="{ 'has-success': form.name.$valid && submitted, 'has-error': form.name.$invalid && submitted }">
-                <label><span class="label">Character Name</span>
-                <input type="text" name="name" class="form-control" ng-model="character.characterName" required>
+                <label for="character-name"><span class="label">Character Name</span>
+                    <input id="character-name" type="text" name="name" ng-model="character.characterName" required>
                 </label>
                 <p class="help-block" ng-show="form.name.$error.required && submitted">
                     A name is required
                 </p>
             </li>
             <li class="form__item">
-                <label><span class="label">Attribute 1</span>
-                <input type="number" class="form-control" ng-model="character.attributeOne">
+                <label for="attribute1"><span class="label">Attribute 1</span>
+                    <input id="attribute1" type="number" ng-model="character.attributeOne">
                 </label>
             </li>
             <li class="form__item">
-                <label><span class="label">Attribute 1 Max</span>
-                <input type="number" class="form-control" ng-model="character.attributeOneMax">
+                <label for="attribute1-max"><span class="label">Attribute 1 Max</span>
+                    <input id="attribute1-max" type="number" ng-model="character.attributeOneMax">
                 </label>
             </li>
             <li class="form__item">
-                <label><span class="label">Attribute 2</span>
-                <input type="number" class="form-control" ng-model="character.attributeTwo">
+                <label for="attribute2"><span class="label">Attribute 2</span>
+                    <input id="attribute2" type="number" ng-model="character.attributeTwo">
                 </label>
             </li>
             <li class="form__item">
-                <label><span class="label">Attribute 2 Max</span>
-                <input type="number" class="form-control" ng-model="character.attributeTwoMax">
+                <label for="attribute2-max"><span class="label">Attribute 2 Max</span>
+                    <input id="attribute2-max" type="number" ng-model="character.attributeTwoMax">
                 </label>
             </li>
             <li class="form__item">
-                <label><span class="label">Attribute 3</span>
-                <input type="number" class="form-control" ng-model="character.attributeThree">
+                <label for="attribute3"><span class="label">Attribute 3</span>
+                    <input id="attribute3" type="number" ng-model="character.attributeThree">
                 </label>
             </li>
         </ul>
