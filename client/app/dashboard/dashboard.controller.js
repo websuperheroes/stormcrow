@@ -10,7 +10,7 @@ angular.module('stormcrowApp')
     $scope.getUserGames = function() {
 
       var userid = ({
-        uid: $scope.currentUser._id
+        uid: $scope.currentUser.userGameId
       });
 
       var getAllUserGames = Games.getUserGames(userid);
@@ -45,7 +45,7 @@ angular.module('stormcrowApp')
       $rootScope.currentGame = game;
 
       // checks if the user is set to gm
-      if ($rootScope.currentGame.gm == $scope.currentUser._id) {
+      if ($rootScope.currentGame.gm == $scope.currentUser.userGameId) {
 
         // sets user as GM
         $scope.userIsGM = true;
@@ -59,7 +59,7 @@ angular.module('stormcrowApp')
         if ($rootScope.currentGame.characters.length) {
         // if they do loops through characters and finds match
           for (var i = 0; i < $rootScope.currentGame.characters.length; i++) {
-            if ($rootScope.currentGame.characters[i]._userid == $scope.currentUser._id) {
+            if ($rootScope.currentGame.characters[i]._userid == $scope.currentUser.userGameId) {
               // sets match to be users character
               $rootScope.userCharacter = $rootScope.currentGame.characters[i];
               return;

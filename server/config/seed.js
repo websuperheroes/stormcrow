@@ -12,33 +12,33 @@ var User = require('../api/user/user.model');
 User.find({}).remove(function() {
   User.create({
      provider: 'local',
-     _id: 1,
+     userGameId: 1,
      name: 'Dave',
      email: 'davidajberner@gmail.com',
      password: 'test'
    },{
      provider: 'local',
      name: 'Bard',
-     _id: 2,
+     userGameId: 2,
      email: 'bnhovde@gmail.com',
      password: 'test'
    },{
      provider: 'local',
      name: 'Frog',
-     _id: 3,
+     userGameId: 3,
      email: 'gwood_2k1@gmail.com',
      password: 'test'
    }, {
      provider: 'local',
      name: 'Jon',
-     _id: 4,
+     userGameId: 4,
      email: 'jonsdarkarts@gmail.com',
      password: 'test'
   }, {
      provider: 'local',
      name: 'Administrator',
      role: 'admin',
-     _id: 5,
+     userGameId: 5,
      email: 'admin@stormcrow.com',
      password: 'test'
   }, function() {
