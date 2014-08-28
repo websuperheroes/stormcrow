@@ -48,7 +48,7 @@ angular.module('stormcrowApp')
         var character = {
           id: $rootScope.allCharacters[i].id,
           characterName: $rootScope.allCharacters[i].characterName,
-          avatarSmall: $rootScope.allCharacters[i].avatarSmall,
+          avatar: $rootScope.allCharacters[i].avatar,
           current: false
         };
         $scope.characterOrderDropdown.push(character);
