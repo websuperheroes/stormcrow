@@ -5,10 +5,16 @@ var mongoose = require('mongoose'),
 
 var GameSchema = new Schema({
   name: String,
-  gm: Number,
+  gm: [{ 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User' 
+  }],
   lookingForPlayers: Number,
   characters: [{
-        _userid: Number,
+        _userid: [{ 
+          type: mongoose.Schema.Types.ObjectId, 
+          ref: 'User' 
+        }],
         characterName: String,
         avatar: String,
         attributeOne: Number,

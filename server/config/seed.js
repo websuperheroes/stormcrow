@@ -7,38 +7,39 @@
 
 var Game = require('../api/game/game.model');
 var User = require('../api/user/user.model');
-
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
 
 User.find({}).remove(function() {
   User.create({
      provider: 'local',
-     userGameId: 1,
+     _id: '53fefc7ee4e09a00005c95a3',
      name: 'Dave',
      email: 'davidajberner@gmail.com',
      password: 'test'
    },{
      provider: 'local',
      name: 'Bard',
-     userGameId: 2,
+     _id: '53fefc7ee4e09a22225c95a3',
      email: 'bnhovde@gmail.com',
      password: 'test'
    },{
      provider: 'local',
      name: 'Frog',
-     userGameId: 3,
+     _id: '53fefc7ee4e09a33335c95a3',
      email: 'gwood_2k1@gmail.com',
      password: 'test'
    }, {
      provider: 'local',
      name: 'Jon',
-     userGameId: 4,
+     _id: '53fefc7ee4e09a44445c95a3',
      email: 'jonsdarkarts@gmail.com',
      password: 'test'
   }, {
      provider: 'local',
      name: 'Administrator',
      role: 'admin',
-     userGameId: 5,
+     _id: '53fefc7ee4e09a55555c95a3',
      email: 'admin@stormcrow.com',
      password: 'test'
   }, function() {
@@ -51,9 +52,9 @@ User.find({}).remove(function() {
 Game.find({}).remove(function() {
   Game.create({
     name: 'Troglor goes home',
-    gm: 4,
+    gm: '53fefc7ee4e09a44445c95a3',
     characters: [{
-        _userid: 1,
+        _userid: '53fefc7ee4e09a00005c95a3',
         characterName: 'Grishnak',
         avatar: 'grishnak.png',
         attributeOne: 55,
@@ -62,7 +63,7 @@ Game.find({}).remove(function() {
         attributeTwoMax: 65,
         attributeThree: 2
       },{
-        _userid: 2,
+        _userid: '53fefc7ee4e09a22225c95a3',
         characterName: 'Troglor',
         avatar: 'troglor.png',
         attributeOne: 65,
@@ -71,7 +72,7 @@ Game.find({}).remove(function() {
         attributeTwoMax: 65,
         attributeThree: 1
       },{
-        _userid: 3,
+        _userid: '53fefc7ee4e09a33335c95a3',
         characterName: 'Whitethorn',
         avatar: 'whitethorn.png',
         attributeOne: 65,
@@ -82,10 +83,10 @@ Game.find({}).remove(function() {
       }]
   }, {
       name: 'Eat my D',
-      gm: 2,
+      gm: '53fefc7ee4e09a22225c95a3',
       lookingForPlayers: 2,
       characters: [{
-          _userid: 5,
+          _userid: '53fefc7ee4e09a55555c95a3',
           characterName: 'Twiglet',
           avatar: 'whitethorn.png',
           attributeOne: 65,
@@ -94,7 +95,7 @@ Game.find({}).remove(function() {
           attributeTwoMax: 85,
           attributeThree: 3,
         },{
-          _userid: 3,
+          _userid: '53fefc7ee4e09a33335c95a3',
           characterName: 'Digit',
           avatar: 'troglor.png',
           attributeOne: 5,
@@ -103,7 +104,7 @@ Game.find({}).remove(function() {
           attributeTwoMax: 55,
           attributeThree: 3
         },{
-          _userid: 4,
+          _userid: '53fefc7ee4e09a44445c95a3',
           characterName: 'Child Please',
           avatar: 'whitethorn.png',
           attributeOne: 65,
@@ -114,9 +115,9 @@ Game.find({}).remove(function() {
         }]
     }, {
       name: 'Homo Game',
-      gm: 1,
+      gm: '53fefc7ee4e09a00005c95a3',
       characters: [{
-          _userid: 2,
+          _userid: '53fefc7ee4e09a22225c95a3',
           characterName: 'Naysayer',
           avatar: 'troglor.png',
           attributeOne: 65,
@@ -125,7 +126,7 @@ Game.find({}).remove(function() {
           attributeTwoMax: 65,
           attributeThree: 2
         },{
-          _userid: 3,
+          _userid: '53fefc7ee4e09a33335c95a3',
           characterName: 'Ball Bawg',
           avatar: 'troglor.png',
           attributeOne: 65,
@@ -134,7 +135,7 @@ Game.find({}).remove(function() {
           attributeTwoMax: 65,
           attributeThree: 1
         },{
-          _userid: 4,
+          _userid: '53fefc7ee4e09a44445c95a3',
           characterName: 'Shin Fein',
           avatar: 'whitethorn.png',
           attributeOne: 65,
@@ -145,10 +146,10 @@ Game.find({}).remove(function() {
         }]
   }, {
       name: 'The Superfly Game',
-      gm: 1,
+      gm: '53fefc7ee4e09a00005c95a3',
       lookingForPlayers: 1,
       characters: [{
-          _userid: 2,
+          _userid: '53fefc7ee4e09a22225c95a3',
           characterName: 'Vivaldi',
           avatar: 'troglor.png',
           attributeOne: 65,
@@ -157,7 +158,7 @@ Game.find({}).remove(function() {
           attributeTwoMax: 65,
           attributeThree: 2
         },{
-          _userid: 3,
+          _userid: '53fefc7ee4e09a33335c95a3',
           characterName: 'Ball Bawg',
           avatar: 'troglor.png',
           attributeOne: 65,
@@ -166,7 +167,7 @@ Game.find({}).remove(function() {
           attributeTwoMax: 65,
           attributeThree: 1
         },{
-          _userid: 4,
+          _userid: '53fefc7ee4e09a44445c95a3',
           characterName: 'Shin Fein',
           avatar: 'whitethorn.png',
           attributeOne: 65,
@@ -178,9 +179,9 @@ Game.find({}).remove(function() {
   },{
       name: 'No Friends Game',
       lookingForPlayers: 6,
-      gm: 8,
+      gm: '53fefc7ee4e09a44445c95a3',
       characters: [{
-          _userid: '',
+          _userid: '53fefc7ee4e09a22225c95a3',
           characterName: 'Nog',
           avatar: 'troglor.png',
           attributeOne: 65,
@@ -189,7 +190,7 @@ Game.find({}).remove(function() {
           attributeTwoMax: 65,
           attributeThree: 1
         },{
-          _userid: '',
+          _userid: '53fefc7ee4e09a22225c95a3',
           characterName: 'Box Clever',
           avatar: 'grishnak.png',
           attributeOne: 65,
@@ -198,7 +199,7 @@ Game.find({}).remove(function() {
           attributeTwoMax: 65,
           attributeThree: 2
         },{
-          _userid: 9,
+          _userid: '53fefc7ee4e09a22225c95a3',
           characterName: 'Hadouken',
           avatar: 'whitethorn.png',
           attributeOne: 65,
@@ -210,12 +211,12 @@ Game.find({}).remove(function() {
     }, {
       name: 'Game over bro',
       lookingForPlayers: 2,
-      gm: 8,
+      gm: '53fefc7ee4e09a22225c95a3',
       characters: []
     },  {
       name: 'Empty Game',
       lookingForPlayers: 1,
-      gm: 8,
+      gm: '53fefc7ee4e09a22225c95a3',
       characters: []
     },function() {
       console.log('finished populating games');

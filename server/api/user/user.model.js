@@ -7,7 +7,6 @@ var authTypes = ['github', 'twitter', 'facebook', 'google'];
 
 var UserSchema = new Schema({
   name: String,
-  userGameId: String,
   email: { type: String, lowercase: true },
   role: {
     type: String,

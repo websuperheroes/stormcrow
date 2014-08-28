@@ -264,7 +264,7 @@ angular.module('stormcrowApp')
 
       // sets up info from form about char
       var charInfo = ([{
-        gameID: $rootScope.currentGame.userGameId
+        gameID: $rootScope.currentGame._id
       }, {
         _uid: uid,
         characterName: $scope.character.characterName,

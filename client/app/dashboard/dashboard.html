@@ -8,7 +8,7 @@
     <div class="info-box">
         <h4>Your Games</h4>
         <ul>
-            <li ng-repeat="g in userGames">Game: <a href="/game" title="{{ g.name }}" ng-click="setGame( g )">{{ g.name }}</a> | Character: <span ng-repeat="char in g.characters"><span ng-show="char._userid == currentUser.userGameId">{{ char.characterName }}</span></span><span ng-show="g.gm == currentUser.userGameId">GM</span>
+            <li ng-repeat="g in userGames">Game: <a href="/game" title="{{ g.name }}" ng-click="setGame( g )">{{ g.name }}</a> | Character: <span ng-repeat="char in g.characters"><span ng-show="char._userid == currentUser._id">{{ char.characterName }}</span></span><span ng-show="g.gm == currentUser._id">GM</span>
             </li>
         </ul>
     </div>
