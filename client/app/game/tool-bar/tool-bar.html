@@ -1,0 +1,44 @@
+    <ul class="tool-bar">
+        <li class="tool-bar__item">
+            <a href="" class="icon-pointer">
+                <span>Pointer</span>
+            </a>
+        </li>
+        <li class="tool-bar__item" ng-show="userIsGM">
+            <a href="" class="icon-layers">
+                <span>Layers</span>
+            </a>
+        </li>
+        <li class="tool-bar__item">
+            <a href="" class="icon-brush">
+                <span>Draw</span>
+            </a>
+        </li>
+        <li class="tool-bar__item" ng-repeat="item in toolBar" ng-show="!userIsGM">
+            <a href="" class="icon-{{ item.icon }}">
+                <span>{{ item.name }}</span>
+            </a>
+        </li>
+        <li class="tool-bar__item" ng-click="toggleGridLines()">
+            <a title="Toggle Grid Lines" href="" class="icon-measure">
+                <span>Ruler</span>
+            </a>
+        </li>
+        <li class="tool-bar__item" ng-click="toggleTurnOrder()" ng-show="userIsGM">
+            <a href="" class="icon-clock" title="Turn order">
+                <span>Turn Order</span>
+            </a> <div class="turn-order-panel" ng-show="turnOrderShow">
+
+            <turnorder ng-show="turnOrderShow"></turnorder>
+
+            </div>
+        </li>
+        <li class="tool-bar__item" ng-click="toggleDiceRoller()">
+            <a href="" class="icon-dice" title="Roll the dice!">
+                <span>Dice Roller</span>
+            </a>
+            <div class="dice-roller-panel">
+                <diceroller ng-show="diceRollShow"></diceroller>
+            </div>
+        </li>
+    </ul>

@@ -1,0 +1,36 @@
+
+// *************************************
+//
+//   Main
+//
+// *************************************
+
+// -------------------------------------
+//   Main game system logo strip
+// -------------------------------------
+
+.game-system-strip {
+   @extend %grid--rev;
+   padding: 20px 0;
+}
+.game-system {
+   @extend %grid__item;
+   @include cells(3);
+}
+.game-system img {
+   display: block;
+   margin: 0 auto;
+}
+
+// -------------------------------------
+//   Landing page hero unit
+// -------------------------------------
+
+.hero {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  background: url(../assets/images/assets/orc.png) no-repeat 98% 95% #141414;
+  text-align: center;
+  padding: 100px 0;
+  color: #CCC;
+}

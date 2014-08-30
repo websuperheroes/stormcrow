@@ -1,0 +1,76 @@
+<div ng-include="'app/navbar/navbar.html'"></div>
+
+
+
+
+<div class="hero">
+
+        <div ng-hide="isLoggedIn()">
+            <h1>No matter your game system</h1>
+            <h2>We've got you covered!</h2>
+            <a href="/signup" class="button">Sign Up Free!</a>                 
+        </div>  
+        <div ng-show="isLoggedIn()">
+            <h1>Welcome back, {{currentUser.name}}</h1>
+            <h2>Long time no see!</h2>
+            <a href="/dashboard" class="button">Your Dashboard</a>                 
+        </div>      
+
+  </div>
+  <!-- .hero -->
+
+
+
+  <ul class="game-system-strip">
+      <li class="game-system">
+        <img src="/assets/images/assets/dnd-logo.png" alt="">
+      </li><!--
+      --><li class="game-system">
+        <img src="/assets/images/assets/gurps-logo.png" alt="">
+      </li><!--
+      --><li class="game-system">
+        <img src="/assets/images/assets/starwars-logo.png" alt="">
+      </li><!--
+      --><li class="game-system">
+        <img src="/assets/images/assets/vampire-logo.png" alt="">
+      </li>
+  </ul>
+  <!-- .game-system-strip -->
+
+
+<div class="container">
+<ul class="info-box-wrapper">
+    <li class="info-box">
+        <h4>From D&amp;D to Pathfinder</h4>
+        <p>Our tools are interchangeable with any game system.  In some form, by injected humour, or randomised words which don't look even believable.  There are many variations of passages of Lorem Ipsum available</p>
+      </li><!--
+--><li class="info-box">
+        <h4>Play in your browser</h4>
+        <p>Nothing to install or download, literally just login and start playing with your buddies online.  In some form, by injected humour, or randomised words which don't look even believable.</p>
+              </li><!--
+        --><li class="info-box">
+        <h4>As close to P&amp;P as possible</h4>
+        <p>Whilst we can't put you in around a table with your mates to play, this is the next best thing.  A virtual tabletop where you can see and speak to each other whilst adventuring.  In some form, by injected humour.</p>
+      </li>
+    </ul>
+</div>
+
+<main class="container">
+
+      <h1 class="page-header">Features:</h1>
+      <ul ng-repeat="thing in awesomeThings">
+        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}<button type="button" class="close" ng-click="deleteThing(thing)">&times;</button></a></li>
+      </ul>
+    </div>
+  </div>
+
+  <form class="thing-form">
+    <label>Syncs in realtime across clients</label>
+    <p class="input-group">
+      <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="newThing">
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary" ng-click="addThing()">Add New</button>
+      </span>
+    </p>
+  </form>
+</main>

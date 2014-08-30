@@ -1,0 +1,75 @@
+// *************************************
+//
+//   Event Log Widget
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.send-message-form {
+   @extend %inline-form;
+   @extend %multi-select-control;
+}
+.chat-box span {
+    @extend %visually-hidden;
+}
+.chat-box input[type=text] {
+  width: 220px;
+  vertical-align: bottom;
+}
+
+aside {
+  position: fixed;
+  width: 300px;
+   right: 0;
+   bottom: 0;
+   top: 0;
+}
+
+.panel-event-log {
+  position: absolute;
+  bottom: 0;
+   margin-bottom: 0;
+   height: 400px;
+   width: 100%;
+}
+.panel-event-log ul {
+  overflow: auto;
+  height: 320px;
+}
+.panel-event-log .badge {
+  float: right;
+}
+.chat-message-time {
+   font-size: 10px;
+   color: #999;
+   display: block;
+}
+.user-name {
+  color: $primary-highlight-color;
+}
+.action-text {
+  font-style: italic;
+  color: #777;
+}
+.small-text {
+  font-size: 12px;
+  font-size: 1.2rem;
+  color: #777;
+}
+.chat-box {
+  position: fixed;
+  bottom: 0;
+  width: 300px;
+padding: 2px;
+}
+
+.whisper-text {
+  color: #CCC;
+}
