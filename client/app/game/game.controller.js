@@ -16,7 +16,7 @@ angular.module('stormcrowApp')
     $rootScope.eventLoggerSendAs = function() {
 
       // if the user isn't the GM they can send as player or character
-      if (!$scope.userIsGM) {
+      if (!$rootScope.userIsGM) {
 
         $scope.sendAsOptions = [{
           type: 'character',
@@ -45,19 +45,6 @@ angular.module('stormcrowApp')
       }
       // end of if/else
       $scope.sendMessageAs = $scope.sendAsOptions[0];
-    };
-
-
-    /**
-     * Toggle GM / DM function
-     * @No Parameters
-     */
-
-    $scope.toggleUserIsGM = function() {
-
-      $scope.userIsGM = $scope.userIsGM === false ? true : false;
-
-      $rootScope.eventLoggerSendAs();
     };
 
 
@@ -255,11 +242,11 @@ angular.module('stormcrowApp')
 
       $scope.submitted = true;
       var uid = '';
-      if ($scope.userIsGM) {
+      if ($rootScope.userIsGM) {
         console.log('user is gM');
         uid = '';
       } else {
-        uid = $scope.currentUser.id;
+        uid = $scope.currentUser._id;
       }
 
       // sets up info from form about char
@@ -285,7 +272,7 @@ angular.module('stormcrowApp')
         .then(function(response) {
           // when successful, launches alert box, closes modal
 
-          if ($scope.userIsGM) {
+          if ($rootScope.userIsGM) {
             $rootScope.addAlertMessage('success', 'Created character: ' + $scope.character.characterName);
           } else {
             // if user isn't GM, makes them the new character

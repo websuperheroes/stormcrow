@@ -48,12 +48,12 @@ angular.module('stormcrowApp')
       if ($rootScope.currentGame.gm == $scope.currentUser._id) {
 
         // sets user as GM
-        $scope.userIsGM = true;
+        $rootScope.userIsGM = true;
         $rootScope.userCharacter = '';
       } else {
 
         // makes player not GM
-        $scope.userIsGM = false;
+        $rootScope.userIsGM = false;
 
         // checks if any characters exist in game
         if ($rootScope.currentGame.characters.length) {
