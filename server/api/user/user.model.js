@@ -18,7 +18,8 @@ var UserSchema = new Schema({
   facebook: {},
   twitter: {},
   google: {},
-  github: {}
+  github: {},
+  currentGameId: mongoose.Schema.Types.ObjectId
 });
 
 /**

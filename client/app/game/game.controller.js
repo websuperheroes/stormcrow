@@ -9,11 +9,64 @@ angular.module('stormcrowApp')
 
 
     /**
+     * Get game from DB
+     * @No parameters
+     */
+
+    $scope.getGame = function() {
+
+        var data = ({
+            gameId: $scope.currentUser.currentGameId
+        });
+
+        // Fetch open games from the Game API
+        var currentGame = Games.gameById(data);
+
+        $q.all([
+            currentGame.$promise
+          ]).then(function() {
+
+            $scope.currentGame = currentGame.data;
+            $scope.getGameDetails();
+          },
+          // on error
+          function(error) {
+          // $rootScope.addAlertMessage('error', 'There was a problem loading games - try refreshing the page');
+          }
+        );
+    };
+
+    /**
+     * Get game details
+     * @No parameters
+     */
+
+    $scope.getGameDetails = function() {
+
+      // Fetch user details from the DB
+
+      var currentGameGm = false,
+        currentGameCharacter = '';
+
+        console.log($scope.currentGame);
+
+      if ($rootScope.currentGame.characters) {
+
+        $rootScope.allCharacters = $rootScope.currentGame.characters;
+
+        // triggers send as function for event log
+        $Scope.eventLoggerSendAs();
+      }
+      // end of if game characters statement
+    };
+
+
+    /**
      * Event Logger "Send As" function
      * @Parameters type and text
      */
 
-    $rootScope.eventLoggerSendAs = function() {
+    $scope.eventLoggerSendAs = function() {
 
       // if the user isn't the GM they can send as player or character
       if (!$scope.userIsGM) {
@@ -57,7 +110,7 @@ angular.module('stormcrowApp')
 
       $scope.userIsGM = $scope.userIsGM === false ? true : false;
 
-      $rootScope.eventLoggerSendAs();
+      $Scope.eventLoggerSendAs();
     };
 
 
@@ -111,24 +164,6 @@ angular.module('stormcrowApp')
       icon: '',
       name: ''
     }];
-
-
-    /**
-     * Get users character function
-     * @No parameters
-     */
-
-    $scope.getCharacters = function() {
-
-      if ($rootScope.currentGame.characters) {
-
-        $rootScope.allCharacters = $rootScope.currentGame.characters;
-
-        // triggers send as function for event log
-        $rootScope.eventLoggerSendAs();
-      }
-      // end of if game characters statement
-    };
 
 
     /**
@@ -309,6 +344,6 @@ angular.module('stormcrowApp')
     };
 
     // launches get characters function
-    $scope.getCharacters();
+    $scope.getGame();
 
   });

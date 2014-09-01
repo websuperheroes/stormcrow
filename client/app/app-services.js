@@ -12,20 +12,10 @@ angular.module('stormcrowApp')
       return $resource('/api/games/:dest', {}, {
           getUserGames: {method: 'GET', params: {dest: 'user'}, isArray: false},
           getOpenGames: {method: 'GET', params: {dest: 'open'}, isArray: false},
-          createGame: {method: 'POST', params: {dest: 'create'}, isArray: false},
-          createChar: {method: 'POST', params: {dest: 'character'}, isArray: false}
+          createGame:   {method: 'POST', params: {dest: 'create'}, isArray: false},
+          createChar:   {method: 'POST', params: {dest: 'character'}, isArray: false},
+          gameById:     {method: 'GET', params: {dest: 'getGame'}, isArray: false}
 
       });
-  })
-    .factory('State', function(){
-
-    var state = {
-      currentGame: '',
-      selectedChar: ''
-    }
-
-    return {
-      state: state,
-    };
   });
 

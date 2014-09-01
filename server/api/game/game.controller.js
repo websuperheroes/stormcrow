@@ -32,6 +32,32 @@ exports.allGames = function(req, res) {
 };
 
 /**
+ * Get game by ID
+ */
+exports.gameById = function(req, res) {
+
+// stores user id
+  var gameId = req.query;
+
+  console.log('grabbing game: ' + gameId);
+
+  // looks for games where user id matches
+  return Game.find({
+    'game._id': gameId
+  }, function(err, game) {
+
+    // returns games
+    if (!err) {
+      return res.json({
+        data: game
+      });
+    } else {
+      return res.send(err);
+    }
+  });
+};
+
+/**
  * Get list of games for user where they have a character 
  * or are GM
  */
@@ -68,7 +94,7 @@ exports.openGames = function(req, res) {
   // stores user id
   var userId = req.query.uid;
 
-// looks for games that are looking for players where the user is not already a character or GM
+  // looks for games that are looking for players where the user is not already a character or GM
   return Game.find({
     $and: [{
       'lookingForPlayers': {

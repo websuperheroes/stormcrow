@@ -80,6 +80,27 @@ exports.changePassword = function(req, res, next) {
 };
 
 /**
+ * Update user variables and state
+ */
+exports.updateUser = function(req, res, next) {
+
+  console.log('tester');
+
+  var userId = req.user._id;
+  var currentGameId = String(req.body.currentGameId);
+
+  console.log('saving game id: ' + currentGameId);
+
+  User.findById(userId, function (err, user) {
+    user.currentGameId = currentGameId;
+    user.save(function(err) {
+      if (err) return validationError(res, err);
+      res.send(200);
+    });
+  });
+};
+
+/**
  * Get my info
  */
 exports.me = function(req, res, next) {
