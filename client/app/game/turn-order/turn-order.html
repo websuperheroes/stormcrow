@@ -1,0 +1,45 @@
+<div ng-controller="TurnOrderCtrl" stop-event='click'>
+    <div class="panel">
+        <!-- Default panel contents -->
+        <div class="panel__header">
+        <label><span class="label">Choose Character</span>
+                    <select ng-model="charToAdd" ng-options="c as c.characterName for c in characterOrderDropdown | orderBy: orderOfDropdown" ng-change="addToOrder( charToAdd )">
+                    <option value="">Pick character to add</option>
+                    </select>
+</label>
+        </div>
+        <!-- .panel-heading -->
+        <div ng-show="!orderOfPlay.length">
+            <p>Add some characters</p>
+        </div>
+        <ul class="panel-list">
+            <li class="panel-list__item" ng-repeat="item in orderOfPlay | orderBy: orderOfPlayOrder" ng-class="{'current-turn' : item.current}">
+                <span class="turn-order__avatar">
+                    <img ng-src="/assets/images/users/avatars/{{ item.avatar }}">
+                </span>
+                <span class="turn-order__character-name">{{ item.characterName }}</span>
+                <div class="turn-order__controls ">
+                    <div class="turn-order__initiative-input">
+                        <label>
+                            <span class="label">Initiative roll</span>
+                            <input type="number" value="{{item.initiativeRoll}}" ng-model="item.initiativeRoll">
+                        </label>
+                    </div>
+                    <button type="button" class="close" title="Remove from order" ng-click="removeFromOrder( item )" aria-hidden="true">&times;</button>
+                </div>
+
+            </li>
+            <!-- .panel-list__item -->
+        </ul>
+        <div class="panel__footer" ng-show="orderOfPlay.length >= 1">
+            <span class="float--left">(<a href="" ng-click="clearOrder()">Clear</a>)</span>
+            <div class="float--right">
+                <span class="turn-order__round-number">Round: {{ roundNumber }}</span>
+                <button ng-click="moveTurnOn()">Next turn</button>
+            </div>
+            <!-- .pull-right -->
+        </div>
+        <!-- end of show / hide -->
+    </div>
+    <!-- .panel-->
+</div>

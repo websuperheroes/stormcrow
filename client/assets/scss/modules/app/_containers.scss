@@ -1,0 +1,24 @@
+
+// *************************************
+//
+//   Containers
+//
+// *************************************
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.container {
+   @extend %global-width;
+   @extend %group;
+    padding: 10px;
+}
+
+.info-box-wrapper {
+  @extend %grid--wide;
+}
+.info-box {
+   @extend %grid__item;
+   @include cells(4);
+}

@@ -73,12 +73,46 @@ If it isn't working and you've recently pulled from upstream, try doing npm inst
 * Foundation - This lays on top of core, adding project specific modifiers and config files containing project-wide variables.
 * modules - This holds the projects modules. These are independent and reusable chunks of code that can be reused throughout the project and other projects.
 * vendor - External libraries
+* page specific styles are stored in the folders alongside the html and controllers.
+
+#### Naming conventions / styleguide etc ####
+
+We are using a loosely
+
+
+### Endpoints ###
+
+The API currently look like this:
+
+    /api
+    ├── /users
+    │   ├── /               - [GET] List users (all users if admin)
+    │   ├── /               - [POST] Create user
+    │   ├── /me             - [GET] Get current user
+    │   ├── /:id            - [GET] show user by id
+    │   ├── /:id            - [DELETE] delete user by id (admin only)
+    │   └── /:id/password   - Change a users password
+    │
+    ├── /games
+    │   ├── /               - [GET] Get all games
+    │   ├── /open           - [PUT] Get all games accepting new players
+    │   ├── /user           - [GET] Get all games user is involved with
+    │   ├── /create         - [POST] Create a game
+    │   └── /character      - [POST] Create a character in the game
+    │
+    ├── /dice-rolls
+    │   ├── /sides          - [GET] Get all dice sides
+    │   ├── /modifiers      - [GET] Get all dice modifiers
+    │   └── /amount         - [GET] Set the number of dice
+    │
+    └── /*                  - index.html
+
 
 
 ### Who do I talk to? ###
 
 * David Berner @davislurve
-* Bard Hovde
+* Bard Hovde @bungledup
 * Jon Russell
 * Gary 'Frog' Wood
 
@@ -89,9 +123,17 @@ If it isn't working and you've recently pulled from upstream, try doing npm inst
 
 ### Useful Info / Links ###
 
+#### Angular ####
+
 * File structure based on: [generator-angular-fullstack](https://github.com/DaftMonk/generator-angular-fullstack)
+* [Google File structure best practices](https://docs.google.com/document/d/1XXMvReO8-Awi1EZXAXS4PzDzdNvV6pGcuaF4Q9821Es/pub)
 * [Learn AngularJS in a day](http://toddmotto.com/ultimate-guide-to-learning-angular-js-in-one-day/)
 * [Getting Started with Angular](http://www.youtube.com/watch?v=WuiHuZq_cg4&list=PL173F1A311439C05D&context=C48ac877ADvjVQa1PpcFONnl4Q5x8hqvT6tRBTE-m0-Ym47jO3PEE%3D) videos
+* [Google Angular Best Practices](http://blog.angularjs.org/2014/02/an-angularjs-style-guide-and-best.html)
+*
+
+#### Git ####
+
 * [Git fork-merge workflow](http://x-team.com/2013/09/our-git-workflow-forks-with-feature-branches/) basis for our git workflow
 
 

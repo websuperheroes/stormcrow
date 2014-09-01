@@ -1,0 +1,67 @@
+
+// *************************************
+//
+//   Inbox file
+//   -> Go wild, cowboys!
+//
+// *************************************
+
+
+// -------------------------------------
+//   Random bits
+// -------------------------------------
+
+.logo {
+   float: left;
+}
+.grid-lines {
+  background: url(../assets/images/assets/grid-tile.png) repeat;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+// -------------------------------------
+//   Dummy modal
+// -------------------------------------
+
+.modal-fury {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  width: 550px;
+  margin-left: -275px;
+  background: #FFF;
+  box-shadow: 0px 0px 700px rgba(0,0,0,1);
+  padding: 20px;
+  z-index: 99999999999;
+}
+
+
+// -------------------------------------
+//   Adhoc Forms
+// -------------------------------------
+
+// Create Game Form
+.change-password-form .form__item .label,
+.create-character-form .form__item .label,
+.create-game-form .form__item .label {
+   width: 150px;
+}
+
+
+// -------------------------------------
+//   Navigation
+// -------------------------------------
+
+.navigation {
+  float: right;
+  margin-top: 10px;
+}
+nav li {
+  display: inline-block;
+  margin-left: 10px;
+}

@@ -1,0 +1,73 @@
+
+// *************************************
+//
+//   Panels
+//
+// *************************************
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$panel-primary-color: #E7C6A5; // light brown
+$panel-secondary-color: #654321; // dark brown
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.panel {
+   @extend %inner-shadows;
+   background: $panel-primary-color;
+   border: none;
+   position: relative;
+}
+
+// ----- Panel Header ----- //
+
+.panel__header {
+   @extend %group;
+   @extend %inner-shadows;
+   background: $panel-secondary-color;
+   border-radius: 5px 5px 0 0;
+   padding: 3px 10px;
+}
+
+.panel__header a {
+    float: right;
+    text-decoration: none;
+}
+
+// ----- Panel Footer----- //
+
+.panel__footer {
+     @extend %group;
+     padding: 3px 10px;
+}
+
+.panel__footer button {
+  float: right;
+}
+
+// ----- Panel Typography ----- //
+
+
+.panel p {
+    margin: 15px;
+}
+
+
+// -------------------------------------
+//   Panel Lists
+// -------------------------------------
+
+.panel-list__item {
+  @extend %group;
+   border-bottom: 1px solid darken($panel-primary-color, 5%);
+   padding: 5px 10px;
+}
+
+.panel-list__actions {
+  float: right;
+}

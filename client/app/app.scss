@@ -1,0 +1,92 @@
+
+$fa-font-path: "/bower_components/font-awesome/fonts";
+
+// *************************************
+//
+//   Stormcrow stylesheet
+//   -> Keep it modular & commented
+//   -> use Inbox for quick fixes
+//   -> see readme for help
+//
+// *************************************
+
+
+//----------------------------------*\
+// THEMES (temp - will be in own css)
+//----------------------------------*/
+
+@import "../assets/scss/themes/fantasy/main";
+
+
+//----------------------------------*\
+// CORE (Not to be modified)
+//----------------------------------*/
+
+// ----- Mixins ----- //
+@import "../assets/scss/core/_utilities";
+
+@import "../assets/scss/core/_normalise";
+@import "../assets/scss/core/_helpers";
+@import "../assets/scss/core/_layout";
+@import "../assets/scss/core/_grid";
+@import "../assets/scss/core/_print";
+
+// -------------------------------------
+//   FOUNDATION
+// -------------------------------------
+
+// ----- Mixins ----- //
+@import "../assets/scss/foundation/_typography";
+@import "../assets/scss/foundation/_breakpoints";
+
+@import "../assets/scss/foundation/_config";
+@import "../assets/scss/foundation/_base";
+
+
+
+//----------------------------------*\
+// OBJECTS & MODULES
+//----------------------------------*/
+
+@import "../assets/scss/modules/app/_alert-messages";
+@import "../assets/scss/modules/app/_buttons";
+@import "../assets/scss/modules/app/_forms";
+@import "../assets/scss/modules/app/_containers";
+@import "../assets/scss/modules/app/_panels";
+
+
+@import "../assets/scss/modules/game/_dice-roller";
+@import "../assets/scss/modules/game/_profile";
+@import "../assets/scss/modules/game/_notifications";
+@import "../assets/scss/modules/game/_event-log";
+@import "../assets/scss/modules/game/_tool-bar";
+@import "../assets/scss/modules/game/_loading-spinner";
+@import "../assets/scss/modules/game/_turn-order";
+
+
+// -------------------------------------
+//   COMPONENTS
+// -------------------------------------
+
+// Component styles are injected through grunt
+// injector
+@import 'account/login/login.scss';
+@import 'admin/admin.scss';
+@import 'dashboard/dashboard.scss';
+@import 'game/game.scss';
+@import 'main/main.scss';
+// endinjector
+
+
+// -------------------------------------
+//   VENDOR
+// -------------------------------------
+
+@import "../assets/scss/vendor/_external";
+
+// -------------------------------------
+//   Inbox
+// -------------------------------------
+
+@import "../assets/scss/_inbox";
+
