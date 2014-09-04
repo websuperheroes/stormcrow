@@ -43,12 +43,12 @@ angular.module('stormcrowApp')
 
       $scope.orderOfPlay = [];
 
-      for (var i = 0; i < $rootScope.allCharacters.length; i++) {
+      for (var i = 0; i < $scope.allCharacters.length; i++) {
 
         var character = {
-          id: $rootScope.allCharacters[i].id,
-          characterName: $rootScope.allCharacters[i].characterName,
-          avatar: $rootScope.allCharacters[i].avatar,
+          id: $scope.allCharacters[i].id,
+          characterName: $scope.allCharacters[i].characterName,
+          avatar: $scope.allCharacters[i].avatar,
           current: false
         };
         $scope.characterOrderDropdown.push(character);

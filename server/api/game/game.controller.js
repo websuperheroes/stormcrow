@@ -36,16 +36,13 @@ exports.allGames = function(req, res) {
  */
 exports.gameById = function(req, res) {
 
-// stores user id
-  var gameId = req.query;
+  // stores user id
+  var gameId = req.param("gameId");
 
-  console.log('grabbing game: ' + gameId);
+  console.log("grabbing game %j", gameId);
 
   // looks for games where user id matches
-  return Game.find({
-    'game._id': gameId
-  }, function(err, game) {
-
+  return Game.findById(gameId, function(err, game) {
     // returns games
     if (!err) {
       return res.json({

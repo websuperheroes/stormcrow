@@ -14,7 +14,7 @@ angular.module('stormcrowApp')
           getOpenGames: {method: 'GET', params: {dest: 'open'}, isArray: false},
           createGame:   {method: 'POST', params: {dest: 'create'}, isArray: false},
           createChar:   {method: 'POST', params: {dest: 'character'}, isArray: false},
-          gameById:     {method: 'GET', params: {dest: 'getGame'}, isArray: false}
+          currentGame:  {method: 'GET', params: {dest: 'current'}, isArray: false}
 
       });
   });

@@ -31,6 +31,12 @@ angular.module('stormcrowApp')
            templateUrl: '/app/game/characters/character-profile.html'
         };
      })
+    .directive('gmmenu', function() {
+          return {
+             restrict: 'E',
+             templateUrl: '/app/game/gm/gm-menu.html'
+          };
+       })
      .directive('characterlist', function() {
         return {
            restrict: 'E',

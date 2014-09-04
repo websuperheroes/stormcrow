@@ -39,6 +39,7 @@ angular.module('stormcrowApp')
          * Save current game to user model
          * @Parameters game
          */
+         
         $scope.setCurrentGame = function(game) {
 
             // Save game settings to the user API
@@ -46,34 +47,6 @@ angular.module('stormcrowApp')
                 id: $scope.currentUser._id,
                 currentGameId: game._id
             });
-
-            // var currentGame = game,
-            //     currentGameGm = false,
-            //     currentGameCharacter = '';
-
-            // // checks if the user is set to gm
-            // if (currentGame.gm == $scope.currentUser._id) {
-
-            //     // sets user as GM
-            //     currentGameGm = true;
-            //     return;
-            // }
-
-            // // checks if any characters exist in game
-            // if (currentGame.characters.length) {
-
-            //     // if they do loops through characters and finds match
-            //     for (var i = 0; i < currentGame.characters.length; i++) {
-            //         if (currentGame.characters[i]._userid == $scope.currentUser._id) {
-            //             // sets match to be users character
-            //             currentGameCharacter = currentGame.characters[i];
-            //             return;
-            //         }
-            //     }
-            // } 
-
-            // // Save game settings to the user API
-            // Games.saveUserGameSettings(userid);
 
         };
 
