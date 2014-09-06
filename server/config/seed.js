@@ -16,32 +16,37 @@ User.find({}).remove(function() {
      _id: '53fefc7ee4e09a00005c95a3',
      name: 'Dave',
      email: 'davidajberner@gmail.com',
-     password: 'test'
+     password: 'test',
+     activeGame: '53fefc7ee4e09a00005caaaa'
    },{
      provider: 'local',
      name: 'Bard',
      _id: '53fefc7ee4e09a22225c95a3',
      email: 'bnhovde@gmail.com',
-     password: 'test'
+     password: 'test',
+     activeGame: '53fefc7ee4e09a00005caaaa'
    },{
      provider: 'local',
      name: 'Frog',
      _id: '53fefc7ee4e09a33335c95a3',
      email: 'gwood_2k1@gmail.com',
-     password: 'test'
+     password: 'test',
+     activeGame: '53fefc7ee4e09a00005caaaa'
    }, {
      provider: 'local',
      name: 'Jon',
      _id: '53fefc7ee4e09a44445c95a3',
      email: 'jonsdarkarts@gmail.com',
-     password: 'test'
+     password: 'test',
+     activeGame: '53fefc7ee4e09a00005ceeee'
   }, {
      provider: 'local',
      name: 'Administrator',
      role: 'admin',
      _id: '53fefc7ee4e09a55555c95a3',
      email: 'admin@stormcrow.com',
-     password: 'test'
+     password: 'test',
+     activeGame: '53fefc7ee4e09a22225c95a3'
   }, function() {
       console.log('finished populating users');
     }
@@ -52,6 +57,7 @@ User.find({}).remove(function() {
 Game.find({}).remove(function() {
   Game.create({
     name: 'Troglor goes home',
+    _id: '53fefc7ee4e09a00005caaaa',
     gm: '53fefc7ee4e09a44445c95a3',
     characters: [{
         _userid: '53fefc7ee4e09a00005c95a3',
@@ -83,6 +89,7 @@ Game.find({}).remove(function() {
       }]
   }, {
       name: 'Eat my D',
+      _id: '53fefc7ee4e09a00005cbbbb',
       gm: '53fefc7ee4e09a22225c95a3',
       lookingForPlayers: 2,
       characters: [{
@@ -115,6 +122,7 @@ Game.find({}).remove(function() {
         }]
     }, {
       name: 'Homo Game',
+      _id: '53fefc7ee4e09a00005ccccc',
       gm: '53fefc7ee4e09a00005c95a3',
       characters: [{
           _userid: '53fefc7ee4e09a22225c95a3',
@@ -146,6 +154,7 @@ Game.find({}).remove(function() {
         }]
   }, {
       name: 'The Superfly Game',
+      _id: '53fefc7ee4e09a00005cdddd',
       gm: '53fefc7ee4e09a00005c95a3',
       lookingForPlayers: 1,
       characters: [{
@@ -178,6 +187,7 @@ Game.find({}).remove(function() {
         }]
   },{
       name: 'No Friends Game',
+      _id: '53fefc7ee4e09a00005ceeee',
       lookingForPlayers: 6,
       gm: '53fefc7ee4e09a44445c95a3',
       characters: [{
@@ -210,11 +220,13 @@ Game.find({}).remove(function() {
         }]
     }, {
       name: 'Game over bro',
+      _id: '53fefc7ee4e09a00005cffff',
       lookingForPlayers: 2,
       gm: '53fefc7ee4e09a22225c95a3',
       characters: []
     },  {
       name: 'Empty Game',
+      _id: '53fefc7ee4e09a00005c1111',
       lookingForPlayers: 1,
       gm: '53fefc7ee4e09a22225c95a3',
       characters: []

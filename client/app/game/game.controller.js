@@ -1,12 +1,19 @@
 'use strict';
 
 angular.module('stormcrowApp')
-    .controller('GameCtrl', function($rootScope, $scope, $timeout, Games, $q, Auth) {
+    .controller('GameCtrl', function($rootScope, $scope, $timeout, Games, $q, Auth, State) {
 
         $scope.isLoggedIn = Auth.isLoggedIn;
         $scope.isAdmin = Auth.isAdmin;
         $scope.currentUser = Auth.getCurrentUser();
+        var activeGameId = '';
 
+        // Try getting active game from state first, then from DB
+        if (State.getActiveGame() !== '') {
+            activeGameId = State.getActiveGame();
+        } else {
+            activeGameId = $scope.currentUser.activeGame;
+        }
 
         /**
          * Get game from DB
@@ -16,16 +23,18 @@ angular.module('stormcrowApp')
         $scope.getGame = function() {
 
             var data = ({
-                gameId: $scope.currentUser.currentGameId
+                gameId: activeGameId
             });
 
-            var currentGamePromise = Games.currentGame(data);
+            console.log('getting game with ID ' + activeGameId);
+
+            var activeGamePromise = Games.activeGame(data);
 
             $q.all([
-                currentGamePromise.$promise
+                activeGamePromise.$promise
             ]).then(function() {
 
-                    $scope.currentGame = currentGamePromise.data;
+                    $scope.activeGame = activeGamePromise.data;
                     $scope.getGameDetails();
 
                 },
@@ -42,31 +51,35 @@ angular.module('stormcrowApp')
 
         $scope.getGameDetails = function() {
 
-            var currentGame = $scope.currentGame;
-            $scope.currentGameGm = false;
-            $scope.currentGameCharacter = '';
+            var activeGame = $scope.activeGame;
+            $scope.activeGameGm = false;
+            $scope.activeGameCharacter = '';
 
-            console.log($scope.currentGame);
+            console.log($scope.activeGame);
 
             // checks if the user is set to gm
-            if (currentGame.gm == $scope.currentUser._id) {
-                $scope.currentGameGm = true;
-                return;
+            if (activeGame.gm == $scope.currentUser._id) {
+                $scope.activeGameGm = true;
             }
 
-            if ($scope.currentGame.characters.length) {
+            // adds all characters to the scope
+            if ($scope.activeGame.characters.length) {
 
-                $scope.allCharacters = currentGame.characters;
+                $scope.allCharacters = activeGame.characters;
 
-                // if they do loops through characters and finds match
-                for (var i = 0; i < currentGame.characters.length; i++) {
-                    if (currentGame.characters[i]._userid == $scope.currentUser._id) {
+
+                for (var i = 0; i < activeGame.characters.length; i++) {
+                    if (activeGame.characters[i]._userid == $scope.currentUser._id) {
                         // sets match to be users character
-                        $scope.currentGameCharacter = currentGame.characters[i];
-                        return;
+                        $scope.activeGameCharacter = activeGame.characters[i];
                     }
                 }
             }
+
+            // Broadcast to child scopes that game details has loaded
+            console.log('now broadcasting gameLoaded!');
+            $scope.$broadcast('gameLoaded', 'Some data'); // going down
+            $scope.eventLoggerSendAs();
 
         };
 
@@ -79,11 +92,11 @@ angular.module('stormcrowApp')
         $scope.eventLoggerSendAs = function() {
 
             // if the user isn't the GM they can send as player or character
-            if (!$rootScope.userIsGM) {
+            if (!$scope.userIsGM) {
 
                 $scope.sendAsOptions = [{
                     type: 'character',
-                    name: $rootScope.userCharacter.characterName,
+                    name: $scope.activeGameCharacter.characterName,
                 }, {
                     type: 'player',
                     name: $scope.currentUser.name,
@@ -96,17 +109,15 @@ angular.module('stormcrowApp')
                     name: 'GM'
                 }];
                 // loops through characters and adds names to GM send as options
-                for (var i = 0; i < $rootScope.allCharacters.length; i++) {
+                for (var i = 0; i < $scope.allCharacters.length; i++) {
 
                     var character = {
                         type: 'playercharacter',
-                        name: $rootScope.allCharacters[i].characterName
+                        name: $scope.allCharacters[i].characterName
                     };
                     $scope.sendAsOptions.push(character);
                 }
-                // end of for loop
             }
-            // end of if/else
             $scope.sendMessageAs = $scope.sendAsOptions[0];
         };
 
@@ -184,9 +195,9 @@ angular.module('stormcrowApp')
         $scope.selectCharacter = function() {
 
             // sets current char to newly created
-            $rootScope.userCharacter = $scope.chosenCharacter;
+            $scope.activeGameCharacter = $scope.chosenCharacter;
 
-            $rootScope.addAlertMessage('success', 'Welcome to the game, ' + $scope.character.characterName);
+            $rootScope.addAlertMessage('success', 'Welcome to the game, ' + $scope.activeGameCharacter.characterName);
         };
 
 
@@ -309,7 +320,7 @@ angular.module('stormcrowApp')
 
             // sets up info from form about char
             var charInfo = ([{
-                gameID: $rootScope.currentGame._id
+                gameID: $rootScope.activeGame._id
             }, {
                 _uid: uid,
                 characterName: $scope.character.characterName,
@@ -336,7 +347,7 @@ angular.module('stormcrowApp')
                         // if user isn't GM, makes them the new character
                         $rootScope.addAlertMessage('success', 'Welcome to the game, ' + $scope.character.characterName);
                         // sets current char to newly created
-                        $rootScope.userCharacter = charInfo[1];
+                        $rootScope.activeGameCharacter = charInfo[1];
                     }
                     // closes modal
                     $scope.characterCreationActive = false;

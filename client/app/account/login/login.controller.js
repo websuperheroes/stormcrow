@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('stormcrowApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location, $window) {
+  .controller('LoginCtrl', function ($scope, Auth, $location, $window, State) {
     $scope.user = {};
     $scope.errors = {};
 
@@ -15,6 +15,7 @@ angular.module('stormcrowApp')
         })
         .then( function() {
           // Logged in, redirect to home
+          State.setActiveUser($scope.user._id);
           $location.path('/home');
         })
         .catch( function(err) {

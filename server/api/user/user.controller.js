@@ -87,12 +87,12 @@ exports.updateUser = function(req, res, next) {
   console.log('tester');
 
   var userId = req.user._id;
-  var currentGameId = String(req.body.currentGameId);
+  var currentGameId = String(req.body.activeGame);
 
   console.log('saving game id: ' + currentGameId);
 
   User.findById(userId, function (err, user) {
-    user.currentGameId = currentGameId;
+    user.activeGame = currentGameId;
     user.save(function(err) {
       if (err) return validationError(res, err);
       res.send(200);

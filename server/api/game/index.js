@@ -10,6 +10,6 @@ router.get('/user', controller.userGames);
 router.post('/create', controller.createGame);
 router.get('/open', controller.openGames);
 router.post('/character', controller.createCharacter);
-router.get('/current', controller.gameById);
+router.get('/active', controller.gameById);
 
 module.exports = router;

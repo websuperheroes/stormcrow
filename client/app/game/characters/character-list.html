@@ -5,7 +5,7 @@
         </div>
         <!-- .panel-heading -->
         <ul class="panel-list">
-            <li class="panel-list__item" ng-repeat="item in currentGame.characters">
+            <li class="panel-list__item" ng-repeat="item in activeGame.characters">
                 <span class="turn-order-avatar">
                     <img ng-src="/assets/images/users/avatars/{{ item.avatar }}">
                 </span>
@@ -13,7 +13,7 @@
             </li>
             <!-- .list-group -->
         </ul>
-        <div class="panel__footer" ng-show="currentGame.characters.length < 6">
+        <div class="panel__footer" ng-show="activeGame.characters.length < 6">
 
             <div class="pull-right" style="margin-bottom: 5px;">
             <button ng-click="createCharacter()">Create</button>

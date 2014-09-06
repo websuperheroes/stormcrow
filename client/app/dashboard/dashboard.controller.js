@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('stormcrowApp')
-    .controller('DashboardCtrl', function($rootScope, $scope, Auth, $location, $q, Games, $http) {
+    .controller('DashboardCtrl', function($rootScope, $scope, Auth, $location, $q, Games, $http, State) {
 
         $scope.isLoggedIn = Auth.isLoggedIn;
         $scope.isAdmin = Auth.isAdmin;
@@ -40,12 +40,16 @@ angular.module('stormcrowApp')
          * @Parameters game
          */
          
-        $scope.setCurrentGame = function(game) {
+        $scope.setActiveGame = function(game) {
 
-            // Save game settings to the user API
+            // Set active game to state
+            State.setActiveGame(game._id);
+            console.log('setting game to ' + game._id);
+
+            // Save game settings to the user model
             $http.put('/api/users', { 
                 id: $scope.currentUser._id,
-                currentGameId: game._id
+                activeGame: game._id
             });
 
         };
