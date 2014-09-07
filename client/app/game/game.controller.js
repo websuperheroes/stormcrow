@@ -39,7 +39,7 @@ angular.module('stormcrowApp')
 
                 },
                 function(error) {
-                // $rootScope.addAlertMessage('error', 'There was a problem loading games - try refreshing the page');
+                    $rootScope.addAlertMessage('error', 'There was a problem loading games - try refreshing the page');
                 }
             );
         };
@@ -54,6 +54,7 @@ angular.module('stormcrowApp')
             var activeGame = $scope.activeGame;
             $scope.userIsGM = false;
             $scope.activeGameCharacter = '';
+            $scope.allCharacters = [];
 
             console.log($scope.activeGame);
 
@@ -196,7 +197,6 @@ angular.module('stormcrowApp')
 
             // sets current char to newly created
             $scope.activeGameCharacter = $scope.chosenCharacter;
-
             $rootScope.addAlertMessage('success', 'Welcome to the game, ' + $scope.activeGameCharacter.characterName);
         };
 
@@ -227,6 +227,7 @@ angular.module('stormcrowApp')
                 $rootScope.removeAlertMessage(-1);
             }, 5000);
         };
+
         // function remove an exisiting alert message
         $rootScope.removeAlertMessage = function(index) {
             if (index < 0 || index >= $rootScope.alertMessages.length) {
@@ -242,6 +243,7 @@ angular.module('stormcrowApp')
          */
 
         $rootScope.widgetLoading = {};
+
         // function to show and hide widget loaders
         $rootScope.showLoading = function(elementId) {
             $rootScope.widgetLoading[elementId] = true;
@@ -311,7 +313,7 @@ angular.module('stormcrowApp')
 
             $scope.submitted = true;
             var uid = '';
-            if ($rootScope.userIsGM) {
+            if ($scope.userIsGM) {
                 console.log('user is gM');
                 uid = '';
             } else {
@@ -320,7 +322,7 @@ angular.module('stormcrowApp')
 
             // sets up info from form about char
             var charInfo = ([{
-                gameID: $rootScope.activeGame._id
+                gameID: $scope.activeGame._id
             }, {
                 _uid: uid,
                 characterName: $scope.character.characterName,
@@ -341,16 +343,22 @@ angular.module('stormcrowApp')
                 .then(function(response) {
                     // when successful, launches alert box, closes modal
 
-                    if ($rootScope.userIsGM) {
+                    if ($scope.userIsGM) {
                         $rootScope.addAlertMessage('success', 'Created character: ' + $scope.character.characterName);
                     } else {
                         // if user isn't GM, makes them the new character
                         $rootScope.addAlertMessage('success', 'Welcome to the game, ' + $scope.character.characterName);
                         // sets current char to newly created
-                        $rootScope.activeGameCharacter = charInfo[1];
+                        $scope.activeGameCharacter = charInfo[1];
                     }
                     // closes modal
                     $scope.characterCreationActive = false;
+
+                    // Re-populates event log options
+                    $scope.eventLoggerSendAs();
+
+                    // Adds character to the character listing
+                    $scope.allCharacters.push(charInfo[1]);
 
                 })
                 .catch(function(err) {

@@ -222,7 +222,7 @@ Game.find({}).remove(function() {
       name: 'Game over bro',
       _id: '53fefc7ee4e09a00005cffff',
       lookingForPlayers: 2,
-      gm: '53fefc7ee4e09a22225c95a3',
+      gm: '53fefc7ee4e09a55555c95a3',
       characters: []
     },  {
       name: 'Empty Game',
