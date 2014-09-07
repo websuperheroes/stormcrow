@@ -54,7 +54,7 @@ angular.module('stormcrowApp')
       var grandtotal = 0;
 
 
-      var rolledby = $rootScope.userCharacter.characterName;
+      var rolledby = $scope.activeGameCharacter.characterName;
 
 
       // resets current roll

@@ -52,14 +52,14 @@ angular.module('stormcrowApp')
         $scope.getGameDetails = function() {
 
             var activeGame = $scope.activeGame;
-            $scope.activeGameGm = false;
+            $scope.userIsGM = false;
             $scope.activeGameCharacter = '';
 
             console.log($scope.activeGame);
 
             // checks if the user is set to gm
             if (activeGame.gm == $scope.currentUser._id) {
-                $scope.activeGameGm = true;
+                $scope.userIsGM = true;
             }
 
             // adds all characters to the scope
@@ -78,7 +78,7 @@ angular.module('stormcrowApp')
 
             // Broadcast to child scopes that game details has loaded
             console.log('now broadcasting gameLoaded!');
-            $scope.$broadcast('gameLoaded', 'Some data'); // going down
+            $scope.$broadcast('gameLoaded', 'Some data');
             $scope.eventLoggerSendAs();
 
         };

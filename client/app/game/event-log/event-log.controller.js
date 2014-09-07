@@ -63,9 +63,9 @@ angular.module('stormcrowApp')
 
                 // sets up model for character
                 var characterToAdd = {
-                    id: $rootScope.userCharacter._id,
-                    characterName: $rootScope.userCharacter.characterName,
-                    avatarSmall: $rootScope.userCharacter.avatar,
+                    id: $rootScope.activeGameCharacter._id,
+                    characterName: $rootScope.activeGameCharacter.characterName,
+                    avatarSmall: $rootScope.activeGameCharacter.avatar,
                     initiativeRoll: grandtotal
                 };
 
@@ -98,7 +98,7 @@ angular.module('stormcrowApp')
 
                 // converts both entered name and current user character name to lower case to allow case insensitive matching.  grabs first name only
                 var lcString = whisper.toLowerCase();
-                var lcString1 = $rootScope.userCharacter.characterName.split(' ')[0].toLowerCase();
+                var lcString1 = $rootScope.activeGameCharacter.characterName.split(' ')[0].toLowerCase();
 
                 // if you are trying to whisper to your own character name - alert message
                 if (lcString == lcString1) {
