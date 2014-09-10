@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('stormcrowApp')
-    .controller('EventLogCtrl', function($rootScope, $scope, Auth) {
+    .controller('EventLogCtrl', function($rootScope, $scope, Auth, NotificationsManager) {
 
         $scope.isLoggedIn = Auth.isLoggedIn;
         $scope.isAdmin = Auth.isAdmin;
@@ -102,7 +102,7 @@ angular.module('stormcrowApp')
 
                 // if you are trying to whisper to your own character name - alert message
                 if (lcString == lcString1) {
-                    $rootScope.addAlertMessage('error', 'Duh, why you talking to yourself?!.');
+                    NotificationsManager.addMessage('error', 'Duh, why you talking to yourself?!.');
                     return;
                 }
 
@@ -138,7 +138,7 @@ angular.module('stormcrowApp')
 
                 }
                 // end of for loop for all characters
-                $rootScope.addAlertMessage('error', 'No character called ' + whisper + '. Try again!');
+                NotificationsManager.addMessage('error', 'No character called ' + whisper + '. Try again!');
                 return;
             }
             // end of whisper else if

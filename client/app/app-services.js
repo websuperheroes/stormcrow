@@ -28,34 +28,19 @@ angular.module('stormcrowApp')
         self.state = {
             activeUserId: '',
             activeGameId: ''
-        }
+        };
 
         this.setActiveUser = function(user) {
             self.state.activeUserId = user;
-        }
+        };
         this.setActiveGame = function(game) {
             self.state.activeGameId = game;
-        }
+        };
         this.getActiveUser = function() {
             return self.state.activeUserId;
-        }
+        };
         this.getActiveGame = function() {
             return self.state.activeGameId;
-        }
-    })
-
-    .service('NotificationService', function () {
-
-        // Service for app-wide user notifications
-
-        var self = this;
-
-        this.setSomething = function(message) {
-            self.state.message = message;
-        }
-        this.getSomething = function() {
-            return self.state.message;
-        }
-
+        };
     });
 
