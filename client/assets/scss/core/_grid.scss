@@ -1,9 +1,8 @@
-
-
 // *************************************
 //
 //   Grid system
-//   -> Dave Custom built grid (heavily influenced by inuit css grid)
+//   -> Dave Custom built grid (
+//   Influenced by inuit css grid and bourbon / neat
 //
 // *************************************
 
@@ -31,7 +30,8 @@ $gutter-width: 24px;
     list-style:none;
     margin:0;
     padding:0;
-    margin-right:-$gutter-width;
+    margin-left: -$gutter-width;
+    overflow: hidden;
 }
 
 // ----- Individual cells ----- //
@@ -39,7 +39,7 @@ $gutter-width: 24px;
 %grid__item {
    display: inline-block;
    vertical-align: top;
-   padding-right: $gutter-width;
+   padding-left: $gutter-width;
 }
 
 // -------------------------------------
@@ -62,10 +62,10 @@ $gutter-width: 24px;
 // -------------------------------------
 
 %grid--full {
-    margin-right:0;
+    margin-left: 0;
 
     > %grid__item {
-        padding-right:0;
+        padding-left: 0;
     }
 }
 
@@ -74,10 +74,10 @@ $gutter-width: 24px;
 // -------------------------------------
 
 %grid--narrow {
-    margin-right:-($gutter-width/ 2);
+    margin-left:-($gutter-width/ 2);
 
     > %grid__item {
-        padding-right:$gutter-width/ 2;
+        padding-left:$gutter-width/ 2;
     }
 }
 
@@ -86,10 +86,10 @@ $gutter-width: 24px;
 // -------------------------------------
 
 %grid--wide {
-    margin-right:-($gutter-width* 2);
+    margin-left:-($gutter-width* 2);
 
     > %grid__item {
-        padding-right:$gutter-width* 2;
+        padding-left:$gutter-width* 2;
     }
 }
 
@@ -186,81 +186,81 @@ $gutter-width: 24px;
 @mixin push($number-of-cells) {
 
 @if $number-of-cells == 1 {
-   @extend %margin-right-one-cell;
+   @extend %margin-left-one-cell;
    }
    @if $number-of-cells == 2 {
-   @extend %margin-right-two-cells;
+   @extend %margin-left-two-cells;
    }
    @if $number-of-cells == 3 {
-      @extend %margin-right-three-cells;
+      @extend %margin-left-three-cells;
       }
    @if $number-of-cells == 4 {
-   @extend %margin-right-four-cells;
+   @extend %margin-left-four-cells;
    }
    @if $number-of-cells == 5 {
-   @extend %margin-right-five-cells;
+   @extend %margin-left-five-cells;
    }
    @if $number-of-cells == 6 {
-   @extend %margin-right-six-cells;
+   @extend %margin-left-six-cells;
    }
    @if $number-of-cells == 7 {
-   @extend %margin-right-seven-cells;
+   @extend %margin-left-seven-cells;
    }
    @if $number-of-cells == 8 {
-   @extend %margin-right-eight-cells;
+   @extend %margin-left-eight-cells;
    }
    @if $number-of-cells == 9 {
-   @extend %margin-right-nine-cells;
+   @extend %margin-left-nine-cells;
    }
    @if $number-of-cells == 10 {
-   @extend %margin-right-ten-cells;
+   @extend %margin-left-ten-cells;
    }
    @if $number-of-cells == 11 {
-   @extend %margin-right-eleven-cells;
+   @extend %margin-left-eleven-cells;
    }
    @if $number-of-cells == 12 {
-   @extend %margin-right-twelve-cells;
+   @extend %margin-left-twelve-cells;
    }
 }
 
 
 // Extends for pushes
 
-%margin-right-one-cell {
-   margin-right: 8.3333333333%;
+%margin-left-one-cell {
+   margin-left: 8.3333333333%;
 }
-%margin-right-two-cells {
-   margin-right: 16.66666666%;
+%margin-left-two-cells {
+   margin-left: 16.66666666%;
 }
-%margin-right-three-cells {
-   margin-right: 25%;
+%margin-left-three-cells {
+   margin-left: 25%;
 }
-%margin-right-four-cells {
-   margin-right: 33.33333333%;
+%margin-left-four-cells {
+   margin-left: 33.33333333%;
 }
-%margin-right-five-cells {
-   margin-right: 41.66666666%;
+%margin-left-five-cells {
+   margin-left: 41.66666666%;
 }
-%margin-right-six-cells {
-   margin-right: 50%;
+%margin-left-six-cells {
+   margin-left: 50%;
 }
-%margin-right-seven-cells {
-   margin-right: 58.3333333333%;
+%margin-left-seven-cells {
+   margin-left: 58.3333333333%;
 }
-%margin-right-eight-cells {
-   margin-right: 66.6666666666%;
+%margin-left-eight-cells {
+   margin-left: 66.6666666666%;
 }
-%margin-right-nine-cells {
-   margin-right: 75%;
+%margin-left-nine-cells {
+   margin-left: 75%;
 }
-%margin-right-ten-cells {
-   margin-right: 83.333333333%;
+%margin-left-ten-cells {
+   margin-left: 83.333333333%;
 }
-%margin-right-eleven-cells {
-   margin-right: 91.666666666%;
+%margin-left-eleven-cells {
+   margin-left: 91.666666666%;
 }
-%margin-right-twelve-cells {
-   margin-right: 100%;
+%margin-left-twelve-cells {
+   margin-left: 100%;
 }
 
 
