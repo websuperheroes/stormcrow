@@ -1,7 +1,6 @@
 <div ng-include="'app/navbar/navbar.html'"></div>
 
-
-
+<notifications></notifications>
 
 <div class="hero">
 
@@ -50,7 +49,7 @@
               </li><!--
         --><li class="info-box">
         <h4>As close to P&amp;P as possible</h4>
-        <p>Whilst we can't put you in around a table with your mates to play, this is the next best thing.  A virtual tabletop where you can see and speak to each other whilst adventuring.  In some form, by injected humour.</p>
+        <p>Whilst we can't put you in around a table with your mates to play, this is the next best task.  A virtual tabletop where you can see and speak to each other whilst adventuring.  In some form, by injected humour.</p>
       </li>
     </ul>
 </div>
@@ -58,16 +57,16 @@
 <main class="container">
 
       <h1 class="page-header">Features:</h1>
-      <ul ng-repeat="thing in awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}<button type="button" class="close" ng-click="deleteThing(thing)">&times;</button></a></li>
+      <ul ng-repeat="task in awesomeThings">
+        <li><a href="#" tooltip="{{task.info}}">{{task.name}}<button type="button" class="close" ng-click="deleteThing(task)">&times;</button></a></li>
       </ul>
     </div>
   </div>
 
-  <form class="thing-form">
+  <form class="task-form">
     <label>Syncs in realtime across clients</label>
     <p class="input-group">
-      <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="newThing">
+      <input type="text" class="form-control" placeholder="Add a new task here." ng-model="newThing">
       <span class="input-group-btn">
         <button type="submit" class="btn btn-primary" ng-click="addThing()">Add New</button>
       </span>

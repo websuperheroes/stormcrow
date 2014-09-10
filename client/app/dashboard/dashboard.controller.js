@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('stormcrowApp')
-    .controller('DashboardCtrl', function($rootScope, $scope, Auth, $location, $q, Games, $http, State) {
+    .controller('DashboardCtrl', function($rootScope, $scope, Auth, $location, $q, Games, $http, State, NotificationsManager) {
 
         $scope.isLoggedIn = Auth.isLoggedIn;
         $scope.isAdmin = Auth.isAdmin;
@@ -27,7 +27,7 @@ angular.module('stormcrowApp')
                 },
                 // on error
                 function(error) {
-                // $rootScope.addAlertMessage('error', 'There was a problem loading games - try refreshing the page');
+                    NotificationsManager.addMessage('error', 'There was a problem loading games - try refreshing the page');
                 }
             );
         };

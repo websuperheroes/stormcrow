@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('stormcrowApp')
-    .controller('GameCtrl', function($rootScope, $scope, $timeout, Games, $q, Auth, State) {
+    .controller('GameCtrl', function($rootScope, $scope, $timeout, Games, $q, Auth, State, NotificationsManager){
 
         $scope.isLoggedIn = Auth.isLoggedIn;
         $scope.isAdmin = Auth.isAdmin;
@@ -39,7 +39,7 @@ angular.module('stormcrowApp')
 
                 },
                 function(error) {
-                    $rootScope.addAlertMessage('error', 'There was a problem loading games - try refreshing the page');
+                    NotificationsManager.addMessage('error', 'There was a problem loading games - try refreshing the page');
                 }
             );
         };
@@ -197,43 +197,7 @@ angular.module('stormcrowApp')
 
             // sets current char to newly created
             $scope.activeGameCharacter = $scope.chosenCharacter;
-            $rootScope.addAlertMessage('success', 'Welcome to the game, ' + $scope.activeGameCharacter.characterName);
-        };
-
-
-        /**
-         * Alert Messages function
-         * @Parameters type and text
-         */
-
-        $rootScope.alertMessages = [];
-
-        // function to add a new alert message
-        $rootScope.addAlertMessage = function(type, text) {
-            // if alert text is not defined
-            if (typeof(text) === 'undefined') {
-                if (typeof(text) !== 'undefined') {
-                    text = type;
-                } else {
-                    text = 'No alert message specified.';
-                    type = 'alert';
-                }
-            }
-            $rootScope.alertMessages.push({
-                type: type,
-                text: text
-            });
-            $timeout(function() {
-                $rootScope.removeAlertMessage(-1);
-            }, 5000);
-        };
-
-        // function remove an exisiting alert message
-        $rootScope.removeAlertMessage = function(index) {
-            if (index < 0 || index >= $rootScope.alertMessages.length) {
-                index = 0;
-            }
-            $rootScope.alertMessages.splice(index, 1);
+            NotificationsManager.addMessage('success', 'Welcome to the game, ' + $scope.activeGameCharacter.characterName);
         };
 
 
@@ -344,10 +308,10 @@ angular.module('stormcrowApp')
                     // when successful, launches alert box, closes modal
 
                     if ($scope.userIsGM) {
-                        $rootScope.addAlertMessage('success', 'Created character: ' + $scope.character.characterName);
+                        NotificationsManager.addMessage('success', 'Created character: ' + $scope.character.characterName);
                     } else {
                         // if user isn't GM, makes them the new character
-                        $rootScope.addAlertMessage('success', 'Welcome to the game, ' + $scope.character.characterName);
+                        NotificationsManager.addMessage('success', 'Welcome to the game, ' + $scope.character.characterName);
                         // sets current char to newly created
                         $scope.activeGameCharacter = charInfo[1];
                     }
