@@ -47,6 +47,7 @@ $gutter-width: 24px;
 // -------------------------------------
 
 %grid--rev {
+    @extend %grid;
     direction:rtl;
     text-align:right;
 
@@ -62,6 +63,7 @@ $gutter-width: 24px;
 // -------------------------------------
 
 %grid--full {
+    @extend %grid;
     margin-right:0;
 
     > %grid__item {
@@ -74,6 +76,7 @@ $gutter-width: 24px;
 // -------------------------------------
 
 %grid--narrow {
+    @extend %grid;
     margin-right:-($gutter-width/ 2);
 
     > %grid__item {
