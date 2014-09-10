@@ -53,7 +53,7 @@ $gutter-width: 24px;
 
     > %grid__item {
         direction:ltr;
-        text-align:right;
+        text-align:left;
     }
 }
 
@@ -89,6 +89,7 @@ $gutter-width: 24px;
 // -------------------------------------
 
 %grid--wide {
+    @extend %grid;
     margin-right:-($gutter-width* 2);
 
     > %grid__item {
