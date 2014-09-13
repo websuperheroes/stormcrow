@@ -38,7 +38,8 @@ var all = {
       db: {
         safe: true
       }
-    }
+    },
+    uri:  'mongodb://localhost/mongodb_rpgapp:11998'
   },
 
   facebook: {
