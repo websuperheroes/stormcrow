@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('stormcrowApp')
+angular.module('stormcrow')
   .controller('CreateGameCtrl', function($scope, Games, Auth, $location, $q, $rootScope) {
     $scope.game = {};
     $scope.errors = {};

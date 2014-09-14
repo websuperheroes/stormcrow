@@ -3,7 +3,7 @@
 describe('Service: diceRoller', function () {
 
   // load the service's module
-  beforeEach(module('stormcrowApp'));
+  beforeEach(module('stormcrow'));
 
   // instantiate service
   var diceRoller;

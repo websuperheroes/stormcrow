@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('stormcrowApp')
+angular.module('stormcrow')
   .controller('LoginCtrl', function ($scope, Auth, $location, $window, State) {
     $scope.user = {};
     $scope.errors = {};

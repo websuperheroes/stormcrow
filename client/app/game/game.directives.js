@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('stormcrowApp')
+angular.module('stormcrow')
    .directive('diceroller', function() {
       return {
          restrict: 'E',

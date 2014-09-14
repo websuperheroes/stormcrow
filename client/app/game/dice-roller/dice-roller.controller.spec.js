@@ -3,7 +3,7 @@
 describe('Controller: DiceRollerCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('stormcrowApp'));
+  beforeEach(module('stormcrow'));
 
   var DiceRollerCtrl, scope;
 

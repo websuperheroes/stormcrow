@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('stormcrowApp')
+angular.module('stormcrow')
     .controller('DashboardCtrl', function($rootScope, $scope, Auth, $location, $q, Games, $http, State, NotificationsManager) {
 
         $scope.isLoggedIn = Auth.isLoggedIn;

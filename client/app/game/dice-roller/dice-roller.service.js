@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('stormcrowApp')
+angular.module('stormcrow')
   .factory('DiceRoller', function($resource) {
     return $resource('/api/dice-rolls/:dest', {}, {
         getDiceSides: {method: 'GET', params: {dest: 'sides'}, isArray: false},

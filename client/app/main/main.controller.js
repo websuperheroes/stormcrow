@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('stormcrowApp')
+angular.module('stormcrow')
   .controller('MainCtrl', function ($rootScope, $scope, $http, socket, Auth) {
 
     $scope.allTasks = [];

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('stormcrowApp')
+angular.module('stormcrow')
     .controller('TurnOrderCtrl', function($rootScope, $scope) {
 
         // sets turn order and dropdown as empty arrays

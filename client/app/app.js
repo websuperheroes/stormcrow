@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('stormcrowApp', [
+angular.module('stormcrow', [
   'ngCookies',
   'ngResource',
   'ngSanitize',

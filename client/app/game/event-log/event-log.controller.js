@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('stormcrowApp')
+angular.module('stormcrow')
     .controller('EventLogCtrl', function($rootScope, $scope, Auth, NotificationsManager) {
 
         $scope.isLoggedIn = Auth.isLoggedIn;

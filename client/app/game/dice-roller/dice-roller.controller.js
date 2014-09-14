@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('stormcrowApp')
+angular.module('stormcrow')
     .controller('DiceRollerCtrl', function($rootScope, $scope, $http, $q, DiceRoller, NotificationsManager ){
 
         // Defaults for dice dropdowns

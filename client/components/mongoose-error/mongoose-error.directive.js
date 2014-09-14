@@ -3,7 +3,7 @@
 /**
  * Removes server error when user updates input
  */
-angular.module('stormcrowApp')
+angular.module('stormcrow')
   .directive('mongooseError', function () {
     return {
       restrict: 'A',

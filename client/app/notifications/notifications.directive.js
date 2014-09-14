@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('stormcrowApp')
+angular.module('stormcrow')
     .directive('notifications', function(NotificationsManager) {
         return {
             templateUrl: 'app/notifications/notifications.html',

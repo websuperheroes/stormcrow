@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('stormcrowApp')
+angular.module('stormcrow')
     .service('NotificationsManager', function($timeout) {
 
         // Service for app-wide user notifications

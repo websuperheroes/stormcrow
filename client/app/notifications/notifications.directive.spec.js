@@ -3,7 +3,7 @@
 describe('Directive: notifications', function () {
 
   // load the directive's module and view
-  beforeEach(module('stormcrowApp'));
+  beforeEach(module('stormcrow'));
   beforeEach(module('app/notifications/notifications.html'));
 
   var element, scope;
