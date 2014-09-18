@@ -2,12 +2,9 @@ node_modules
 public
 .tmp
 .sass-cache
-app/bower_components
-heroku
-/views
+.idea
+client/bower_components
 dist
-/stormcrowapp.sublime-workspace
-/stormcrowapp.sublime-project
-
+/server/config/local.env.js
 /stormcrow.sublime-workspace
 /stormcrow.sublime-project

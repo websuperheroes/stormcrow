@@ -1,0 +1,25 @@
+<div ng-include="'app/navbar/navbar.html'"></div>
+<notifications></notifications>
+<div class="container">
+<a class="button" href="/create-game" title="Create New Game">Create Game</a>
+    <h1>{{ currentUser.name }}, welcome to Storm Crow</h1>
+    <h3>Choose a game to join</h3>
+
+
+    <div class="info-box">
+        <h4>Your Games</h4>
+        <ul>
+            <li ng-repeat="g in userGames">Game: <a href="/game" title="{{ g.name }}" ng-click="setActiveGame( g )">{{ g.name }}</a> | Character: <span ng-repeat="char in g.characters"><span ng-show="char._userid == currentUser._id">{{ char.characterName }}</span></span><span ng-show="g.gm == currentUser._id">GM</span>
+            </li>
+        </ul>
+    </div>
+    <div class="info-box">
+        <h4>
+            Looking for players
+        </h4>
+        <ul>
+            <li ng-repeat="og in openGames">Game: <a href="/game" title="{{ og.name }}" ng-click="setActiveGame( og )">{{ og.name }}</a> | Players Needed: {{ og.lookingForPlayers }}
+            </li>
+        </ul>
+    </div>
+</div>

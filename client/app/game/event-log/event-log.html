@@ -1,0 +1,68 @@
+<div ng-controller="EventLogCtrl" stop-event='click'>
+    <div class="panel panel-event-log">
+        <!-- Default panel contents -->
+        <div class="panel__header">
+            <strong>Event Log</strong>
+        </div>
+        <div ng-show="!eventFeed.length">
+            <p>Nothing has happened yet!</p>
+        </div>
+        <ul class="panel-list" ng-show="eventFeed.length">
+            <li class="roll panel-list__item" ng-repeat="item in eventFeed | reverse" ng-switch on="item.type">
+                <div class="dice-roll-event" ng-switch-when="diceroll">
+                    <span class="user-name">{{ item.character }}:</span>
+                    <span class="action-text">{{ item.text }}</span>
+                    <span class="badge">{{ item.grandtotal }}</span>
+                    <div>
+                        <span class="small-text" ng-repeat="roll in item.combo">({{ roll.amountOfDice }}d{{ roll.dx }}
+                            <span ng-show="roll.mod > 0">+</span>
+                            <span ng-show="roll.mod != 0">{{ roll.mod }}</span>)
+                            <span ng-show="!$last">+</span>
+                        </span>
+                    </div>
+                    <i ng-show="item.hidden" class="icon-eye-closed"><span>Hidden Roll</i>
+                </div>
+                <!-- end of dice roll -->
+                <div class="chat-message-event" ng-switch-when="message">
+                    <span class="user-name" ng-show="item.sentAs == 'player'">{{ item.user }}:</span>
+                    <span class="user-name" ng-show="item.sentAs == 'character'">{{ item.character }}:</span>
+                    <span class="user-name" ng-show="item.sentAs == 'playercharacter'">{{ item.character }}:</span>
+                    <span class="speech-text" ng-class="{'whisper-text': item.whisper}">{{ item.text }}</span>
+                </div>
+                <!-- end of message -->
+                <div class="dice-roll-event" ng-switch-when="action">
+                    <span class="user-name">{{ item.character }}:</span>
+                    <span class="action-text">{{ item.text }}</span>
+                    <span class="badge">{{ item.grandtotal }}</span>
+                    <div>
+                        <span class="small-text">({{ item.amountOfDice }}d{{ item.dx }}
+                            <span ng-show="item.mod > 0">+</span>
+                            <span ng-show="item.mod != 0">{{ item.mod }}</span>)</span>
+                    </div>
+                    <i ng-show="item.hidden" class="icon-eye-closed"><span>Hidden Roll</span></i>
+                </div>
+                <!-- end of action -->
+                <span class="chat-message-time" am-time-ago="item.time"></span>
+            </li>
+        </ul>
+        <div class="chat-box">
+            <form ng-submit="sendMessage()" class="send-message-form">
+                <div class="form__item">
+                    <label for="sendAs">Send As
+                    <select id="sendAs" class="form-control" ng-model="sendMessageAs" ng-options="p as p.name for p in sendAsOptions">
+                    </select>
+                    </label>
+                </div>
+                <div class="form__item">
+                <label for="messageText"><span class="label">Message</span>
+                    <input id="messageText" type="text" ng-model="messageText" placeholder="Type your message here" ng-change="macroChecker()">
+                    </label>
+                </div>
+                <div class="form__item">
+                    <button type="submit">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- .panel-event-log -->
+</div>

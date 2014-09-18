@@ -1,0 +1,25 @@
+<div class="l-fixed l-vspace" ng-show="activeGameCharacter">
+    <div class="profile">
+        <div class="profile__avatar">
+            <img ng-src="/assets/images/users/avatars/{{ activeGameCharacter.avatar }}">
+        </div>
+        <div class="profile__information">
+            <div class="character__name">
+                <h2>{{ activeGameCharacter.characterName }}</h2>
+            </div>
+            <ul class="profile__attributes">
+                <li class="attributes__bar" title="{{ activeGameCharacter.attributeOne }}/{{ activeGameCharacter.attributeOneMax }}">
+                    <span style="width: {{ (activeGameCharacter.attributeOne / activeGameCharacter.attributeOneMax) * 100 }}%"></span>
+                </li>
+                <li class="attributes__bar" title="{{ activeGameCharacter.attributeTwo }}/{{ activeGameCharacter.attributeTwoMax }}">
+                    <span style="width: {{ (activeGameCharacter.attributeTwo / activeGameCharacter.attributeTwoMax) * 100 }}%"></span>
+                </li>
+                <li class="attributes__standalone">
+                    {{ activeGameCharacter.attributeThree }}
+                </li>
+            </ul>
+        </div>
+        <!-- .profile__information -->
+    </div>
+    <!-- .profile -->
+</div>

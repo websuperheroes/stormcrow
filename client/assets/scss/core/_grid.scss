@@ -1,0 +1,352 @@
+// *************************************
+//
+//   Grid system
+//   -> Dave Custom built grid (
+//   Influenced by inuit css grid and bourbon / neat
+//
+// *************************************
+
+/**
+ * This grid system uses `inline-block` which means that the grid items need their
+ * whitespace removed in the HTML markup for them to work correctly.
+ */
+
+
+// -------------------------------------
+//   Variables
+// -------------------------------------
+
+$gutter-width: 24px;
+
+
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+// ----- Parent Container ----- //
+
+%grid {
+    list-style:none;
+    margin:0;
+    padding:0;
+    margin-left: -$gutter-width;
+    overflow: hidden;
+}
+
+// ----- Individual cells ----- //
+
+%grid__item {
+   display: inline-block;
+   vertical-align: top;
+   padding-left: $gutter-width;
+}
+
+// -------------------------------------
+//   Reversed Grid
+// -------------------------------------
+
+%grid--rev {
+    @extend %grid;
+    direction:rtl;
+    text-align:right;
+
+    > %grid__item {
+        direction:ltr;
+        text-align:left;
+    }
+}
+
+
+// -------------------------------------
+//   Full Grid
+// -------------------------------------
+
+%grid--full {
+    @extend %grid;
+    margin-left: 0;
+
+    > %grid__item {
+        padding-left: 0;
+    }
+}
+
+// -------------------------------------
+//   Narrow Grid
+// -------------------------------------
+
+%grid--narrow {
+    @extend %grid;
+    margin-left:-($gutter-width/ 2);
+
+    > %grid__item {
+        padding-left:$gutter-width/ 2;
+    }
+}
+
+// -------------------------------------
+//   Wide Grid
+// -------------------------------------
+
+%grid--wide {
+    @extend %grid;
+    margin-left:-($gutter-width* 2);
+
+    > %grid__item {
+        padding-left:$gutter-width* 2;
+    }
+}
+
+
+// -------------------------------------
+//   Number of cells
+// -------------------------------------
+
+@mixin cells($number-of-cells) {
+
+@if $number-of-cells == 1 {
+   @extend %width-one-cell;
+   }
+   @if $number-of-cells == 2 {
+   @extend %width-two-cells;
+   }
+   @if $number-of-cells == 3 {
+      @extend %width-three-cells;
+      }
+   @if $number-of-cells == 4 {
+      @extend %width-four-cells;
+   }
+   @if $number-of-cells == 5 {
+      @extend %width-five-cells;
+   }
+   @if $number-of-cells == 6 {
+      @extend %width-six-cells;
+   }
+   @if $number-of-cells == 7 {
+      @extend %width-seven-cells;
+   }
+   @if $number-of-cells == 8 {
+      @extend %width-eight-cells;
+   }
+   @if $number-of-cells == 9 {
+      @extend %width-nine-cells;
+   }
+   @if $number-of-cells == 10 {
+      @extend %width-ten-cells;
+   }
+   @if $number-of-cells == 11 {
+      @extend %width-eleven-cells;
+   }
+   @if $number-of-cells == 12 {
+      @extend %width-twelve-cells;
+   }
+}
+
+
+// Extends for  widths
+
+%width-one-cell {
+   width: 8.3333333333%;
+}
+%width-two-cells {
+   width: 16.66666666%;
+}
+%width-three-cells {
+   width: 25%;
+}
+%width-four-cells {
+   width: 33.33333333%;
+}
+%width-five-cells {
+   width: 41.66666666%;
+}
+%width-six-cells {
+   width: 50%;
+}
+%width-seven-cells {
+   width: 58.3333333333%;
+}
+%width-eight-cells {
+   width: 66.6666666666%;
+}
+%width-nine-cells {
+   width: 75%;
+}
+%width-ten-cells {
+   width: 83.333333333%;
+}
+%width-eleven-cells {
+   width: 91.666666666%;
+}
+%width-twelve-cells {
+   width: 100%;
+}
+
+
+// -------------------------------------
+//   Push
+// -------------------------------------
+
+@mixin push($number-of-cells) {
+
+@if $number-of-cells == 1 {
+   @extend %margin-left-one-cell;
+   }
+   @if $number-of-cells == 2 {
+   @extend %margin-left-two-cells;
+   }
+   @if $number-of-cells == 3 {
+      @extend %margin-left-three-cells;
+      }
+   @if $number-of-cells == 4 {
+   @extend %margin-left-four-cells;
+   }
+   @if $number-of-cells == 5 {
+   @extend %margin-left-five-cells;
+   }
+   @if $number-of-cells == 6 {
+   @extend %margin-left-six-cells;
+   }
+   @if $number-of-cells == 7 {
+   @extend %margin-left-seven-cells;
+   }
+   @if $number-of-cells == 8 {
+   @extend %margin-left-eight-cells;
+   }
+   @if $number-of-cells == 9 {
+   @extend %margin-left-nine-cells;
+   }
+   @if $number-of-cells == 10 {
+   @extend %margin-left-ten-cells;
+   }
+   @if $number-of-cells == 11 {
+   @extend %margin-left-eleven-cells;
+   }
+   @if $number-of-cells == 12 {
+   @extend %margin-left-twelve-cells;
+   }
+}
+
+
+// Extends for pushes
+
+%margin-left-one-cell {
+   margin-left: 8.3333333333%;
+}
+%margin-left-two-cells {
+   margin-left: 16.66666666%;
+}
+%margin-left-three-cells {
+   margin-left: 25%;
+}
+%margin-left-four-cells {
+   margin-left: 33.33333333%;
+}
+%margin-left-five-cells {
+   margin-left: 41.66666666%;
+}
+%margin-left-six-cells {
+   margin-left: 50%;
+}
+%margin-left-seven-cells {
+   margin-left: 58.3333333333%;
+}
+%margin-left-eight-cells {
+   margin-left: 66.6666666666%;
+}
+%margin-left-nine-cells {
+   margin-left: 75%;
+}
+%margin-left-ten-cells {
+   margin-left: 83.333333333%;
+}
+%margin-left-eleven-cells {
+   margin-left: 91.666666666%;
+}
+%margin-left-twelve-cells {
+   margin-left: 100%;
+}
+
+
+// -------------------------------------
+//   Pull
+// -------------------------------------
+
+@mixin pull($number-of-cells) {
+
+@if $number-of-cells == 1 {
+   @extend %margin-right-one-cell;
+   }
+   @if $number-of-cells == 2 {
+   @extend %margin-right-two-cells;
+   }
+   @if $number-of-cells == 3 {
+      @extend %margin-right-three-cells;
+      }
+   @if $number-of-cells == 4 {
+   @extend %margin-right-four-cells;
+   }
+   @if $number-of-cells == 5 {
+   @extend %margin-right-five-cells;
+   }
+   @if $number-of-cells == 6 {
+   @extend %margin-right-six-cells;
+   }
+   @if $number-of-cells == 7 {
+   @extend %margin-right-seven-cells;
+   }
+   @if $number-of-cells == 8 {
+   @extend %margin-right-eight-cells;
+   }
+   @if $number-of-cells == 9 {
+   @extend %margin-right-nine-cells;
+   }
+   @if $number-of-cells == 10 {
+   @extend %margin-right-ten-cells;
+   }
+   @if $number-of-cells == 11 {
+   @extend %margin-right-eleven-cells;
+   }
+   @if $number-of-cells == 12 {
+   @extend %margin-right-twelve-cells;
+   }
+}
+
+// Extends for pulls
+
+%margin-right-one-cell {
+   margin-right: 8.3333333333%;
+}
+%margin-right-two-cells {
+   margin-right: 16.66666666%;
+}
+%margin-right-three-cells {
+   margin-right: 25%;
+}
+%margin-right-four-cells {
+   margin-right: 33.33333333%;
+}
+%margin-right-five-cells {
+   margin-right: 41.66666666%;
+}
+%margin-right-six-cells {
+   margin-right: 50%;
+}
+%margin-right-seven-cells {
+   margin-right: 58.3333333333%;
+}
+%margin-right-eight-cells {
+   margin-right: 66.6666666666%;
+}
+%margin-right-nine-cells {
+   margin-right: 75%;
+}
+%margin-right-ten-cells {
+   margin-right: 83.333333333%;
+}
+%margin-right-eleven-cells {
+   margin-right: 91.666666666%;
+}
+%margin-right-twelve-cells {
+   margin-right: 100%;
+}

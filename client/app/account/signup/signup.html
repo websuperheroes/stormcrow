@@ -1,0 +1,66 @@
+<div ng-include="'app/navbar/navbar.html'"></div>
+
+<div class="container">
+
+    <h1>Sign up</h1>
+
+       <form class="signup-form" name="form" ng-submit="register(form)" novalidate>
+           <ul>
+               <li class="form__item" ng-class="{ 'has-success': form.name.$valid && submitted,
+                                             'has-error': form.name.$invalid && submitted }">
+                   <label for="user-name"><span class="label">Name</span>
+                   <input id="user-name" type="text" name="name" ng-model="user.name" required>
+                   </label>
+                   <p class="error-message" ng-show="form.name.$error.required && submitted">
+                       A name is required
+                   </p>
+               </li>
+
+               <li class="form__item" ng-class="{ 'has-success': form.email.$valid && submitted,
+                                             'has-error': form.email.$invalid && submitted }">
+                   <label for="user-email"><span class="label">Email</span>
+                   <input id="user-email" type="email" name="email" ng-model="user.email" required mongoose-error/>
+                   </label>
+                   <p class="error-message" ng-show="form.email.$error.email && submitted">
+                       Doesn't look like a valid email.
+                   </p>
+                   <p class="error-message" ng-show="form.email.$error.required && submitted">
+                       What's your email address?
+                   </p>
+                   <p class="error-message" ng-show="form.email.$error.mongoose">
+                       {{ errors.email }}
+                   </p>
+               </li>
+
+               <li class="form__item" ng-class="{ 'has-success': form.password.$valid && submitted,
+                                             'has-error': form.password.$invalid && submitted }">
+                   <label for="user-password"><span class="label">Password</span>
+
+                   <input id="user-password" type="password" name="password" ng-model="user.password" ng-minlength="3" required mongoose-error>
+                   </label>
+                   <p class="error-message" ng-show="(form.password.$error.minlength || form.password.$error.required) && submitted">
+                       Password must be at least 3 characters.
+                   </p>
+                   <p class="error-message" ng-show="form.password.$error.mongoose">
+                       {{ errors.password }}
+                   </p>
+               </li>
+           </ul>
+           <button type="submit" class="form__item">Sign up</button>
+
+
+    <p>Have an account? <a href="/login">Log in.</a></p>
+    <ul>
+
+    <li><a class="btn btn-facebook" href="" ng-click="loginOauth('facebook')">
+            <i class="fa fa-facebook"></i> Connect with Facebook
+          </a></li>
+          <li><a class="btn btn-google-plus" href="" ng-click="loginOauth('google')">
+            <i class="fa fa-google-plus"></i> Connect with Google+
+          </a></li>
+          <li><a class="btn btn-twitter" href="" ng-click="loginOauth('twitter')">
+            <i class="fa fa-twitter"></i> Connect with Twitter
+          </a></li>
+</ul>
+      </form>
+
