@@ -1,0 +1,24 @@
+{
+	"folders":
+	[
+		{
+			"folder_exclude_patterns":
+			[
+				"node_modules",
+				".tmp",
+				".sass-cache",
+				"client/bower_components"
+			],
+			"follow_symlinks": true,
+			"path": "."
+		}
+	],
+            "settings":
+            {
+                "detect_indentation": false,
+                "tab_size": 4,
+                "translate_tabs_to_spaces": true,
+                "trim_automatic_white_space": true,
+                "trim_trailing_white_space_on_save": true
+            }
+}
