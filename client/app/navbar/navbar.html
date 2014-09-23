@@ -5,7 +5,22 @@
       <ul>
         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin">Admin</a></li>
         <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/signup')}"><a href="/signup">Sign up</a></li>
-        <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
+        <li ng-hide="isLoggedIn()" ng-class="{active: isActive('/login')}">
+                  <form  class="login-form" name="form" ng-submit="login(form)" novalidate>
+                    <ul>
+                      <li class="form__item">
+                        <label for="email-field"><span class="label">Email</span>
+                          <input id="email-field" type="text" name="email" ng-model="user.email" placeholder="Email" required>
+                        </label>
+                      </li>
+                      <li class="form__item">
+                        <label for="password-field"><span class="label">Password</span>
+                        <input id="password-field" type="password" name="password" ng-model="user.password"  placeholder="Password" required>
+                        </label>
+                      </li>
+                </ul>
+
+                  <button type="submit"  class="form__item">Sign in</button>
         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/dashboard')}"><a href="/dashboard">Dashboard</a></li>
         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="/settings">Settings</a></li>
         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/logout')}"><a href="" ng-click="logout()">Logout</a></li>
