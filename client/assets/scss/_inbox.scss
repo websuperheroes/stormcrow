@@ -22,7 +22,17 @@
   left: 0;
   right: 0;
 }
+.header-wrap {
+    background: #F1F1F1;
+}
 
+header a {
+height: 35px;
+padding: 0 5px;
+text-decoration: none;
+display: block;
+color: #9d0a09;
+}
 
 // -------------------------------------
 //   Dummy modal
