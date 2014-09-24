@@ -13,7 +13,7 @@ angular.module('stormcrow')
 
     $scope.logout = function() {
       Auth.logout();
-      $location.path('/login');
+      $location.path('/home');
     };
 
     $scope.isActive = function(route) {
