@@ -1,7 +1,7 @@
 // *************************************
 //
 //   Grid system
-//   -> Dave Custom built grid (
+//   -> Dave Custom built grid
 //   Influenced by inuit css grid and bourbon / neat
 //
 // *************************************
@@ -16,7 +16,8 @@
 //   Variables
 // -------------------------------------
 
-$gutter-width: 24px;
+$gutter-width:             24px !default;
+$use-markup-fix:        false !default;
 
 
 
@@ -31,7 +32,17 @@ $gutter-width: 24px;
     margin:0;
     padding:0;
     margin-left: -$gutter-width;
-    overflow: hidden;
+    @if not $use-markup-fix {
+        letter-spacing:-0.31em;
+    }
+}
+
+@if not $use-markup-fix {
+    /* Opera hack */
+    .opera:-o-prefocus,
+    %grid {
+        word-spacing:-0.43em;
+    }
 }
 
 // ----- Individual cells ----- //
@@ -40,6 +51,14 @@ $gutter-width: 24px;
    display: inline-block;
    vertical-align: top;
    padding-left: $gutter-width;
+   -webkit-box-sizing:border-box;
+   -moz-box-sizing:border-box;
+    box-sizing:border-box;
+
+        @if not $use-markup-fix {
+            letter-spacing:normal;
+            word-spacing:normal;
+        }
 }
 
 // -------------------------------------
@@ -48,12 +67,12 @@ $gutter-width: 24px;
 
 %grid--rev {
     @extend %grid;
-    direction:rtl;
-    text-align:right;
+    direction: rtl;
+    text-align: left;
 
     > %grid__item {
-        direction:ltr;
-        text-align:left;
+        direction: ltr;
+        text-align: left;
     }
 }
 
@@ -105,81 +124,41 @@ $gutter-width: 24px;
 @mixin cells($number-of-cells) {
 
 @if $number-of-cells == 1 {
-   @extend %width-one-cell;
+   width: 8.3333333333%;
    }
    @if $number-of-cells == 2 {
-   @extend %width-two-cells;
+   width: 16.66666666%;
    }
    @if $number-of-cells == 3 {
-      @extend %width-three-cells;
+      width: 25%;
       }
    @if $number-of-cells == 4 {
-      @extend %width-four-cells;
+      width: 33.33333333%;
    }
    @if $number-of-cells == 5 {
-      @extend %width-five-cells;
+      width: 41.66666666%;
    }
    @if $number-of-cells == 6 {
-      @extend %width-six-cells;
+       width: 50%;
    }
    @if $number-of-cells == 7 {
-      @extend %width-seven-cells;
+      width: 58.3333333333%;
    }
    @if $number-of-cells == 8 {
-      @extend %width-eight-cells;
+      width: 66.6666666666%;
    }
    @if $number-of-cells == 9 {
-      @extend %width-nine-cells;
+      width: 75%;
    }
    @if $number-of-cells == 10 {
-      @extend %width-ten-cells;
+      width: 83.333333333%;
    }
    @if $number-of-cells == 11 {
-      @extend %width-eleven-cells;
+      width: 91.666666666%;
    }
    @if $number-of-cells == 12 {
-      @extend %width-twelve-cells;
+      width: 100%;
    }
-}
-
-
-// Extends for  widths
-
-%width-one-cell {
-   width: 8.3333333333%;
-}
-%width-two-cells {
-   width: 16.66666666%;
-}
-%width-three-cells {
-   width: 25%;
-}
-%width-four-cells {
-   width: 33.33333333%;
-}
-%width-five-cells {
-   width: 41.66666666%;
-}
-%width-six-cells {
-   width: 50%;
-}
-%width-seven-cells {
-   width: 58.3333333333%;
-}
-%width-eight-cells {
-   width: 66.6666666666%;
-}
-%width-nine-cells {
-   width: 75%;
-}
-%width-ten-cells {
-   width: 83.333333333%;
-}
-%width-eleven-cells {
-   width: 91.666666666%;
-}
-%width-twelve-cells {
-   width: 100%;
 }
 
 
@@ -189,84 +168,43 @@ $gutter-width: 24px;
 
 @mixin push($number-of-cells) {
 
-@if $number-of-cells == 1 {
-   @extend %margin-left-one-cell;
+   @if $number-of-cells == 1 {
+      margin-left: 8.3333333333%;
    }
    @if $number-of-cells == 2 {
-   @extend %margin-left-two-cells;
+      margin-left: 16.66666666%;
    }
-   @if $number-of-cells == 3 {
-      @extend %margin-left-three-cells;
-      }
+   @if $number-of-cells == 3  {
+      margin-left: 25%;
+   }
    @if $number-of-cells == 4 {
-   @extend %margin-left-four-cells;
+      margin-left: 33.33333333%;
    }
-   @if $number-of-cells == 5 {
-   @extend %margin-left-five-cells;
+   @if $number-of-cells == 5  {
+      margin-left: 41.66666666%;
    }
    @if $number-of-cells == 6 {
-   @extend %margin-left-six-cells;
+      margin-left: 50%;
    }
    @if $number-of-cells == 7 {
-   @extend %margin-left-seven-cells;
+      margin-left: 58.3333333333%;
    }
    @if $number-of-cells == 8 {
-   @extend %margin-left-eight-cells;
+      margin-left: 66.6666666666%;
    }
    @if $number-of-cells == 9 {
-   @extend %margin-left-nine-cells;
+      margin-left: 75%;
    }
    @if $number-of-cells == 10 {
-   @extend %margin-left-ten-cells;
+      margin-left: 83.333333333%;
    }
    @if $number-of-cells == 11 {
-   @extend %margin-left-eleven-cells;
+      margin-left: 91.666666666%;
    }
    @if $number-of-cells == 12 {
-   @extend %margin-left-twelve-cells;
+      margin-left: 100%;
    }
 }
-
-
-// Extends for pushes
-
-%margin-left-one-cell {
-   margin-left: 8.3333333333%;
-}
-%margin-left-two-cells {
-   margin-left: 16.66666666%;
-}
-%margin-left-three-cells {
-   margin-left: 25%;
-}
-%margin-left-four-cells {
-   margin-left: 33.33333333%;
-}
-%margin-left-five-cells {
-   margin-left: 41.66666666%;
-}
-%margin-left-six-cells {
-   margin-left: 50%;
-}
-%margin-left-seven-cells {
-   margin-left: 58.3333333333%;
-}
-%margin-left-eight-cells {
-   margin-left: 66.6666666666%;
-}
-%margin-left-nine-cells {
-   margin-left: 75%;
-}
-%margin-left-ten-cells {
-   margin-left: 83.333333333%;
-}
-%margin-left-eleven-cells {
-   margin-left: 91.666666666%;
-}
-%margin-left-twelve-cells {
-   margin-left: 100%;
-}
-
 
 // -------------------------------------
 //   Pull
@@ -274,79 +212,40 @@ $gutter-width: 24px;
 
 @mixin pull($number-of-cells) {
 
-@if $number-of-cells == 1 {
-   @extend %margin-right-one-cell;
+   @if $number-of-cells == 1 {
+      margin-right: 8.3333333333%;
    }
    @if $number-of-cells == 2 {
-   @extend %margin-right-two-cells;
+      margin-right: 16.66666666%;
    }
-   @if $number-of-cells == 3 {
-      @extend %margin-right-three-cells;
-      }
+   @if $number-of-cells == 3  {
+      margin-right: 25%;
+   }
    @if $number-of-cells == 4 {
-   @extend %margin-right-four-cells;
+      margin-right: 33.33333333%;
    }
-   @if $number-of-cells == 5 {
-   @extend %margin-right-five-cells;
+   @if $number-of-cells == 5  {
+      margin-right: 41.66666666%;
    }
    @if $number-of-cells == 6 {
-   @extend %margin-right-six-cells;
+      margin-right: 50%;
    }
    @if $number-of-cells == 7 {
-   @extend %margin-right-seven-cells;
+      margin-right: 58.3333333333%;
    }
    @if $number-of-cells == 8 {
-   @extend %margin-right-eight-cells;
+      margin-right: 66.6666666666%;
    }
    @if $number-of-cells == 9 {
-   @extend %margin-right-nine-cells;
+      margin-right: 75%;
    }
    @if $number-of-cells == 10 {
-   @extend %margin-right-ten-cells;
+      margin-right: 83.333333333%;
    }
    @if $number-of-cells == 11 {
-   @extend %margin-right-eleven-cells;
+      margin-right: 91.666666666%;
    }
    @if $number-of-cells == 12 {
-   @extend %margin-right-twelve-cells;
+      margin-right: 100%;
    }
-}
-
-// Extends for pulls
-
-%margin-right-one-cell {
-   margin-right: 8.3333333333%;
-}
-%margin-right-two-cells {
-   margin-right: 16.66666666%;
-}
-%margin-right-three-cells {
-   margin-right: 25%;
-}
-%margin-right-four-cells {
-   margin-right: 33.33333333%;
-}
-%margin-right-five-cells {
-   margin-right: 41.66666666%;
-}
-%margin-right-six-cells {
-   margin-right: 50%;
-}
-%margin-right-seven-cells {
-   margin-right: 58.3333333333%;
-}
-%margin-right-eight-cells {
-   margin-right: 66.6666666666%;
-}
-%margin-right-nine-cells {
-   margin-right: 75%;
-}
-%margin-right-ten-cells {
-   margin-right: 83.333333333%;
-}
-%margin-right-eleven-cells {
-   margin-right: 91.666666666%;
-}
-%margin-right-twelve-cells {
-   margin-right: 100%;
 }

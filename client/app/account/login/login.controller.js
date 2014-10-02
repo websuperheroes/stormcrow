@@ -16,7 +16,7 @@ angular.module('stormcrow')
         .then( function() {
           // Logged in, redirect to home
           State.setActiveUser($scope.user._id);
-          $location.path('/home');
+          $location.path('/dashboard');
         })
         .catch( function(err) {
           $scope.errors.other = err.message;

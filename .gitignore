@@ -8,3 +8,5 @@ dist
 /server/config/local.env.js
 /stormcrow.sublime-workspace
 /stormcrow.sublime-project
+
+/stormy.sublime-workspace
